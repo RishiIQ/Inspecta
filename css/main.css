@@ -1,0 +1,105 @@
+:root {
+    --primary-color: #109c46;       /* Rich Emerald Green */
+    --primary-hover: #047857;
+    --secondary-color: #1e293b;     /* Deep Executive Navy/Slate */
+    --bg-color: #f8fafc;            /* Clean Modern Off-White */
+    --text-main: #0f172a;
+    --text-muted: #475569;
+    --card-bg: #ffffff;
+    --border-color: #cbd5e1;
+}
+
+.dark {
+    --primary-color: #10b981;       /* Vibrant Emerald */
+    --primary-hover: #059669;
+    --secondary-color: #087e43;
+    --bg-color: #0b0f19;            /* Deep Midnight Dark */
+    --text-main: #f8fafc;
+    --text-muted: #94a3b8;
+    --card-bg: #111827;            /* Deep Charcoal Card */
+    --border-color: #1f2937;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;700&display=swap');
+
+body {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-main);
+    overflow-x: hidden;
+}
+
+.font-mono {
+    font-family: 'JetBrains Mono', monospace;
+}
+
+.volt-container {
+    width: 100%;
+    max-width: 1280px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+
+@media (min-width: 640px) {
+    .volt-container {
+        padding-left: 1.5rem;
+        padding-right: 1.5rem;
+    }
+}
+
+@media (min-width: 1024px) {
+    .volt-container {
+        padding-left: 2rem;
+        padding-right: 2rem;
+    }
+}
+
+.input-error {
+    border-color: #ef4444 !important;
+    background-color: rgba(239, 68, 68, 0.03) !important;
+}
+
+.error-msg {
+    display: none;
+    color: #ef4444;
+    font-size: 10px;
+    font-weight: 700;
+    margin-top: 0.25rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.dark body {
+    background-color: var(--bg-color) !important;
+    color: var(--text-main) !important;
+}
+
+.faq-content {
+    transition: all 0.3s ease-in-out;
+}
+
+.faq-icon {
+    transition: transform 0.3s ease-in-out;
+}
+
+.lx-modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(15, 23, 42, 0.7);
+    backdrop-filter: blur(8px);
+    z-index: 99999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: all 0.3s ease-in-out;
+    padding: 1rem;
+}
+
+.lx-modal-overlay.is-active {
+    opacity: 1;
+    pointer-events: auto;
+}

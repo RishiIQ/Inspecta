@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us & Support Hub | InspectaPro</title>
+    <link rel="shortcut icon" href="./logo.png" type="image/x-icon">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <link rel="stylesheet" href="./css/main.css">
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        cream: { 50: '#fffdf7', 100: '#fef9ed', 200: '#fdf2d9', 300: '#fbe8b8', 400: '#f7d888', 500: '#f2c94c' },
+                        indigoDeep: { 50: '#eef2ff', 100: '#e0e7ff', 200: '#c7d2fe', 300: '#a5b4fc', 400: '#818cf8', 500: '#6366f1', 600: '#4f46e5', 700: '#4338ca', 800: '#3730a3', 900: '#312e81' },
+                        coral: { 50: '#fff1f0', 100: '#ffe0dd', 200: '#ffc6c0', 300: '#ffa39a', 400: '#ff7a6e', 500: '#ff5747', 600: '#ed3a29', 700: '#c72e1f', 800: '#a42a1d', 900: '#88281e' }
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="antialiased font-sans transition-colors duration-300 overflow-x-hidden" style="background-color: var(--bg-color); color: var(--text-main);">
+         
+    <!-- Header Container -->
+    <div id="siteHeaderContainer" class="sticky top-0 z-50"></div>
+
+    <main class="space-y-20 sm:space-y-32 pb-20 sm:pb-32">
+                 
+        <!-- SECTION 1: CONTACT HERO -->
+        <section class="relative pt-16 sm:pt-24 pb-20 sm:pb-32 overflow-hidden transition-colors duration-300" style="background: linear-gradient(to right, rgba(255, 255, 255, 0.855), rgba(239, 233, 233, 0.658)), url('https://imgs.search.brave.com/JzBMMW5Ue3JVUNysqran5Rn3jKmus2zfcQO8iAyC36A/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly90My5m/dGNkbi5uZXQvanBn/LzA2LzExLzUzLzIy/LzM2MF9GXzYxMTUz/MjI4Nl9Idm1iSEVt/NFhZekR2TmM5bkw0/elVpaUpob1ZkWXhE/dy5qcGc');background-size: cover; background-repeat: no-repeat;">
+            <div class="volt-container text-center max-w-4xl mx-auto space-y-6 relative z-10">
+                <span class="inline-block text-xs font-bold uppercase tracking-[0.2em] px-4 py-1.5 rounded-full border" style="background-color: var(--card-bg); border-color: var(--border-color); color: var(--primary-color);">24/7 Enterprise Support</span>
+                <h1 class="text-4xl sm:text-6xl font-black tracking-tight leading-[1.08] text-green-900">
+                    Get in Touch With Our <span class="text-transparent bg-clip-text" style="background-image: linear-gradient(to right, var(--primary-color), var(--secondary-color));">Support Hub.</span>
+                </h1>
+                <p class="text-sm sm:text-base font-medium max-w-2xl mx-auto leading-relaxed text-gray-500">
+                    Whether you need fleet onboarding assistance, technical API support, or hub scheduling inquiries, our team is ready to assist you.
+                </p>
+                <div class="pt-2 flex flex-wrap justify-center gap-4">
+                    <a href="#contactForm" class="px-8 py-4 text-white font-bold rounded-2xl text-xs uppercase tracking-widest shadow-lg transition-all hover:opacity-90" style="background-color: var(--primary-color);">
+                        Send a Message
+                    </a>
+                    <a href="locations.html" class="px-8 py-4 font-bold rounded-2xl text-xs uppercase tracking-widest border backdrop-blur-md transition-all" style="background-color: var(--card-bg); border-color: var(--border-color); color: var(--text-main);">
+                        View Testing Hubs
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 2: CONTACT FORM & HEADQUARTERS INFO -->
+        <section class="volt-container">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
+                <!-- Contact Form Card -->
+                <div id="contactForm" class="lg:col-span-7 p-8 sm:p-12 rounded-3xl border shadow-xl space-y-6" style="background-color: var(--card-bg); border-color: var(--border-color);">
+                    <div class="space-y-2">
+                        <span class="text-xs font-bold uppercase tracking-[0.2em]" style="color: var(--primary-color);">Inquiry Portal</span>
+                        <h2 class="text-2xl sm:text-3xl font-black" style="color: var(--text-main);">Send Us a Message</h2>
+                        <p class="text-xs font-medium" style="color: var(--text-muted);">Fill out the form below and our support team will respond within 2 hours.</p>
+                    </div>
+
+                    <form id="enterpriseContactForm" class="space-y-4" novalidate>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-[11px] font-bold uppercase tracking-widest mb-1.5" style="color: var(--text-muted);">Your Name</label>
+                                <input type="text" id="contactName" placeholder="e.g. Ramesh Kumar" class="w-full px-4 py-3 rounded-xl text-xs font-bold outline-none border" style="background-color: var(--bg-color); border-color: var(--border-color); color: var(--text-main);" required>
+                                <span class="error-msg">Name must have at least 3 letters.</span>
+                            </div>
+                            <div>
+                                <label class="block text-[11px] font-bold uppercase tracking-widest mb-1.5" style="color: var(--text-muted);">Email Address</label>
+                                <input type="email" id="contactEmail" placeholder="rameshu@transport.com" class="w-full px-4 py-3 rounded-xl text-xs font-bold outline-none border" style="background-color: var(--bg-color); border-color: var(--border-color); color: var(--text-main);" required>
+                                <span class="error-msg">Enter a valid email address.</span>
+                            </div>
+                        </div>
+
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-[11px] font-bold uppercase tracking-widest mb-1.5" style="color: var(--text-muted);">Phone Number</label>
+                                <input type="tel" id="contactPhone" placeholder="9876543210" maxlength="10" class="w-full px-4 py-3 rounded-xl text-xs font-bold outline-none border" style="background-color: var(--bg-color); border-color: var(--border-color); color: var(--text-main);" required>
+                                <span class="error-msg">Enter valid 10-digit number.</span>
+                            </div>
+                            <div>
+                                <label class="block text-[11px] font-bold uppercase tracking-widest mb-1.5" style="color: var(--text-muted);">Department</label>
+                                <select id="contactDept" class="w-full px-4 py-3 rounded-xl text-xs font-bold uppercase tracking-wider outline-none border" style="background-color: var(--bg-color); border-color: var(--border-color); color: var(--text-main);">
+                                    <option value="sales">Enterprise Sales & SaaS</option>
+                                    <option value="support">Hub & Slot Support</option>
+                                    <option value="api">API & Telematics Tech</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div>
+                            <label class="block text-[11px] font-bold uppercase tracking-widest mb-1.5" style="color: var(--text-muted);">Message</label>
+                            <textarea id="contactMsg" rows="4" placeholder="How can we assist your fleet operations?" class="w-full px-4 py-3 rounded-xl text-xs font-medium outline-none border resize-none" style="background-color: var(--bg-color); border-color: var(--border-color); color: var(--text-main);" required></textarea>
+                            <span class="error-msg">Message must be at least 10 characters.</span>
+                        </div>
+
+                        <button type="submit" class="w-full py-4 text-white rounded-xl font-bold text-xs uppercase tracking-widest shadow-lg transition-all hover:opacity-90 cursor-pointer" style="background-color: var(--primary-color);">
+                            Dispatch Inquiry
+                        </button>
+                    </form>
+                </div>
+
+                <!-- Headquarters Details & Map Card -->
+                <div class="lg:col-span-5 space-y-6">
+                    <div class="p-8 rounded-3xl border shadow-xl space-y-6" style="background-color: var(--card-bg); border-color: var(--border-color);">
+                        <span class="text-xs font-bold uppercase tracking-[0.2em] px-3 py-1 rounded-lg bg-emerald-500/10 text-emerald-500">HQ Headquarters</span>
+                        <h3 class="text-2xl font-black" style="color: var(--text-main);">Karur Central Testing Yard</h3>
+                        <p class="text-xs font-medium leading-relaxed" style="color: var(--text-muted);">Our central testing yard and administrative headquarters in Tamil Nadu.</p>
+                        
+                        <div class="space-y-3 text-xs font-medium" style="color: var(--text-muted);">
+                            <p><i class="fa-solid fa-location-dot text-emerald-500 mr-2"></i> Karur Central Testing Yard, Tamil Nadu</p>
+                            <p><i class="fa-solid fa-phone text-emerald-500 mr-2"></i> +91 98765 43210</p>
+                            <p><i class="fa-solid fa-envelope text-emerald-500 mr-2"></i> support@inspectapro.io</p>
+                            <p><i class="fa-solid fa-clock text-emerald-500 mr-2"></i> Mon - Sat: 8:00 AM - 8:00 PM</p>
+                        </div>
+                    </div>
+
+                    <div class="h-64 rounded-3xl overflow-hidden border shadow-inner" style="border-color: var(--border-color);">
+                        <iframe title="Karur HQ Map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3916.294627448373!2d78.0779!3d10.9601!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTDCsDU3JzM2LjQiTiA3OMKwMDQnNDguNCJF!5e0!3m2!1sen!2sin!4v1650000000000!5m2!1sen!2sin" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+     <!-- SECTION 3: DEPARTMENT SUPPORT CHANNELS -->
+        <section class="volt-container space-y-8">
+            <div class="text-center max-w-2xl mx-auto space-y-3">
+                <span class="text-xs font-bold uppercase tracking-[0.2em]" style="color: var(--primary-color);">Direct Routing</span>
+                <h2 class="text-3xl sm:text-4xl font-black" style="color: var(--text-main);">Specialized Support Desks</h2>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 items-stretch">
+                <div class="p-8 rounded-3xl border shadow-lg space-y-4 flex flex-col justify-between h-full" style="background-color: var(--card-bg); border-color: var(--border-color);">
+                    <div class="space-y-4">
+                        <div class="w-12 h-12 rounded-2xl flex items-center justify-center text-white font-bold" style="background-color: var(--primary-color);">
+                            <i class="fa-solid fa-briefcase"></i>
+                        </div>
+                        <h3 class="font-black text-xl min-h-[3.5rem] flex items-center" style="color: var(--text-main);">Enterprise SaaS Sales</h3>
+                        <p class="text-xs font-medium leading-relaxed" style="color: var(--text-muted);">For fleet onboarding inquiries, custom pricing quotes, and volume scaling packages.</p>
+                    </div>
+                    <a href="mailto:sales@inspectapro.io" class="block pt-2 font-bold text-xs uppercase tracking-wider mt-auto" style="color: var(--primary-color);">sales@inspectapro.io <i class="fa-solid fa-arrow-right text-[10px]"></i></a>
+                </div>
+                <div class="p-8 rounded-3xl border shadow-lg space-y-4 flex flex-col justify-between h-full" style="background-color: var(--card-bg); border-color: var(--border-color);">
+                    <div class="space-y-4">
+                        <div class="w-12 h-12 rounded-2xl flex items-center justify-center text-white font-bold" style="background-color: var(--secondary-color);">
+                            <i class="fa-solid fa-code"></i>
+                        </div>
+                        <h3 class="font-black text-xl min-h-[3.5rem] flex items-center" style="color: var(--text-main);">API & Telematics Tech</h3>
+                        <p class="text-xs font-medium leading-relaxed" style="color: var(--text-muted);">For developer webhook integration, OBD-II telemetry streams, and RTO endpoint support.</p>
+                    </div>
+                    <a href="mailto:tech@inspectapro.io" class="block pt-2 font-bold text-xs uppercase tracking-wider mt-auto" style="color: var(--secondary-color);">tech@inspectapro.io <i class="fa-solid fa-arrow-right text-[10px]"></i></a>
+                </div>
+                <div class="p-8 rounded-3xl border shadow-lg space-y-4 flex flex-col justify-between h-full" style="background-color: var(--card-bg); border-color: var(--border-color);">
+                    <div class="space-y-4">
+                        <div class="w-12 h-12 rounded-2xl flex items-center justify-center text-white font-bold" style="background-color: var(--primary-color);">
+                            <i class="fa-solid fa-building-shield"></i>
+                        </div>
+                        <h3 class="font-black text-xl min-h-[3.5rem] flex items-center" style="color: var(--text-main);">Hub Scheduling Desk</h3>
+                        <p class="text-xs font-medium leading-relaxed" style="color: var(--text-muted);">For lane slot adjustments, mobile testing van bookings, and certificate vault queries.</p>
+                    </div>
+                    <a href="mailto:hubs@inspectapro.io" class="block pt-2 font-bold text-xs uppercase tracking-wider mt-auto" style="color: var(--primary-color);">hubs@inspectapro.io <i class="fa-solid fa-arrow-right text-[10px]"></i></a>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 4: GLOBAL REGIONAL OFFICES -->
+        <section class="volt-container">
+            <div class="rounded-3xl p-8 sm:p-14 border shadow-xl space-y-8" style="background-color: var(--card-bg); border-color: var(--border-color);">
+                <div class="text-center max-w-2xl mx-auto space-y-3">
+                    <span class="text-xs font-bold uppercase tracking-[0.2em]" style="color: var(--primary-color);">Regional Presence</span>
+                    <h2 class="text-3xl sm:text-4xl font-black" style="color: var(--text-main);">Our Regional Operations Offices</h2>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <div class="p-6 rounded-2xl border space-y-3" style="background-color: var(--bg-color); border-color: var(--border-color);">
+                        <h4 class="font-black text-base" style="color: var(--text-main);">Karur HQ & Central Yard</h4>
+                        <p class="text-xs font-medium leading-relaxed" style="color: var(--text-muted);">Karur Central Testing Yard, Tamil Nadu<br>Phone: +91 98765 43210</p>
+                    </div>
+                    <div class="p-6 rounded-2xl border space-y-3" style="background-color: var(--bg-color); border-color: var(--border-color);">
+                        <h4 class="font-black text-base" style="color: var(--text-main);">Coimbatore Logistics Depot</h4>
+                        <p class="text-xs font-medium leading-relaxed" style="color: var(--text-muted);">Avinashi Road Express Lane, Coimbatore<br>Phone: +91 98765 43211</p>
+                    </div>
+                    <div class="p-6 rounded-2xl border space-y-3" style="background-color: var(--bg-color); border-color: var(--border-color);">
+                        <h4 class="font-black text-base" style="color: var(--text-main);">Chennai Metro Center</h4>
+                        <p class="text-xs font-medium leading-relaxed" style="color: var(--text-muted);">GST Road Bypass, Guindy, Chennai<br>Phone: +91 98765 43212</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 5: LIVE EMERGENCY HELPLINE BANNER -->
+        <section class="volt-container">
+            <div class="rounded-3xl p-8 sm:p-14 relative overflow-hidden text-center space-y-6 shadow-2xl" style="background: linear-gradient(to bottom right, var(--primary-color), var(--secondary-color));">
+                <div class="absolute top-0 right-0 w-80 h-80 bg-white/10 rounded-full blur-3xl"></div>
+                <div class="relative z-10 max-w-2xl mx-auto space-y-4">
+                    <span class="px-4 py-1.5 bg-white/20 backdrop-blur text-white font-bold text-xs uppercase tracking-widest rounded-full border border-white/30">24/7 Hotline</span>
+                    <h2 class="text-3xl sm:text-4xl font-black text-white">Need Urgent Roadside Compliance Support?</h2>
+                    <p class="text-white/90 text-xs sm:text-sm font-medium">Call our toll-free fleet emergency hotline for immediate assistance with active transit audits.</p>
+                    <a href="tel:18009876543" class="inline-block px-8 py-4 bg-white text-emerald-800 font-bold rounded-2xl text-xs uppercase tracking-widest shadow-lg transition-all hover:bg-slate-100 font-mono">
+                        <i class="fa-solid fa-phone-volume mr-2 text-emerald-600"></i> 1800-INSPECT-PRO
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 6: SUPPORT SLA & COMMITMENT -->
+        <section class="volt-container">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 items-stretch">
+                <div class="p-8 rounded-3xl border shadow-lg space-y-4 flex flex-col justify-between h-full" style="background-color: var(--card-bg); border-color: var(--border-color);">
+                    <div class="space-y-4">
+                        <div class="w-12 h-12 rounded-2xl flex items-center justify-center text-white font-bold" style="background-color: var(--primary-color);">
+                            <i class="fa-solid fa-bolt"></i>
+                        </div>
+                        <h3 class="font-black text-xl min-h-[3.5rem] flex items-center" style="color: var(--text-main);">2-Hour Response SLA</h3>
+                        <p class="text-xs font-medium leading-relaxed" style="color: var(--text-muted);">All corporate support tickets are acknowledged and addressed by senior engineers within 2 hours.</p>
+                    </div>
+                </div>
+                <div class="p-8 rounded-3xl border shadow-lg space-y-4 flex flex-col justify-between h-full" style="background-color: var(--card-bg); border-color: var(--border-color);">
+                    <div class="space-y-4">
+                        <div class="w-12 h-12 rounded-2xl flex items-center justify-center text-white font-bold" style="background-color: var(--secondary-color);">
+                            <i class="fa-solid fa-headset"></i>
+                        </div>
+                        <h3 class="font-black text-xl min-h-[3.5rem] flex items-center" style="color: var(--text-main);">Dedicated Account Managers</h3>
+                        <p class="text-xs font-medium leading-relaxed" style="color: var(--text-muted);">Professional and Enterprise subscribers receive a dedicated liaison for frictionless operations.</p>
+                    </div>
+                </div>
+                <div class="p-8 rounded-3xl border shadow-lg space-y-4 flex flex-col justify-between h-full" style="background-color: var(--card-bg); border-color: var(--border-color);">
+                    <div class="space-y-4">
+                        <div class="w-12 h-12 rounded-2xl flex items-center justify-center text-white font-bold" style="background-color: var(--primary-color);">
+                            <i class="fa-solid fa-shield-halved"></i>
+                        </div>
+                        <h3 class="font-black text-xl min-h-[3.5rem] flex items-center" style="color: var(--text-main);">Secure Communications</h3>
+                        <p class="text-xs font-medium leading-relaxed" style="color: var(--text-muted);">All support exchanges and shared diagnostic files are encrypted under strict NDA standards.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 7: SOCIAL MEDIA & COMMUNITY CHANNELS -->
+        <section class="volt-container">
+            <div class="rounded-3xl p-8 sm:p-14 border shadow-xl space-y-8 text-center max-w-3xl mx-auto" style="background-color: var(--card-bg); border-color: var(--border-color);">
+                <span class="text-xs font-bold uppercase tracking-[0.2em]" style="color: var(--primary-color);">Connect Online</span>
+                <h2 class="text-3xl sm:text-4xl font-black" style="color: var(--text-main);">Join the InspectaPro Community</h2>
+                <p class="text-sm font-medium" style="color: var(--text-muted);">Follow our social channels for regulatory updates, transport policy announcements, and SaaS feature releases.</p>
+                
+                <div class="flex justify-center gap-4 pt-2">
+
+                            <a href="#" class="w-9 h-9 rounded-xl flex items-center justify-center text-white transition-colors hover:opacity-80" style="background-color: rgb(103, 103, 234)" aria-label="Facebook"><i class="fa-brands fa-facebook-f text-xs"></i></a>
+                            <a href="#" class="w-9 h-9 rounded-xl flex items-center justify-center text-white transition-colors hover:opacity-80" style="background-color: rgb(54, 52, 52);" aria-label="Twitter"><i class="fa-brands fa-x-twitter text-xs"></i></a>
+                            <a href="#" class="w-9 h-9 rounded-xl flex items-center justify-center text-white transition-colors hover:opacity-80" style="background-color: rgb(225, 66, 93);" aria-label="Instagram"><i class="fa-brands fa-instagram text-xs"></i></a>
+                            <a href="#" class="w-9 h-9 rounded-xl flex items-center justify-center text-white transition-colors hover:opacity-80" style="background-color: rgb(108, 108, 248);" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in text-xs"></i></a>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 8: ENTERPRISE DEMO SCHEDULER BANNER -->
+        <section class="volt-container">
+            <div class="rounded-3xl p-8 sm:p-14 border shadow-xl grid grid-cols-1 lg:grid-cols-12 gap-10 items-center" style="background-color: var(--card-bg); border-color: var(--border-color);">
+                <div class="lg:col-span-7 space-y-6">
+                    <span class="text-xs font-bold uppercase tracking-[0.2em]" style="color: var(--primary-color);">Personalized Walkthrough</span>
+                    <h2 class="text-3xl sm:text-4xl font-black leading-tight" style="color: var(--text-main);">Schedule a 1-on-1 Enterprise Demo</h2>
+                    <p class="text-sm font-medium leading-relaxed" style="color: var(--text-muted);">Let our solutions engineers walk you through a customized demonstration of our RTO sync engine and multi-branch telematics dashboard.</p>
+                </div>
+                <div class="lg:col-span-5 p-6 rounded-2xl border text-center space-y-4" style="background-color: var(--bg-color); border-color: var(--border-color);">
+                    <i class="fa-solid fa-calendar-check text-4xl text-emerald-500 mb-2"></i>
+                    <h4 class="font-black text-lg" style="color: var(--text-main);">Book 30-Min Session</h4>
+                    <p class="text-xs font-medium" style="color: var(--text-muted);">Pick a time slot that suits your executive calendar.</p>
+                    <a href="contact.html#contactForm" class="block w-full py-3 text-white rounded-xl font-bold text-xs uppercase tracking-widest shadow-md transition-all hover:opacity-90" style="background-color: var(--primary-color);">
+                        Open Calendar Scheduler
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 9: CONTACT FAQ -->
+        <section class="max-w-3xl volt-container space-y-8">
+            <div class="text-center space-y-3">
+                <span class="inline-block text-xs font-bold uppercase tracking-[0.2em] px-4 py-1.5 rounded-full border" style="background-color: var(--card-bg); border-color: var(--border-color); color: var(--primary-color);">Support FAQ</span>
+                <h2 class="text-3xl font-black" style="color: var(--text-main);">Frequently Asked Questions</h2>
+            </div>
+            <div class="space-y-4">
+                <div class="border rounded-2xl cursor-pointer faq-item shadow-sm transition-all duration-300 overflow-hidden" style="background-color: var(--card-bg); border-color: var(--border-color);">
+                    <div class="flex items-center justify-between font-bold text-sm p-6" style="color: var(--text-main);">
+                        <span>What is the quickest way to get technical support?</span>
+                        <i class="fa-solid fa-chevron-down transition-transform duration-300 faq-icon" style="color: var(--primary-color);"></i>
+                    </div>
+                    <div class="faq-content hidden px-6 pb-6 text-xs font-medium leading-relaxed" style="color: var(--text-muted);">
+                        Submitting an inquiry through our contact form or dialing our 24/7 toll-free helpline guarantees immediate routing to an available support specialist.
+                    </div>
+                </div>
+                <div class="border rounded-2xl cursor-pointer faq-item shadow-sm transition-all duration-300 overflow-hidden" style="background-color: var(--card-bg); border-color: var(--border-color);">
+                    <div class="flex items-center justify-between font-bold text-sm p-6" style="color: var(--text-main);">
+                        <span>Can I request a custom API integration consultation?</span>
+                        <i class="fa-solid fa-chevron-down transition-transform duration-300 faq-icon" style="color: var(--primary-color);"></i>
+                    </div>
+                    <div class="faq-content hidden px-6 pb-6 text-xs font-medium leading-relaxed" style="color: var(--text-muted);">
+                        Yes! Select the "API & Telematics Tech" department on our contact form to connect directly with our backend software integration team.
+                    </div>
+                </div>
+                <div class="border rounded-2xl cursor-pointer faq-item shadow-sm transition-all duration-300 overflow-hidden" style="background-color: var(--card-bg); border-color: var(--border-color);">
+                    <div class="flex items-center justify-between font-bold text-sm p-6" style="color: var(--text-main);">
+                        <span>Where can I send official compliance audit documentation?</span>
+                        <i class="fa-solid fa-chevron-down transition-transform duration-300 faq-icon" style="color: var(--primary-color);"></i>
+                    </div>
+                    <div class="faq-content hidden px-6 pb-6 text-xs font-medium leading-relaxed" style="color: var(--text-muted);">
+                        Official documents can be securely uploaded via your customer dashboard or emailed directly to support@inspectapro.io.
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 10: CONTACT CTA BANNER -->
+        <section class="volt-container">
+            <div class="relative p-10 sm:p-16 rounded-3xl overflow-hidden text-center space-y-6 shadow-2xl" style="background: linear-gradient(to bottom right, var(--primary-color), var(--secondary-color));">
+                <div class="absolute top-0 right-0 w-80 h-80 bg-white/10 rounded-full blur-3xl"></div>
+                <div class="absolute bottom-0 left-0 w-80 h-80 rounded-full blur-3xl opacity-30"></div>
+                <div class="relative z-10 space-y-6">
+                    <span class="px-4 py-1.5 bg-white/20 backdrop-blur text-white font-bold text-xs uppercase tracking-widest rounded-full border border-white/30">Ready to Start</span>
+                    <h2 class="text-3xl sm:text-5xl font-black text-white">Let's Optimize Your Fleet Compliance Today</h2>
+                    <p class="text-white/90 text-sm sm:text-base max-w-xl mx-auto font-medium">Reach out now and discover how InspectaPro transforms transport operations.</p>
+                    <div class="pt-4 flex flex-wrap justify-center gap-4">
+                        <a href="dashboard.html" class="px-8 py-4 bg-white hover:bg-slate-100 font-bold rounded-2xl text-xs uppercase tracking-widest shadow-lg transition-all duration-300" style="color: var(--primary-color);">
+                            Start Free Trial
+                        </a>
+                        <a href="#contactForm" class="px-8 py-4 bg-white/10 hover:bg-white/20 border border-white/30 text-white font-bold rounded-2xl text-xs uppercase tracking-widest backdrop-blur-md transition-all duration-300">
+                            Fill Contact Form
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer Container -->
+    <div id="siteFooterContainer"></div>
+
+    <!-- Success Modal -->
+    <div id="successModal" class="lx-modal-overlay">
+        <div class="max-w-md w-full p-8 rounded-3xl border text-center space-y-5 shadow-2xl transition-colors duration-300" style="background-color: var(--card-bg); border-color: var(--border-color);">
+            <div class="w-16 h-16 rounded-full flex items-center justify-center mx-auto text-3xl font-black border-2" style="background-color: var(--bg-color); border-color: var(--border-color); color: var(--primary-color);"><i class="fa-solid fa-check"></i></div>
+            <h3 class="text-2xl font-black" style="color: var(--text-main);">Inquiry Dispatched!</h3>
+            <p id="modalDispatchText" class="text-xs font-medium leading-relaxed" style="color: var(--text-muted);"></p>
+            <button type="button" id="closeModalBtn" class="w-full py-3.5 text-white rounded-xl font-bold text-xs uppercase tracking-widest cursor-pointer transition-all duration-300 shadow-lg" style="background-color: var(--primary-color);">
+                Close & Return Home
+            </button>
+        </div>
+    </div>
+
+    <script src="./js/main.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+           
+
+            // Contact Form Validation & Modal
+            const form = document.getElementById('enterpriseContactForm');
+            const modal = document.getElementById('successModal');
+            const closeModalBtn = document.getElementById('closeModalBtn');
+            const modalText = document.getElementById('modalDispatchText');
+
+            if (form) {
+                form.addEventListener('submit', (e) => {
+                    e.preventDefault();
+                    let isValid = true;
+
+                    const nameInput = document.getElementById('contactName');
+                    const emailInput = document.getElementById('contactEmail');
+                    const phoneInput = document.getElementById('contactPhone');
+                    const msgInput = document.getElementById('contactMsg');
+
+                    // Name validation (min 3 chars)
+                    const nameErr = nameInput.nextElementSibling;
+                    if (!nameInput.value.trim() || nameInput.value.trim().length < 3) {
+                        nameInput.classList.add('input-error');
+                        if (nameErr) nameErr.style.display = 'block';
+                        isValid = false;
+                    } else {
+                        nameInput.classList.remove('input-error');
+                        if (nameErr) nameErr.style.display = 'none';
+                    }
+
+                    // Email validation
+                    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                    const emailErr = emailInput.nextElementSibling;
+                    if (!emailInput.value.trim() || !emailRegex.test(emailInput.value.trim())) {
+                        emailInput.classList.add('input-error');
+                        if (emailErr) emailErr.style.display = 'block';
+                        isValid = false;
+                    } else {
+                        emailInput.classList.remove('input-error');
+                        if (emailErr) emailErr.style.display = 'none';
+                    }
+
+                    // Phone validation (10 digits)
+                    const phoneErr = phoneInput.nextElementSibling;
+                    if (!phoneInput.value.trim() || phoneInput.value.length !== 10) {
+                        phoneInput.classList.add('input-error');
+                        if (phoneErr) phoneErr.style.display = 'block';
+                        isValid = false;
+                    } else {
+                        phoneInput.classList.remove('input-error');
+                        if (phoneErr) phoneErr.style.display = 'none';
+                    }
+
+                    // Message validation (min 10 chars)
+                    const msgErr = msgInput.nextElementSibling;
+                    if (!msgInput.value.trim() || msgInput.value.trim().length < 10) {
+                        msgInput.classList.add('input-error');
+                        if (msgErr) msgErr.style.display = 'block';
+                        isValid = false;
+                    } else {
+                        msgInput.classList.remove('input-error');
+                        if (msgErr) msgErr.style.display = 'none';
+                    }
+
+                    if (isValid) {
+                        modalText.innerHTML = `Thank you <strong>${nameInput.value}</strong>! Your inquiry has been routed to our support desk. We will respond to <em>${emailInput.value}</em> within 2 hours.`;
+                        modal.classList.add('is-active');
+                        form.reset();
+                    }
+                });
+            }
+
+            if (closeModalBtn && modal) {
+                closeModalBtn.addEventListener('click', () => {
+                    modal.classList.remove('is-active');
+                    window.location.href = 'index.html';
+                });
+            }
+        });
+
+        if (localStorage.getItem('theme') === 'dark') {
+        document.documentElement.classList.add('dark');
+    }
+    const savedDir = localStorage.getItem('dir') || 'ltr';
+    document.documentElement.setAttribute('dir', savedDir);
+    </script>
+</body>
+</html>

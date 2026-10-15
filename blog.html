@@ -1,0 +1,586 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enterprise Fleet & Compliance Blog | InspectaPro</title>
+    <link rel="shortcut icon" href="./logo.png" type="image/x-icon">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <link rel="stylesheet" href="./css/main.css">
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        cream: { 50: '#fffdf7', 100: '#fef9ed', 200: '#fdf2d9', 300: '#fbe8b8', 400: '#f7d888', 500: '#f2c94c' },
+                        indigoDeep: { 50: '#eef2ff', 100: '#e0e7ff', 200: '#c7d2fe', 300: '#a5b4fc', 400: '#818cf8', 500: '#6366f1', 600: '#4f46e5', 700: '#4338ca', 800: '#3730a3', 900: '#312e81' },
+                        coral: { 50: '#fff1f0', 100: '#ffe0dd', 200: '#ffc6c0', 300: '#ffa39a', 400: '#ff7a6e', 500: '#ff5747', 600: '#ed3a29', 700: '#c72e1f', 800: '#a42a1d', 900: '#88281e' }
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="antialiased font-sans transition-colors duration-300 overflow-x-hidden" style="background-color: var(--bg-color); color: var(--text-main);">
+         
+    <!-- Header Container -->
+    <div id="siteHeaderContainer" class="sticky top-0 z-50"></div>
+
+    <main class="space-y-20 sm:space-y-32 pb-20 sm:pb-32">
+                 
+        <!-- SECTION 1: BLOG HERO -->
+        <section class="relative pt-16 sm:pt-24 pb-20 sm:pb-32 overflow-hidden transition-colors duration-300" style="background: linear-gradient(to right, rgba(255, 255, 255, 0.9), rgba(239, 233, 233, 0.4)), url('https://imgs.search.brave.com/_cdNSDL1r5p5b0TCCUqNrQmExKvLUDXgFitv7mglsE0/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9tZWRp/YS5pc3RvY2twaG90/by5jb20vaWQvMTky/NDEzNzEzNS9waG90/by9vbmxpbmUtYmxv/Zy1zZWFyY2gtbGVh/cm5pbmctd29yay1p/bnRlcm5ldC1mcmVl/bGFuY2UtYnVzaW5l/c3MtcG9zdC13ZWJz/aXRlLW9ubGluZS1o/b21lcGFnZS5qcGc_/cz02MTJ4NjEyJnc9/MCZrPTIwJmM9a3pt/RGFybGpVYVNwWVN4/TzRNekRicVJXVFQt/M3FWY1Z0dGhKRFl6/eTZxbz0'); background-size: cover; background-repeat: no-repeat;">
+            <div class="volt-container text-center max-w-4xl mx-auto space-y-6 relative z-10">
+                <span class="inline-block text-xs font-bold uppercase tracking-[0.2em] px-4 py-1.5 rounded-full border shadow-sm" style="background-color: var(--card-bg); border-color: var(--border-color); color: var(--primary-color);">Industry Insights & Guides</span>
+                <h1 class="text-4xl sm:text-6xl font-black tracking-tight leading-[1.08] text-green-900" >
+                    Fleet Compliance & <span class="text-transparent bg-clip-text" style="background-image: linear-gradient(to right, var(--primary-color), var(--secondary-color));">Telemetry Journal.</span>
+                </h1>
+                <p class="text-sm sm:text-base font-medium max-w-2xl mx-auto leading-relaxed text-gray-600" >
+                    Expert analyses on RTO regulatory updates, automated audit workflows, OBD-II telemetry integration, and zero-penalty logistics strategies.
+                </p>
+            </div>
+        </section>
+
+      
+
+        <!-- SECTION 3: CATEGORY FILTER TABS -->
+        <section class="volt-container">
+            <div class="flex flex-wrap items-center justify-center gap-3" id="blogFilterContainer">
+                <button type="button" data-filter="all" class="px-5 py-2.5 rounded-full text-xs font-bold uppercase tracking-wider text-white shadow-md transition-all cursor-pointer filter-btn" style="background-color: var(--primary-color);">All Topics</button>
+                <button type="button" data-filter="RTO Compliance" class="px-5 py-2.5 rounded-full text-xs font-bold uppercase tracking-wider border transition-all hover:border-emerald-500 cursor-pointer filter-btn" style="background-color: var(--card-bg); border-color: var(--border-color); color: var(--text-main);">RTO Compliance</button>
+                <button type="button" data-filter="Telemetry" class="px-5 py-2.5 rounded-full text-xs font-bold uppercase tracking-wider border transition-all hover:border-emerald-500 cursor-pointer filter-btn" style="background-color: var(--card-bg); border-color: var(--border-color); color: var(--text-main);">Telemetry & IoT</button>
+                <button type="button" data-filter="Security" class="px-5 py-2.5 rounded-full text-xs font-bold uppercase tracking-wider border transition-all hover:border-emerald-500 cursor-pointer filter-btn" style="background-color: var(--card-bg); border-color: var(--border-color); color: var(--text-main);">Security & Vaults</button>
+                <button type="button" data-filter="Cost Savings" class="px-5 py-2.5 rounded-full text-xs font-bold uppercase tracking-wider border transition-all hover:border-emerald-500 cursor-pointer filter-btn" style="background-color: var(--card-bg); border-color: var(--border-color); color: var(--text-main);">Cost Optimization</button>
+            </div>
+        </section>
+
+        <!-- SECTION 4: 6 BLOG POSTS GRID -->
+        <section class="volt-container space-y-12">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="blogGridContainer">
+                
+                <!-- Blog 1 -->
+                <article class="blog-card rounded-3xl border shadow-lg overflow-hidden flex flex-col justify-between transition-all hover:-translate-y-1.5 hover:shadow-2xl" data-category="RTO Compliance" style="background-color: var(--card-bg); border-color: var(--border-color);">
+                    <div>
+                        <div class="h-52 overflow-hidden relative">
+                            <img src="https://imgs.search.brave.com/f0ENlY4abZVTdQqvZ4L10_ZZ0Aeh8MHhZJSf2rUcNEk/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly93d3cu/cWktYS5jb20vd3At/Y29udGVudC91cGxv/YWRzLzIwMjYvMDYv/UUlTUy1RTVMtQXVk/aXQtTWFuYWdlbWVu/dC12cy4tU3ByZWFk/c2hlZXQtQmFzZWQt/QXVkaXRzLTIuanBn" alt="Blog 1" class="w-full h-full object-cover">
+                            <span class="absolute top-4 left-4 px-3 py-1 bg-emerald-600 text-white font-bold text-[10px] uppercase tracking-widest rounded-full">RTO Compliance</span>
+                        </div>
+                        <div class="p-6 space-y-3">
+                            <div class="flex items-center gap-2 text-[11px] font-semibold" style="color: var(--text-muted);">
+                                <span><i class="fa-solid fa-calendar mr-1"></i> Oct 10, 2026</span>
+                                <span>•</span>
+                                <span>4 min read</span>
+                            </div>
+                            <h3 class="font-black text-xl leading-snug" style="color: var(--text-main);">Automating State Transport Audits: The Death of Spreadsheets</h3>
+                            <p class="text-xs font-medium leading-relaxed" style="color: var(--text-muted);">Why modern logistics providers are abandoning manual vehicle record-keeping for direct government API synchronization.</p>
+                        </div>
+                    </div>
+                    <div class="p-6 pt-0">
+                        <button type="button" onclick="openBlogDetail(1)" class="w-full py-3 rounded-xl font-bold text-xs uppercase tracking-wider text-center border transition-all hover:bg-emerald-500 hover:text-white cursor-pointer" style="border-color: var(--border-color); color: var(--text-main);">
+                            Read Article <i class="fa-solid fa-arrow-right ml-1"></i>
+                        </button>
+                    </div>
+                </article>
+
+                <!-- Blog 2 -->
+                <article class="blog-card rounded-3xl border shadow-lg overflow-hidden flex flex-col justify-between transition-all hover:-translate-y-1.5 hover:shadow-2xl" data-category="Telemetry" style="background-color: var(--card-bg); border-color: var(--border-color);">
+                    <div>
+                        <div class="h-52 overflow-hidden relative">
+                            <img src="https://imgs.search.brave.com/EzeJzh-TKV-ElmWEsQPDPekzt2ZjcGzEqFFl96Z7OP8/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9oaXBz/LmhlYXJzdGFwcHMu/Y29tL2htZy1wcm9k/L2ltYWdlcy9ncm91/cC1zaG90LTY4YTYw/ZWQ2NDM0MzQuanBn/P2Nyb3A9MXh3OjF4/aDtjZW50ZXIsdG9w" alt="Blog 2" class="w-full h-full object-cover">
+                            <span class="absolute top-4 left-4 px-3 py-1 bg-emerald-600 text-white font-bold text-[10px] uppercase tracking-widest rounded-full">Telemetry</span>
+                        </div>
+                        <div class="p-6 space-y-3">
+                            <div class="flex items-center gap-2 text-[11px] font-semibold" style="color: var(--text-muted);">
+                                <span><i class="fa-solid fa-calendar mr-1"></i> Oct 04, 2026</span>
+                                <span>•</span>
+                                <span>5 min read</span>
+                            </div>
+                            <h3 class="font-black text-xl leading-snug" style="color: var(--text-main);">Plug-and-Play OBD-II Telematics: Real-Time Engine Diagnostics</h3>
+                            <p class="text-xs font-medium leading-relaxed" style="color: var(--text-muted);">How streaming live CAN-Bus data prevents unexpected mechanical breakdowns and optimizes fuel efficiency.</p>
+                        </div>
+                    </div>
+                    <div class="p-6 pt-0">
+                        <button type="button" onclick="openBlogDetail(2)" class="w-full py-3 rounded-xl font-bold text-xs uppercase tracking-wider text-center border transition-all hover:bg-emerald-500 hover:text-white cursor-pointer" style="border-color: var(--border-color); color: var(--text-main);">
+                            Read Article <i class="fa-solid fa-arrow-right ml-1"></i>
+                        </button>
+                    </div>
+                </article>
+
+                <!-- Blog 3 -->
+                <article class="blog-card rounded-3xl border shadow-lg overflow-hidden flex flex-col justify-between transition-all hover:-translate-y-1.5 hover:shadow-2xl" data-category="Security" style="background-color: var(--card-bg); border-color: var(--border-color);">
+                    <div>
+                        <div class="h-52 overflow-hidden relative">
+                            <img src="https://imgs.search.brave.com/v0o6Up-jvplmA3pTwz4_nXhdcOG9MPh4LveH9H2uUD4/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly93d3cu/emVydG8uY29tL3dw/LWNvbnRlbnQvdXBs/b2Fkcy8yMDI1LzAx/L1JJVE0wMTI1NDgw/LURhdGEtUHJvdGVj/dGlvbi1UcmVuZHNf/NDUwXzMwMC5wbmc" alt="Blog 3" class="w-full h-full object-cover">
+                            <span class="absolute top-4 left-4 px-3 py-1 bg-emerald-600 text-white font-bold text-[10px] uppercase tracking-widest rounded-full">Security</span>
+                        </div>
+                        <div class="p-6 space-y-3">
+                            <div class="flex items-center gap-2 text-[11px] font-semibold" style="color: var(--text-muted);">
+                                <span><i class="fa-solid fa-calendar mr-1"></i> Sep 28, 2026</span>
+                                <span>•</span>
+                                <span>3 min read</span>
+                            </div>
+                            <h3 class="font-black text-xl leading-snug" style="color: var(--text-main);">Securing Millions of PUCC Certificates in Immutable Cloud Vaults</h3>
+                            <p class="text-xs font-medium leading-relaxed" style="color: var(--text-muted);">Exploring bank-grade encryption protocols and hourly automated snapshots for transport compliance records.</p>
+                        </div>
+                    </div>
+                    <div class="p-6 pt-0">
+                        <button type="button" onclick="openBlogDetail(3)" class="w-full py-3 rounded-xl font-bold text-xs uppercase tracking-wider text-center border transition-all hover:bg-emerald-500 hover:text-white cursor-pointer" style="border-color: var(--border-color); color: var(--text-main);">
+                            Read Article <i class="fa-solid fa-arrow-right ml-1"></i>
+                        </button>
+                    </div>
+                </article>
+
+                <!-- Blog 4 -->
+                <article class="blog-card rounded-3xl border shadow-lg overflow-hidden flex flex-col justify-between transition-all hover:-translate-y-1.5 hover:shadow-2xl" data-category="Operations" style="background-color: var(--card-bg); border-color: var(--border-color);">
+                    <div>
+                        <div class="h-52 overflow-hidden relative">
+                            <img src="https://imgs.search.brave.com/sZTweVcgjX2wrbEge6wTcyKDy7z9E5_nEkkKKFqz8aY/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly93d3cu/ZXhjZWxsb25zb2Z0/LmNvbS93cC1jb250/ZW50L3VwbG9hZHMv/MjAyNi8wNy9XaGF0/LUlzLWEtRGVwb3Qt/TWFuYWdlbWVudC1T/eXN0ZW0ucG5nLndl/YnA" alt="Blog 4" class="w-full h-full object-cover">
+                            <span class="absolute top-4 left-4 px-3 py-1 bg-emerald-600 text-white font-bold text-[10px] uppercase tracking-widest rounded-full">Operations</span>
+                        </div>
+                        <div class="p-6 space-y-3">
+                            <div class="flex items-center gap-2 text-[11px] font-semibold" style="color: var(--text-muted);">
+                                <span><i class="fa-solid fa-calendar mr-1"></i> Sep 19, 2026</span>
+                                <span>•</span>
+                                <span>6 min read</span>
+                            </div>
+                            <h3 class="font-black text-xl leading-snug" style="color: var(--text-main);">Multi-Branch Yard Management for Large Logistics Networks</h3>
+                            <p class="text-xs font-medium leading-relaxed" style="color: var(--text-muted);">How regional transport supervisors coordinate testing bays and maintenance schedules under one master dashboard.</p>
+                        </div>
+                    </div>
+                    <div class="p-6 pt-0">
+                        <button type="button" onclick="openBlogDetail(4)" class="w-full py-3 rounded-xl font-bold text-xs uppercase tracking-wider text-center border transition-all hover:bg-emerald-500 hover:text-white cursor-pointer" style="border-color: var(--border-color); color: var(--text-main);">
+                            Read Article <i class="fa-solid fa-arrow-right ml-1"></i>
+                        </button>
+                    </div>
+                </article>
+
+                <!-- Blog 5 -->
+                <article class="blog-card rounded-3xl border shadow-lg overflow-hidden flex flex-col justify-between transition-all hover:-translate-y-1.5 hover:shadow-2xl" data-category="Cost Savings" style="background-color: var(--card-bg); border-color: var(--border-color);">
+                    <div>
+                        <div class="h-52 overflow-hidden relative">
+                            <img src="https://imgs.search.brave.com/dg7tAMQfhfb6Tg6DQOYKvTCq_dhP77-n8KEF8iY6qOQ/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9mbGVl/dHJhYmJpdC5jb20v/YmxvZ3MvbWFuYWdl/LXBvc3QtMmsyNi91/cGxvYWRzL2ZsZWV0/LW1hbmFnZW1lbnQt/cm9pLWNhbGN1bGF0/b3IucG5n" alt="Blog 5" class="w-full h-full object-cover">
+                            <span class="absolute top-4 left-4 px-3 py-1 bg-emerald-600 text-white font-bold text-[10px] uppercase tracking-widest rounded-full">Cost Savings</span>
+                        </div>
+                        <div class="p-6 space-y-3">
+                            <div class="flex items-center gap-2 text-[11px] font-semibold" style="color: var(--text-muted);">
+                                <span><i class="fa-solid fa-calendar mr-1"></i> Sep 12, 2026</span>
+                                <span>•</span>
+                                <span>4 min read</span>
+                            </div>
+                            <h3 class="font-black text-xl leading-snug" style="color: var(--text-main);">Calculating Fleet ROI: Eliminating Expiry Fines & Penalties</h3>
+                            <p class="text-xs font-medium leading-relaxed" style="color: var(--text-muted);">A comprehensive financial breakdown of how automated WhatsApp and SMS webhooks save transport firms thousands annually.</p>
+                        </div>
+                    </div>
+                    <div class="p-6 pt-0">
+                        <button type="button" onclick="openBlogDetail(5)" class="w-full py-3 rounded-xl font-bold text-xs uppercase tracking-wider text-center border transition-all hover:bg-emerald-500 hover:text-white cursor-pointer" style="border-color: var(--border-color); color: var(--text-main);">
+                            Read Article <i class="fa-solid fa-arrow-right ml-1"></i>
+                        </button>
+                    </div>
+                </article>
+
+                <!-- Blog 6 -->
+                <article class="blog-card rounded-3xl border shadow-lg overflow-hidden flex flex-col justify-between transition-all hover:-translate-y-1.5 hover:shadow-2xl" data-category="Sustainability" style="background-color: var(--card-bg); border-color: var(--border-color);">
+                    <div>
+                        <div class="h-52 overflow-hidden relative">
+                            <img src="https://imgs.search.brave.com/ISV2eAiaHd8AcyD_aYrPEW110OmSfQjqXzjI6RbSNkc/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9hc3Rw/cm9jbXNjZG4uYXp1/cmVlZGdlLm5ldC9h/cHAtZmlsZXMvc3R5/bGVzL3dpZGVfMzc1/L2F6YmxvYi8yMDI2/LTAzL0NhcmJvbiUy/MGZvb3RwcmludC5w/bmcud2VicD9pdG9r/PW9MYnNvM2JX" alt="Blog 6" class="w-full h-full object-cover">
+                            <span class="absolute top-4 left-4 px-3 py-1 bg-emerald-600 text-white font-bold text-[10px] uppercase tracking-widest rounded-full">Sustainability</span>
+                        </div>
+                        <div class="p-6 space-y-3">
+                            <div class="flex items-center gap-2 text-[11px] font-semibold" style="color: var(--text-muted);">
+                                <span><i class="fa-solid fa-calendar mr-1"></i> Sep 03, 2026</span>
+                                <span>•</span>
+                                <span>5 min read</span>
+                            </div>
+                            <h3 class="font-black text-xl leading-snug" style="color: var(--text-main);">Reducing Urban Carbon Footprints Through Combustion Optimization</h3>
+                            <p class="text-xs font-medium leading-relaxed" style="color: var(--text-muted);">How rigorous emission testing and lab-grade gas benching contribute to cleaner air and greener commercial transport.</p>
+                        </div>
+                    </div>
+                    <div class="p-6 pt-0">
+                        <button type="button" onclick="openBlogDetail(6)" class="w-full py-3 rounded-xl font-bold text-xs uppercase tracking-wider text-center border transition-all hover:bg-emerald-500 hover:text-white cursor-pointer" style="border-color: var(--border-color); color: var(--text-main);">
+                            Read Article <i class="fa-solid fa-arrow-right ml-1"></i>
+                        </button>
+                    </div>
+                </article>
+
+            </div>
+        </section>
+
+        <!-- SECTION 5: AUTHOR & EXPERT SPOTLIGHT -->
+        <section class="volt-container">
+            <div class="rounded-3xl p-8 sm:p-12 border shadow-xl grid grid-cols-1 lg:grid-cols-12 gap-8 items-center" style="background-color: var(--card-bg); border-color: var(--border-color);">
+                <div class="lg:col-span-4 text-center">
+                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=300" alt="Lead Researcher" class="w-32 h-32 rounded-full object-cover mx-auto border-4 border-emerald-500 shadow-lg">
+                </div>
+                <div class="lg:col-span-8 space-y-4 text-center lg:text-left">
+                    <span class="text-xs font-bold uppercase tracking-[0.2em] px-3 py-1 rounded-lg bg-emerald-500/10 text-emerald-500">Chief Editor</span>
+                    <h3 class="text-2xl font-black" style="color: var(--text-main);">Curated by Automotive Engineers & Compliance Experts</h3>
+                    <p class="text-xs sm:text-sm font-medium leading-relaxed" style="color: var(--text-muted);">Our editorial board consists of veteran software architects, transport regulatory specialists, and certified inspection engineers dedicated to bringing you transparent, actionable industry knowledge.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 6: TRENDING TOPICS BANNER -->
+        <section class="volt-container">
+            <div class="rounded-3xl p-8 sm:p-12 relative overflow-hidden" style="background-color: rgba(9, 52, 1, 0.75);">
+                <div class="relative z-10 max-w-3xl mx-auto text-center space-y-6">
+                    <span class="text-xs font-bold uppercase tracking-[0.2em] text-white">Live Index</span>
+                    <h2 class="text-3xl sm:text-4xl font-black text-white">Over 50,000 Logistics Managers Read Our Journal Weekly</h2>
+                    <p class="text-slate-200 text-xs sm:text-sm font-medium leading-relaxed">Join transport supervisors from across the nation who rely on InspectaPro for timely regulatory alerts and technology briefings.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 7: NEWSLETTER SUBSCRIPTION WIDGET -->
+        <section class="volt-container">
+            <div class="rounded-3xl p-8 sm:p-14 border shadow-2xl grid grid-cols-1 lg:grid-cols-12 gap-8 items-center" style="background-color: var(--card-bg); border-color: var(--border-color);">
+                <div class="lg:col-span-6 space-y-4">
+                    <span class="text-xs font-bold uppercase tracking-[0.2em]" style="color: var(--primary-color);">Weekly Dispatch</span>
+                    <h3 class="text-2xl sm:text-3xl font-black" style="color: var(--text-main);">Subscribe to the Compliance Briefing</h3>
+                    <p class="text-xs sm:text-sm font-medium leading-relaxed" style="color: var(--text-muted);">Get direct digests of transport policy changes, software release updates, and telematics case studies delivered straight to your inbox.</p>
+                </div>
+                <div class="lg:col-span-6">
+                    <form id="newsletterForm" class="flex flex-col sm:flex-row gap-3" novalidate>
+                        <input type="email" id="newsletterEmail" placeholder="Enter your professional email..." class="flex-1 px-4 py-3.5 rounded-xl text-xs font-bold outline-none border transition-all" style="background-color: var(--bg-color); border-color: var(--border-color); color: var(--text-main);" required>
+                        <button type="submit" class="px-8 py-3.5 text-white font-bold rounded-xl text-xs uppercase tracking-widest shadow-lg transition-all hover:opacity-90 cursor-pointer shrink-0" style="background-color: var(--primary-color);">
+                            Subscribe
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 8: ENTERPRISE WHITE PAPERS -->
+        <section class="volt-container space-y-8">
+            <div class="text-center max-w-2xl mx-auto space-y-3">
+                <span class="text-xs font-bold uppercase tracking-[0.2em]" style="color: var(--primary-color);">Downloadable Resources</span>
+                <h2 class="text-3xl sm:text-4xl font-black" style="color: var(--text-main);">Free Enterprise White Papers</h2>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 items-stretch">
+                <div class="p-6 rounded-3xl border shadow-lg space-y-4 flex flex-col justify-between h-full" style="background-color: var(--card-bg); border-color: var(--border-color);">
+                    <div class="space-y-3">
+                        <i class="fa-solid fa-file-pdf text-3xl text-red-500"></i>
+                        <h4 class="font-black text-base min-h-[3rem] flex items-center" style="color: var(--text-main);">2026 State Transport Audit Blueprint</h4>
+                        <p class="text-xs font-medium" style="color: var(--text-muted);">Complete PDF guide to navigating automated RTO database synchronization.</p>
+                    </div>
+                    <button type="button" onclick="alert('Downloading White Paper PDF...')" class="w-full py-2.5 rounded-xl font-bold text-xs uppercase tracking-wider border transition-all hover:border-emerald-500 cursor-pointer mt-auto" style="border-color: var(--border-color); color: var(--text-main);">Download PDF</button>
+                </div>
+                <div class="p-6 rounded-3xl border shadow-lg space-y-4 flex flex-col justify-between h-full" style="background-color: var(--card-bg); border-color: var(--border-color);">
+                    <div class="space-y-3">
+                        <i class="fa-solid fa-file-pdf text-3xl text-red-500"></i>
+                        <h4 class="font-black text-base min-h-[3rem] flex items-center" style="color: var(--text-main);">OBD-II Telematics ROI Benchmark</h4>
+                        <p class="text-xs font-medium" style="color: var(--text-muted);">Financial impact analysis of real-time CAN-Bus diagnostics for logistics fleets.</p>
+                    </div>
+                    <button type="button" onclick="alert('Downloading White Paper PDF...')" class="w-full py-2.5 rounded-xl font-bold text-xs uppercase tracking-wider border transition-all hover:border-emerald-500 cursor-pointer mt-auto" style="border-color: var(--border-color); color: var(--text-main);">Download PDF</button>
+                </div>
+                <div class="p-6 rounded-3xl border shadow-lg space-y-4 flex flex-col justify-between h-full" style="background-color: var(--card-bg); border-color: var(--border-color);">
+                    <div class="space-y-3">
+                        <i class="fa-solid fa-file-pdf text-3xl text-red-500"></i>
+                        <h4 class="font-black text-base min-h-[3rem] flex items-center" style="color: var(--text-main);">Multi-Branch Security Compliance</h4>
+                        <p class="text-xs font-medium" style="color: var(--text-muted);">Best practices for role-based access control across regional transport yards.</p>
+                    </div>
+                    <button type="button" onclick="alert('Downloading White Paper PDF...')" class="w-full py-2.5 rounded-xl font-bold text-xs uppercase tracking-wider border transition-all hover:border-emerald-500 cursor-pointer mt-auto" style="border-color: var(--border-color); color: var(--text-main);">Download PDF</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 9: BLOG FAQ -->
+        <section class="max-w-3xl volt-container space-y-8">
+            <div class="text-center space-y-3">
+                <span class="inline-block text-xs font-bold uppercase tracking-[0.2em] px-4 py-1.5 rounded-full border" style="background-color: var(--card-bg); border-color: var(--border-color); color: var(--primary-color);">Journal Help</span>
+                <h2 class="text-3xl font-black" style="color: var(--text-main);">Frequently Asked Questions</h2>
+            </div>
+            <div class="space-y-4">
+                <div class="border rounded-2xl cursor-pointer faq-item shadow-sm transition-all duration-300 overflow-hidden" style="background-color: var(--card-bg); border-color: var(--border-color);">
+                    <div class="flex items-center justify-between font-bold text-sm p-6" style="color: var(--text-main);">
+                        <span>Can I contribute a guest article or case study to the InspectaPro journal?</span>
+                        <i class="fa-solid fa-chevron-down transition-transform duration-300 faq-icon" style="color: var(--primary-color);"></i>
+                    </div>
+                    <div class="faq-content hidden px-6 pb-6 text-xs font-medium leading-relaxed" style="color: var(--text-muted);">
+                        Yes! We welcome guest contributions from logistics directors and transport safety researchers. Reach out via our contact page to submit a proposal.
+                    </div>
+                </div>
+                <div class="border rounded-2xl cursor-pointer faq-item shadow-sm transition-all duration-300 overflow-hidden" style="background-color: var(--card-bg); border-color: var(--border-color);">
+                    <div class="flex items-center justify-between font-bold text-sm p-6" style="color: var(--text-main);">
+                        <span>Are these articles updated according to regional transport laws?</span>
+                        <i class="fa-solid fa-chevron-down transition-transform duration-300 faq-icon" style="color: var(--primary-color);"></i>
+                    </div>
+                    <div class="faq-content hidden px-6 pb-6 text-xs font-medium leading-relaxed" style="color: var(--text-muted);">
+                        Absolutely. Our editorial team reviews and updates all journal entries weekly to reflect current statutory norms and technological advancements.
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 10: BLOG CTA BANNER -->
+        <section class="volt-container">
+            <div class="relative p-10 sm:p-16 rounded-3xl overflow-hidden text-center space-y-6 shadow-2xl" style="background: linear-gradient(to bottom right, var(--primary-color), var(--secondary-color));">
+                <div class="absolute top-0 right-0 w-80 h-80 bg-white/10 rounded-full blur-3xl"></div>
+                <div class="absolute bottom-0 left-0 w-80 h-80 bg-white/10 rounded-full blur-3xl opacity-30"></div>
+                <div class="relative z-10 space-y-6">
+                    <span class="px-4 py-1.5 bg-white/20 backdrop-blur text-white font-bold text-xs uppercase tracking-widest rounded-full border border-white/30">Stay Updated</span>
+                    <h2 class="text-3xl sm:text-5xl font-black text-white">Ready to Modernize Your Fleet Operations?</h2>
+                    <p class="text-white/90 text-sm sm:text-base max-w-xl mx-auto font-medium">Subscribe to our enterprise dispatch newsletter or start your 14-day free trial today.</p>
+                    <div class="pt-4 flex flex-wrap justify-center gap-4">
+                        <a href="dashboard.html" class="px-8 py-4 bg-white hover:bg-slate-100 font-bold rounded-2xl text-xs uppercase tracking-widest shadow-lg transition-all duration-300" style="color: var(--primary-color);">
+                            Start Free Trial
+                        </a>
+                        <a href="contact.html" class="px-8 py-4 bg-white/10 hover:bg-white/20 border border-white/30 text-white font-bold rounded-2xl text-xs uppercase tracking-widest backdrop-blur-md transition-all duration-300">
+                            Contact Our Team
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer Container -->
+    <div id="siteFooterContainer"></div>
+
+    <!-- Enhanced Blog Detail Modal with UI Polish, 6 Paragraphs, and Featured Image -->
+    <div id="blogDetailModal" class="fixed inset-0 z-[99999] flex items-center justify-center p-4 backdrop-blur-md bg-slate-950/70 opacity-0 pointer-events-none transition-all duration-300">
+        <div class="max-w-4xl w-full p-6 sm:p-12 rounded-[2.5rem] border text-left space-y-6 shadow-2xl transition-colors duration-300 relative scale-95 transition-transform duration-300 max-h-[92vh] overflow-y-auto" id="blogModalBox" style="background-color: var(--card-bg); border-color: var(--border-color);">
+            
+            <!-- Modal Header Bar -->
+            <div class="flex items-center justify-between p-3 rounded-2xl border-b sticky top-0 z-20 backdrop-blur-md" style="background-color: var(--card-bg); border-color: var(--border-color);">
+                <div class="flex items-center gap-3">
+                    <span id="modalBlogTag" class="px-3 py-1 bg-emerald-500/10 text-emerald-500 font-bold text-[10px] uppercase tracking-widest rounded-full">Tag</span>
+                    <span class="text-xs font-semibold" style="color: var(--text-muted);">InspectaPro Research Journal</span>
+                </div>
+                <button type="button" onclick="closeBlogDetail()" class="w-10 h-10 rounded-2xl border flex items-center justify-center text-xs cursor-pointer transition-all hover:bg-emerald-500 hover:text-white" style="background-color: var(--bg-color); border-color: var(--border-color); color: var(--text-main);">
+                    <i class="fa-solid fa-xmark text-sm"></i>
+                </button>
+            </div>
+            
+            <!-- Article Header Info -->
+            <div class="space-y-4 pt-2">
+                <h2 id="modalBlogTitle" class="text-2xl sm:text-4xl font-black tracking-tight leading-tight" style="color: var(--text-main);">Blog Title</h2>
+                <div class="flex flex-wrap items-center gap-4 text-xs font-bold" style="color: var(--text-muted);">
+                    <span id="modalBlogDate" class="flex items-center gap-1.5"><i class="fa-solid fa-calendar text-emerald-500"></i> Date</span>
+                    <span>•</span>
+                    <span id="modalBlogReadTime" class="flex items-center gap-1.5"><i class="fa-solid fa-clock text-emerald-500"></i> Read Time</span>
+                    <span>•</span>
+                    <span class="flex items-center gap-1.5 text-emerald-500"><i class="fa-solid fa-user-shield"></i> Peer-Reviewed Article</span>
+                </div>
+
+                <!-- Featured Immersive Article Image -->
+                <div class="h-72 sm:h-96 rounded-3xl overflow-hidden border shadow-xl my-6 relative" style="border-color: var(--border-color);">
+                    <img id="modalBlogImage" src="" alt="Blog Featured Image" class="w-full h-full object-cover">
+                    <div class="absolute inset-0 bg-gradient-to-t from-slate-950/40 via-transparent to-transparent"></div>
+                </div>
+
+                <!-- 6 Detailed Paragraphs Content Area -->
+                <div id="modalBlogContent" class="text-sm sm:text-base font-medium leading-relaxed space-y-6 pt-4" style="color: var(--text-muted);">
+                    <!-- Dynamic 6 Paragraphs Injected Here -->
+                </div>
+            </div>
+
+            <!-- Modal Footer CTA -->
+            <div class="pt-6 border-t flex flex-col sm:flex-row items-center justify-between gap-4" style="border-color: var(--border-color);">
+                <div class="flex items-center gap-2 text-xs font-semibold" style="color: var(--text-muted);">
+                    <i class="fa-solid fa-share-nodes text-emerald-500"></i> Share this research brief with your transport network
+                </div>
+                <div class="flex gap-3 w-full sm:w-auto">
+                    <button type="button" onclick="alert('Article link copied to clipboard!')" class="flex-1 sm:flex-initial px-6 py-3.5 rounded-xl font-bold text-xs uppercase tracking-wider border transition-all cursor-pointer" style="border-color: var(--border-color); color: var(--text-main);">
+                        <i class="fa-solid fa-link mr-1"></i> Copy Link
+                    </button>
+                    <button type="button" onclick="closeBlogDetail()" class="flex-1 sm:flex-initial px-8 py-3.5 text-white font-bold rounded-xl text-xs uppercase tracking-widest shadow-lg transition-all cursor-pointer hover:opacity-90" style="background-color: var(--primary-color);">
+                        Close Article
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="./js/main.js"></script>
+    <script>
+        const blogData = {
+            1: {
+                tag: "RTO Compliance",
+                title: "Automating State Transport Audits: The Death of Spreadsheets",
+                date: "Oct 10, 2026",
+                readTime: "4 min read",
+                image: "https://imgs.search.brave.com/f0ENlY4abZVTdQqvZ4L10_ZZ0Aeh8MHhZJSf2rUcNEk/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly93d3cu/cWktYS5jb20vd3At/Y29udGVudC91cGxv/YWRzLzIwMjYvMDYv/UUlTUy1RTVMtQXVk/aXQtTWFuYWdlbWVu/dC12cy4tU3ByZWFk/c2hlZXQtQmFzZWQt/QXVkaXRzLTIuanBn",
+                paragraphs: [
+                    "Managing commercial vehicle compliance across multiple regional transport offices has historically relied on fragile Excel sheets and manual calendar reminders. When fleets scale past 50 vehicles, human error inevitably leads to missed PUCC renewals and hefty state penalties.",
+                    "InspectaPro solves this by establishing direct bidirectional API handshakes with regional transport registries. When a vehicle undergoes testing at any of our automated bays, the certificate hash is vaulted and logged instantaneously without requiring manual spreadsheet updates.",
+                    "Furthermore, traditional record-keeping leaves transport operators vulnerable during sudden roadside inspections or random government audits. Having an immutable digital audit trail ensures that every registration record is instantly verifiable.",
+                    "Automation also frees up valuable administrative hours for logistics managers, allowing them to redirect their focus toward fleet expansion and route optimization rather than chasing paperwork and expiring permits.",
+                    "As state transport authorities nationwide transition toward fully digital verification protocols, adopting cloud-native compliance software is no longer optional—it is a critical requirement for maintaining operational continuity.",
+                    "Ultimately, transitioning away from manual record management safeguards profit margins, eliminates penalty risks, and establishes a bulletproof foundation for long-term commercial logistics success."
+                ]
+            },
+            2: {
+                tag: "Telemetry",
+                title: "Plug-and-Play OBD-II Telematics: Real-Time Engine Diagnostics",
+                date: "Oct 04, 2026",
+                readTime: "5 min read",
+                image: "https://imgs.search.brave.com/EzeJzh-TKV-ElmWEsQPDPekzt2ZjcGzEqFFl96Z7OP8/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9oaXBz/LmhlYXJzdGFwcHMu/Y29tL2htZy1wcm9k/L2ltYWdlcy9ncm91/cC1zaG90LTY4YTYw/ZWQ2NDM0MzQuanBn/P2Nyb3A9MXh3OjF4/aDtjZW50ZXIsdG9w",
+                paragraphs: [
+                    "Modern commercial logistics require more than just annual compliance—they demand continuous visibility into engine health and emission efficiency. Plug-and-play OBD-II devices stream live CAN-Bus data directly into executive dashboards.",
+                    "Fleet managers can now detect faulty catalytic converters or abnormal hydrocarbon spikes before vehicles fail roadside emissions checks, drastically reducing unexpected mechanical downtime and repair expenses.",
+                    "Real-time diagnostic streaming provides continuous peace of mind by identifying minor component wear before it escalates into costly engine failures along active transportation corridors.",
+                    "Integrating telematics with automated compliance platforms creates a seamless feedback loop where odometer intervals and maintenance logs update themselves without driver intervention.",
+                    "Drivers benefit from actionable dashboard alerts regarding idle times, harsh acceleration patterns, and fuel consumption anomalies, promoting safer and more economical driving habits.",
+                    "Embracing plug-and-play telematics transforms reactive maintenance strategies into proactive asset management, maximizing vehicle lifespan and operational profitability."
+                ]
+            },
+            3: {
+                tag: "Security",
+                title: "Securing Millions of PUCC Certificates in Immutable Cloud Vaults",
+                date: "Sep 28, 2026",
+                readTime: "3 min read",
+                image: "https://imgs.search.brave.com/v0o6Up-jvplmA3pTwz4_nXhdcOG9MPh4LveH9H2uUD4/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly93d3cu/emVydG8uY29tL3dw/LWNvbnRlbnQvdXBs/b2Fkcy8yMDI1LzAx/L1JJVE0wMTI1NDgw/LURhdGEtUHJvdGVj/dGlvbi1UcmVuZHNf/NDUwXzMwMC5wbmc",
+                paragraphs: [
+                    "When handling millions of government-regulated transport documents, data integrity is paramount. InspectaPro utilizes bank-grade 256-bit SSL encryption coupled with hourly immutable cloud redundancy snapshots.",
+                    "Every certificate stored in our vault is cryptographically hashed, ensuring that records cannot be altered or tampered with, providing absolute peace of mind during official transport audits.",
+                    "Cloud-based document archiving completely eliminates the risk of physical document loss, water damage, or misplacement across regional transport offices and corporate headquarters.",
+                    "Granular role-based access control (RBAC) ensures that only authorized personnel can view, export, or modify sensitive corporate transport records and insurance renewals.",
+                    "Automated daily backups guarantee high availability and zero data loss, even in the event of unforeseen regional server outages or severe weather disruptions.",
+                    "By partnering with secure cloud infrastructure providers, InspectaPro delivers enterprise-grade data protection that meets and exceeds strict governmental compliance standards."
+                ]
+            },
+            4: {
+                tag: "Operations",
+                title: "Multi-Branch Yard Management for Large Logistics Networks",
+                date: "Sep 19, 2026",
+                readTime: "6 min read",
+                image: "https://imgs.search.brave.com/sZTweVcgjX2wrbEge6wTcyKDy7z9E5_nEkkKKFqz8aY/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly93d3cu/ZXhjZWxsb25zb2Z0/LmNvbS93cC1jb250/ZW50L3VwbG9hZHMv/MjAyNi8wNy9XaGF0/LUlzLWEtRGVwb3Qt/TWFuYWdlbWVudC1T/eXN0ZW0ucG5nLndl/YnA",
+                paragraphs: [
+                    "Scaling a transport enterprise across multiple cities means managing decentralized yards and regional sub-fleets. Without a unified console, executive visibility shatters into siloed branch reports.",
+                    "InspectaPro’s multi-branch hierarchy allows regional supervisors to manage local testing appointments while giving corporate directors a master compliance overview across all operating nodes.",
+                    "Centralizing yard operations ensures uniform inspection standards across every regional depot, preventing compliance oversights and maintaining consistent vehicle roadworthiness.",
+                    "Logistics coordinators can easily schedule bulk vehicle inspections for incoming regional trucks, minimizing turnaround delays and maximizing fleet uptime.",
+                    "Customizable reporting filters enable executives to drill down into specific regional yard performance, identifying bottlenecks and optimizing resource allocation efficiently.",
+                    "Mastering multi-branch coordination is essential for large-scale logistics providers aiming to scale operations smoothly without compromising regulatory oversight."
+                ]
+            },
+            5: {
+                tag: "Cost Savings",
+                title: "Calculating Fleet ROI: Eliminating Expiry Fines & Penalties",
+                date: "Sep 12, 2026",
+                readTime: "4 min read",
+                image: "https://imgs.search.brave.com/dg7tAMQfhfb6Tg6DQOYKvTCq_dhP77-n8KEF8iY6qOQ/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9mbGVl/dHJhYmJpdC5jb20v/YmxvZ3MvbWFuYWdl/LXBvc3QtMmsyNi91/cGxvYWRzL2ZsZWV0/LW1hbmFnZW1lbnQt/cm9pLWNhbGN1bGF0/b3IucG5n",
+                paragraphs: [
+                    "Regulatory fines for expired PUCC and vehicle insurance can cripple transport profit margins. Automated notification workflows act as an unyielding safety net for commercial fleets.",
+                    "By dispatching intelligent WhatsApp and SMS alerts 30, 15, and 7 days prior to document expiration, InspectaPro ensures zero penalty occurrences across active logistics operations.",
+                    "Quantifying the financial return on investment involves factoring in both direct fine avoidance and the hundreds of administrative hours saved on manual tracking.",
+                    "Transport firms utilizing our Professional tier report an average annual cost reduction exceeding ₹1,80,000 in penalty fees and expedited renewal overhead.",
+                    "Our 14-day risk-free trial allows enterprise operators to experience these financial savings firsthand before committing to a long-term subscription plan.",
+                    "Investing in automated compliance tools pays for itself within the first quarter of deployment, making it one of the smartest financial decisions a transport firm can make."
+                ]
+            },
+            6: {
+                tag: "Sustainability",
+                title: "Reducing Urban Carbon Footprints Through Combustion Optimization",
+                date: "Sep 03, 2026",
+                readTime: "5 min read",
+                image: "https://imgs.search.brave.com/ISV2eAiaHd8AcyD_aYrPEW110OmSfQjqXzjI6RbSNkc/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9hc3Rw/cm9jbXNjZG4uYXp1/cmVlZGdlLm5ldC9h/cHAtZmlsZXMvc3R5/bGVzL3dpZGVfMzc1/L2F6YmxvYi8yMDI2/LTAzL0NhcmJvbiUy/MGZvb3RwcmludC5w/bmcud2VicD9pdG9r/PW9MYnNvM2JX",
+                paragraphs: [
+                    "Environmental sustainability is no longer optional for modern transport providers. Identifying and repairing inefficient combustion engines directly lowers urban particulate emissions and greenhouse outputs.",
+                    "Our lab-grade gas bench analyzers measure carbon monoxide and hydrocarbon densities with pinpoint accuracy, empowering fleets to maintain pristine environmental standards.",
+                    "Daily calibration against certified reference gases ensures that every emission reading meets strict governmental environmental protection guidelines.",
+                    "Proactive identification of malfunctioning fuel injectors or clogged air filters helps commercial trucks burn cleaner and more efficiently on every trip.",
+                    "Logistics operators who prioritize sustainability enhance their corporate social responsibility profile while simultaneously improving fuel economy across their entire fleet.",
+                    "InspectaPro is proud to partner with transport leaders committed to clearing urban skies and promoting sustainable commercial mobility for future generations."
+                ]
+            }
+        };
+
+        function openBlogDetail(id) {
+            const blog = blogData[id];
+            if (!blog) return;
+
+            document.getElementById('modalBlogTag').textContent = blog.tag;
+            document.getElementById('modalBlogTitle').textContent = blog.title;
+            document.getElementById('modalBlogDate').innerHTML = `<i class="fa-solid fa-calendar text-emerald-500 mr-1.5"></i> ${blog.date}`;
+            document.getElementById('modalBlogReadTime').innerHTML = `<i class="fa-solid fa-clock text-emerald-500 mr-1.5"></i> ${blog.readTime}`;
+            document.getElementById('modalBlogImage').src = blog.image;
+            
+            // Render exactly 6 paragraphs with polished styling
+            const contentContainer = document.getElementById('modalBlogContent');
+            contentContainer.innerHTML = blog.paragraphs.map(p => `<p class="leading-relaxed">${p}</p>`).join('');
+
+            const modal = document.getElementById('blogDetailModal');
+            const cardBox = document.getElementById('blogModalBox');
+            if (modal && cardBox) {
+                modal.classList.remove('opacity-0', 'pointer-events-none');
+                cardBox.classList.remove('scale-95');
+                cardBox.classList.add('scale-100');
+                document.body.style.overflow = 'hidden';
+            }
+        }
+
+        function closeBlogDetail() {
+            const modal = document.getElementById('blogDetailModal');
+            const cardBox = document.getElementById('blogModalBox');
+            if (modal && cardBox) {
+                modal.classList.add('opacity-0', 'pointer-events-none');
+                cardBox.classList.remove('scale-100');
+                cardBox.classList.add('scale-95');
+                document.body.style.overflow = 'auto';
+            }
+        }
+
+        // Category Filter Logic & Outside Click Handler
+        document.addEventListener('DOMContentLoaded', () => {
+            const modal = document.getElementById('blogDetailModal');
+            if (modal) {
+                modal.addEventListener('click', (e) => {
+                    if (e.target === modal) closeBlogDetail();
+                });
+            }
+
+            const filterButtons = document.querySelectorAll('.filter-btn');
+            const blogCards = document.querySelectorAll('.blog-card');
+
+            filterButtons.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    filterButtons.forEach(b => {
+                        b.style.backgroundColor = 'var(--card-bg)';
+                        b.style.color = 'var(--text-main)';
+                        b.classList.remove('text-white', 'shadow-md');
+                    });
+                    btn.style.backgroundColor = 'var(--primary-color)';
+                    btn.style.color = '#ffffff';
+                    btn.classList.add('text-white', 'shadow-md');
+
+                    const selectedCategory = btn.getAttribute('data-filter');
+
+                    blogCards.forEach(card => {
+                        const cardCategory = card.getAttribute('data-category');
+                        if (selectedCategory === 'all' || cardCategory === selectedCategory) {
+                            card.style.display = 'flex';
+                        } else {
+                            card.style.display = 'none';
+                        }
+                    });
+                });
+            });
+
+            const newsletterForm = document.getElementById('newsletterForm');
+            if (newsletterForm) {
+                newsletterForm.addEventListener('submit', (e) => {
+                    e.preventDefault();
+                    const emailInput = document.getElementById('newsletterEmail');
+                    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                    if (emailInput && emailRegex.test(emailInput.value.trim())) {
+                        alert(`Thank you for subscribing with ${emailInput.value}! You will receive our weekly compliance dispatch.`);
+                        newsletterForm.reset();
+                    } else {
+                        alert('Please enter a valid professional email address.');
+                    }
+                });
+            }
+        });
+
+        if (localStorage.getItem('theme') === 'dark') {
+        document.documentElement.classList.add('dark');
+    }
+    const savedDir = localStorage.getItem('dir') || 'ltr';
+    document.documentElement.setAttribute('dir', savedDir);
+    </script>
+</body>
+</html>

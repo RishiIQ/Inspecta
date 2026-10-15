@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Center Locations & Testing Yards | InspectaPro</title>
+    <link rel="shortcut icon" href="./logo.png" type="image/x-icon">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <link rel="stylesheet" href="./css/main.css">
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        cream: { 50: '#fffdf7', 100: '#fef9ed', 200: '#fdf2d9', 300: '#fbe8b8', 400: '#f7d888', 500: '#f2c94c' },
+                        indigoDeep: { 50: '#eef2ff', 100: '#e0e7ff', 200: '#c7d2fe', 300: '#a5b4fc', 400: '#818cf8', 500: '#6366f1', 600: '#4f46e5', 700: '#4338ca', 800: '#3730a3', 900: '#312e81' },
+                        coral: { 50: '#fff1f0', 100: '#ffe0dd', 200: '#ffc6c0', 300: '#ffa39a', 400: '#ff7a6e', 500: '#ff5747', 600: '#ed3a29', 700: '#c72e1f', 800: '#a42a1d', 900: '#88281e' }
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="antialiased font-sans transition-colors duration-300 overflow-x-hidden" style="background-color: var(--bg-color); color: var(--text-main);">
+         
+    <!-- Header Container -->
+    <div id="siteHeaderContainer" class="sticky top-0 z-50"></div>
+
+    <main class="space-y-20 sm:space-y-32 pb-20 sm:pb-32">
+                 
+        <!-- SECTION 1: LOCATIONS HERO -->
+        <section class="relative pt-16 sm:pt-24 pb-20 sm:pb-32 overflow-hidden transition-colors duration-300" style="background: linear-gradient(to right, rgba(255, 255, 255, 0.9), rgba(239, 233, 233, 0.4)), url('https://imgs.search.brave.com/u1POjy-d8DV_jPEsUE6vgmzvPszHcqmHn1CvD0mYqcs/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9kdGRj/LWltYWdlcy5kdGRj/LmNvbS9kdGRjLXdl/YjIuMC91cGxvYWRz/LzIwMjUvMDcvbG9j/YXRlLXVzLnBuZw');background-size: cover; background-repeat: no-repeat;">
+            <div class="volt-container text-center max-w-4xl mx-auto space-y-6 relative z-10">
+                <span class="inline-block text-xs font-bold uppercase tracking-[0.2em] px-4 py-1.5 rounded-full border" style="background-color: var(--card-bg); border-color: var(--border-color); color: var(--primary-color);">Nationwide Coverage</span>
+                <h1 class="text-4xl sm:text-6xl font-black tracking-tight leading-[1.08] text-green-900" >
+                    Certified Testing Hubs & <span class="text-transparent bg-clip-text" style="background-image: linear-gradient(to right, var(--primary-color), var(--secondary-color));">Regional Yards.</span>
+                </h1>
+                <p class="text-sm sm:text-base font-medium max-w-2xl mx-auto leading-relaxed text-gray-500" >
+                    Locate our automated inspection lanes and authorized RTO-synced testing yards across Tamil Nadu and neighboring regions for express 15-minute compliance turnarounds.
+                </p>
+                <div class="pt-2 flex flex-wrap justify-center gap-4">
+                    <a href="dashboard.html" class="px-8 py-4 text-white font-bold rounded-2xl text-xs uppercase tracking-widest shadow-lg transition-all hover:opacity-90" style="background-color: var(--primary-color);">
+                        Book Inspection Slot
+                    </a>
+                    <a href="contact.html" class="px-8 py-4 font-bold rounded-2xl text-xs uppercase tracking-widest border backdrop-blur-md transition-all" style="background-color: var(--card-bg); border-color: var(--border-color); color: var(--text-main);">
+                        Contact Hub Support
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 2: FEATURED HUB - KARUR CENTRAL YARD -->
+        <section class="volt-container">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center bg-white dark:bg-slate-800 p-8 sm:p-12 rounded-3xl border shadow-xl" style="border-color: var(--border-color);">
+                <div class="lg:col-span-6 space-y-6">
+                    <span class="text-xs font-bold uppercase tracking-[0.2em] px-3 py-1 rounded-lg bg-emerald-500/10 text-emerald-500">Primary Headquarters</span>
+                    <h2 class="text-2xl sm:text-4xl font-black" style="color: var(--text-main);">Karur Central Testing Yard</h2>
+                    <p class="text-xs sm:text-sm font-medium leading-relaxed" style="color: var(--text-muted);">Our flagship automated testing facility featuring 4 parallel lanes equipped with advanced opacimeters, roller brake dynos, and direct RTO database synchronization.</p>
+                    <div class="space-y-3 text-xs font-medium" style="color: var(--text-muted);">
+                        <p><i class="fa-solid fa-location-dot text-emerald-500 mr-2"></i> Karur Central Testing Yard, Tamil Nadu</p>
+                        <p><i class="fa-solid fa-phone text-emerald-500 mr-2"></i> +91 98765 43210</p>
+                        <p><i class="fa-solid fa-clock text-emerald-500 mr-2"></i> Mon - Sat: 8:00 AM - 8:00 PM</p>
+                    </div>
+                    <div class="flex flex-wrap gap-3 pt-2">
+                        <a href="dashboard.html" class="px-6 py-3 text-white font-bold rounded-xl text-xs uppercase tracking-wider shadow-md transition-all hover:opacity-90" style="background-color: var(--primary-color);">
+                            Book Slot at Karur Hub
+                        </a>
+                        <a href="https://maps.google.com/?q=Karur+Central+Testing+Yard+Tamil+Nadu" target="_blank" rel="noopener noreferrer" class="px-6 py-3 font-bold rounded-xl text-xs uppercase tracking-wider border transition-all flex items-center gap-2" style="border-color: var(--border-color); color: var(--text-main);">
+                            <i class="fa-solid fa-map-location-dot text-emerald-500"></i> Open in Maps
+                        </a>
+                    </div>
+                </div>
+                <div class="lg:col-span-6 h-64 sm:h-80 rounded-2xl overflow-hidden border shadow-inner" style="border-color: var(--border-color);">
+                    <iframe title="Karur Central Testing Yard Map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3916.294627448373!2d78.0779!3d10.9601!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTDCsDU3JzM2LjQiTiA3OMKwMDQnNDguNCJF!5e0!3m2!1sen!2sin!4v1650000000000!5m2!1sen!2sin" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 3: REGIONAL HUB 02 - COIMBATORE -->
+        <section class="volt-container">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center bg-white dark:bg-slate-800 p-8 sm:p-12 rounded-3xl border shadow-xl" style="border-color: var(--border-color);">
+                <div class="lg:col-span-6 h-64 sm:h-80 rounded-2xl overflow-hidden border order-2 lg:order-1 shadow-inner" style="border-color: var(--border-color);">
+                    <iframe title="Coimbatore Logistics Depot Map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3916.4!2d76.9558!3d11.0168!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTHCsDAxJzAwLjUiTiA3NsKwNTcxNQuOSJF!5e0!3m2!1sen!2sin!4v1650000000000!5m2!1sen!2sin" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                </div>
+                <div class="lg:col-span-6 space-y-6 order-1 lg:order-2">
+                    <span class="text-xs font-bold uppercase tracking-[0.2em] px-3 py-1 rounded-lg" style="background-color: var(--bg-color); color: var(--primary-color);">Regional Hub</span>
+                    <h2 class="text-2xl sm:text-4xl font-black" style="color: var(--text-main);">Coimbatore Logistics Depot</h2>
+                    <p class="text-xs sm:text-sm font-medium leading-relaxed" style="color: var(--text-muted);">Specialized commercial transport inspection yard capable of accommodating heavy logistics trucks, multi-axle carriers, and municipal bus fleets.</p>
+                    <div class="space-y-3 text-xs font-medium" style="color: var(--text-muted);">
+                        <p><i class="fa-solid fa-location-dot text-emerald-500 mr-2"></i> Avinashi Road Express Lane, Coimbatore</p>
+                        <p><i class="fa-solid fa-phone text-emerald-500 mr-2"></i> +91 98765 43211</p>
+                        <p><i class="fa-solid fa-clock text-emerald-500 mr-2"></i> 24/7 Fleet Access & Automated Testing</p>
+                    </div>
+                    <div class="flex flex-wrap gap-3 pt-2">
+                        <a href="dashboard.html" class="px-6 py-3 text-white font-bold rounded-xl text-xs uppercase tracking-wider shadow-md transition-all hover:opacity-90" style="background-color: var(--primary-color);">
+                            Book Coimbatore Slot
+                        </a>
+                        <a href="https://maps.google.com/?q=Avinashi+Road+Coimbatore" target="_blank" rel="noopener noreferrer" class="px-6 py-3 font-bold rounded-xl text-xs uppercase tracking-wider border transition-all flex items-center gap-2" style="border-color: var(--border-color); color: var(--text-main);">
+                            <i class="fa-solid fa-map-location-dot text-emerald-500"></i> Open in Maps
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 4: REGIONAL HUB 03 - CHENNAI CENTRAL -->
+        <section class="volt-container">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center bg-white dark:bg-slate-800 p-8 sm:p-12 rounded-3xl border shadow-xl" style="border-color: var(--border-color);">
+                <div class="lg:col-span-6 space-y-6">
+                    <span class="text-xs font-bold uppercase tracking-[0.2em] px-3 py-1 rounded-lg" style="background-color: var(--bg-color); color: var(--primary-color);">Regional Hub</span>
+                    <h2 class="text-2xl sm:text-4xl font-black" style="color: var(--text-main);">Chennai Metro Testing Center</h2>
+                    <p class="text-xs sm:text-sm font-medium leading-relaxed" style="color: var(--text-muted);">High-throughput passenger car emissions testing facility located near major arterial bypass corridors for rapid commuter certification.</p>
+                    <div class="space-y-3 text-xs font-medium" style="color: var(--text-muted);">
+                        <p><i class="fa-solid fa-location-dot text-emerald-500 mr-2"></i> GST Road Bypass, Guindy, Chennai</p>
+                        <p><i class="fa-solid fa-phone text-emerald-500 mr-2"></i> +91 98765 43212</p>
+                        <p><i class="fa-solid fa-clock text-emerald-500 mr-2"></i> Mon - Sun: 7:00 AM - 9:00 PM</p>
+                    </div>
+                    <div class="flex flex-wrap gap-3 pt-2">
+                        <a href="dashboard.html" class="px-6 py-3 text-white font-bold rounded-xl text-xs uppercase tracking-wider shadow-md transition-all hover:opacity-90" style="background-color: var(--primary-color);">
+                            Book Chennai Slot
+                        </a>
+                        <a href="https://maps.google.com/?q=Guindy+Chennai" target="_blank" rel="noopener noreferrer" class="px-6 py-3 font-bold rounded-xl text-xs uppercase tracking-wider border transition-all flex items-center gap-2" style="border-color: var(--border-color); color: var(--text-main);">
+                            <i class="fa-solid fa-map-location-dot text-emerald-500"></i> Open in Maps
+                        </a>
+                    </div>
+                </div>
+                <div class="lg:col-span-6 h-64 sm:h-80 rounded-2xl overflow-hidden border shadow-inner" style="border-color: var(--border-color);">
+                    <iframe title="Chennai Metro Testing Center Map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3887.8!2d80.2090!3d13.0067!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTPCsDAwJzI0LjEiTiA4MsKwMTInMzIuNCJF!5e0!3m2!1sen!2sin!4v1650000000000!5m2!1sen!2sin" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                </div>
+            </div>
+        </section>
+
+       
+
+        <!-- SECTION 6: BAY CAPABILITIES & EQUIPMENT -->
+        <section class="volt-container">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="p-8 rounded-3xl border shadow-lg space-y-4 flex flex-col justify-between" style="background-color: var(--card-bg); border-color: var(--border-color);">
+                    <div class="space-y-4">
+                        <div class="w-12 h-12 rounded-2xl flex items-center justify-center text-white font-bold" style="background-color: var(--primary-color);">
+                            <i class="fa-solid fa-microscope"></i>
+                        </div>
+                        <h3 class="font-black text-xl" style="color: var(--text-main);">Lab-Grade Gas Benching</h3>
+                        <p class="text-xs font-medium leading-relaxed" style="color: var(--text-muted);">Calibrated daily against certified reference gases to ensure 100% measurement accuracy.</p>
+                    </div>
+                    <a href="services.html" class="pt-4 font-bold text-xs uppercase tracking-wider flex items-center gap-1.5" style="color: var(--primary-color);">
+                        Explore Equipment <i class="fa-solid fa-arrow-right text-[10px]"></i>
+                    </a>
+                </div>
+                <div class="p-8 rounded-3xl border shadow-lg space-y-4 flex flex-col justify-between" style="background-color: var(--card-bg); border-color: var(--border-color);">
+                    <div class="space-y-4">
+                        <div class="w-12 h-12 rounded-2xl flex items-center justify-center text-white font-bold" style="background-color: var(--secondary-color);">
+                            <i class="fa-solid fa-gauge-high"></i>
+                        </div>
+                        <h3 class="font-black text-xl" style="color: var(--text-main);">Roller Dynamometers</h3>
+                        <p class="text-xs font-medium leading-relaxed" style="color: var(--text-muted);">Heavy-duty inertial rollers testing braking efficiency across all axle weights.</p>
+                    </div>
+                    <a href="services.html" class="pt-4 font-bold text-xs uppercase tracking-wider flex items-center gap-1.5" style="color: var(--secondary-color);">
+                        Explore Equipment <i class="fa-solid fa-arrow-right text-[10px]"></i>
+                    </a>
+                </div>
+                <div class="p-8 rounded-3xl border shadow-lg space-y-4 flex flex-col justify-between" style="background-color: var(--card-bg); border-color: var(--border-color);">
+                    <div class="space-y-4">
+                        <div class="w-12 h-12 rounded-2xl flex items-center justify-center text-white font-bold" style="background-color: var(--primary-color);">
+                            <i class="fa-solid fa-bolt"></i>
+                        </div>
+                        <h3 class="font-black text-xl" style="color: var(--text-main);">Instant Database Sync</h3>
+                        <p class="text-xs font-medium leading-relaxed" style="color: var(--text-muted);">Fiber-optic uplinks ensure your certificate is registered with transport authorities immediately.</p>
+                    </div>
+                    <a href="services.html" class="pt-4 font-bold text-xs uppercase tracking-wider flex items-center gap-1.5" style="color: var(--primary-color);">
+                        View API Specs <i class="fa-solid fa-arrow-right text-[10px]"></i>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 7: CORPORATE FLEET DEPOT SUPPORT -->
+        <section class="volt-container">
+            <div class="rounded-3xl p-8 sm:p-14 border shadow-xl grid grid-cols-1 lg:grid-cols-12 gap-10 items-center" style="background-color: var(--card-bg); border-color: var(--border-color);">
+                <div class="lg:col-span-7 space-y-6">
+                    <span class="text-xs font-bold uppercase tracking-[0.2em]" style="color: var(--primary-color);">On-Site Mobile Testing</span>
+                    <h2 class="text-3xl sm:text-4xl font-black leading-tight" style="color: var(--text-main);">Dedicated Mobile Testing Units for Corporate Depots</h2>
+                    <p class="text-sm font-medium leading-relaxed" style="color: var(--text-muted);">Manage large corporate fleets without dispatching vehicles individually. Our mobile testing vans visit your depot yard directly to perform bulk emissions and safety audits on-site.</p>
+                    <ul class="space-y-2 text-xs font-medium" style="color: var(--text-muted);">
+                        <li><i class="fa-solid fa-check text-emerald-500 mr-2"></i> Zero downtime for operating vehicles</li>
+                        <li><i class="fa-solid fa-check text-emerald-500 mr-2"></i> Certified technicians stationed at your yard</li>
+                        <li><i class="fa-solid fa-check text-emerald-500 mr-2"></i> Bulk certificate issuance & digital delivery</li>
+                    </ul>
+                </div>
+                <div class="lg:col-span-5 p-6 rounded-2xl border text-center space-y-4" style="background-color: var(--bg-color); border-color: var(--border-color);">
+                    <i class="fa-solid fa-truck-fast text-4xl text-emerald-500 mb-2"></i>
+                    <h4 class="font-black text-lg" style="color: var(--text-main);">Request Mobile Van</h4>
+                    <p class="text-xs font-medium" style="color: var(--text-muted);">Schedule an on-site depot visit for fleets exceeding 20 vehicles.</p>
+                    <a href="contact.html" class="block w-full py-3 text-white rounded-xl font-bold text-xs uppercase tracking-widest shadow-md transition-all hover:opacity-90" style="background-color: var(--primary-color);">
+                        Schedule Depot Visit
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 8: OPERATIONAL HOURS & SLA -->
+        <section class="volt-container">
+            <div class="rounded-3xl p-8 sm:p-14 relative overflow-hidden" style="background-color: rgba(9, 52, 1, 0.705);">
+                <div class="relative z-10 max-w-3xl mx-auto text-center space-y-6">
+                    <span class="text-xs font-bold uppercase tracking-[0.2em] text-white">Guaranteed Turnaround</span>
+                    <h2 class="text-3xl sm:text-5xl font-black text-white">15-Minute SLA Across All Hubs</h2>
+                    <p class="text-slate-200 text-sm font-medium leading-relaxed">We maintain strict service level agreements. If your express lane inspection exceeds 15 minutes from your scheduled slot time, your testing fee is fully refunded.</p>
+                    <div class="pt-2 flex flex-wrap justify-center gap-4">
+                        <a href="dashboard.html" class="px-8 py-4 bg-white text-emerald-800 font-bold rounded-xl text-xs uppercase tracking-widest shadow-lg transition-all hover:bg-slate-100">
+                            Book Express Slot
+                        </a>
+                        <a href="contact.html" class="px-8 py-4 bg-white/10 hover:bg-white/20 border border-white/30 text-white font-bold rounded-xl text-xs uppercase tracking-widest backdrop-blur-md transition-all">
+                            View SLA Policy
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 9: LOCATIONS FAQ -->
+        <section class="max-w-3xl volt-container space-y-8">
+            <div class="text-center space-y-3">
+                <span class="inline-block text-xs font-bold uppercase tracking-[0.2em] px-4 py-1.5 rounded-full border" style="background-color: var(--card-bg); border-color: var(--border-color); color: var(--primary-color);">Hub Inquiries</span>
+                <h2 class="text-3xl font-black" style="color: var(--text-main);">Frequently Asked Questions</h2>
+            </div>
+            <div class="space-y-4">
+                <div class="border rounded-2xl cursor-pointer faq-item shadow-sm transition-all duration-300 overflow-hidden" style="background-color: var(--card-bg); border-color: var(--border-color);">
+                    <div class="flex items-center justify-between font-bold text-sm p-6" style="color: var(--text-main);">
+                        <span>Do I need an appointment or can I drive-in directly?</span>
+                        <i class="fa-solid fa-chevron-down transition-transform duration-300 faq-icon" style="color: var(--primary-color);"></i>
+                    </div>
+                    <div class="faq-content hidden px-6 pb-6 text-xs font-medium leading-relaxed" style="color: var(--text-muted);">
+                        While walk-in drive-ins are welcome, booking an express slot online guarantees zero waiting queue and priority bay access.
+                    </div>
+                </div>
+                <div class="border rounded-2xl cursor-pointer faq-item shadow-sm transition-all duration-300 overflow-hidden" style="background-color: var(--card-bg); border-color: var(--border-color);">
+                    <div class="flex items-center justify-between font-bold text-sm p-6" style="color: var(--text-main);">
+                        <span>What documents must I present at the testing hub?</span>
+                        <i class="fa-solid fa-chevron-down transition-transform duration-300 faq-icon" style="color: var(--primary-color);"></i>
+                    </div>
+                    <div class="faq-content hidden px-6 pb-6 text-xs font-medium leading-relaxed" style="color: var(--text-muted);">
+                        Please carry your vehicle Registration Certificate (RC) copy and current valid insurance policy document.
+                    </div>
+                </div>
+                <div class="border rounded-2xl cursor-pointer faq-item shadow-sm transition-all duration-300 overflow-hidden" style="background-color: var(--card-bg); border-color: var(--border-color);">
+                    <div class="flex items-center justify-between font-bold text-sm p-6" style="color: var(--text-main);">
+                        <span>Are testing hubs open on weekends and public holidays?</span>
+                        <i class="fa-solid fa-chevron-down transition-transform duration-300 faq-icon" style="color: var(--primary-color);"></i>
+                    </div>
+                    <div class="faq-content hidden px-6 pb-6 text-xs font-medium leading-relaxed" style="color: var(--text-muted);">
+                        Yes! Our central hubs operate Monday through Saturday from 8:00 AM to 8:00 PM, with select metro yards open on Sundays.
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 10: LOCATIONS CTA BANNER -->
+        <section class="volt-container">
+            <div class="relative p-10 sm:p-16 rounded-3xl overflow-hidden text-center space-y-6 shadow-2xl" style="background: linear-gradient(to bottom right, var(--primary-color), var(--secondary-color));">
+                <div class="absolute top-0 right-0 w-80 h-80 bg-white/10 rounded-full blur-3xl"></div>
+                <div class="absolute bottom-0 left-0 w-80 h-80 bg-white/10 rounded-full blur-3xl opacity-30"></div>
+                <div class="relative z-10 space-y-6">
+                    <span class="px-4 py-1.5 bg-white/20 backdrop-blur text-white font-bold text-xs uppercase tracking-widest rounded-full border border-white/30">Priority Access</span>
+                    <h2 class="text-3xl sm:text-5xl font-black text-white">Ready to Visit Our Nearest Testing Hub?</h2>
+                    <p class="text-white/90 text-sm sm:text-base max-w-xl mx-auto font-medium">Book your express slot today and skip the waiting queue.</p>
+                    <div class="pt-4 flex flex-wrap justify-center gap-4">
+                        <a href="dashboard.html" class="px-8 py-4 bg-white hover:bg-slate-100 font-bold rounded-2xl text-xs uppercase tracking-widest shadow-lg transition-all duration-300" style="color: var(--primary-color);">
+                            Book Inspection Slot
+                        </a>
+                        <a href="contact.html" class="px-8 py-4 bg-white/10 hover:bg-white/20 border border-white/30 text-white font-bold rounded-2xl text-xs uppercase tracking-widest backdrop-blur-md transition-all duration-300">
+                            Contact Hub Support
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer Container -->
+    <div id="siteFooterContainer"></div>
+
+    <script src="./js/main.js"></script>
+  
+</body>
+</html>

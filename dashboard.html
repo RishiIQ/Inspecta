@@ -1,0 +1,703 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enterprise Console & Fleet Dashboard | InspectaPro</title>
+    <link rel="shortcut icon" href="./logo.png" type="image/x-icon">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <link rel="stylesheet" href="./css/main.css">
+    <script>
+        // Initialize Theme and RTL State instantly before render to avoid flickering
+        if (localStorage.getItem('theme') === 'dark') {
+            document.documentElement.classList.add('dark');
+        }
+        const initialDir = localStorage.getItem('dir') || 'ltr';
+        document.documentElement.setAttribute('dir', initialDir);
+
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        cream: { 50: '#fffdf7', 100: '#fef9ed', 200: '#fdf2d9', 300: '#fbe8b8', 400: '#f7d888', 500: '#f2c94c' },
+                        indigoDeep: { 50: '#eef2ff', 100: '#e0e7ff', 200: '#c7d2fe', 300: '#a5b4fc', 400: '#818cf8', 500: '#6366f1', 600: '#4f46e5', 700: '#4338ca', 800: '#3730a3', 900: '#312e81' },
+                        coral: { 50: '#fff1f0', 100: '#ffe0dd', 200: '#ffc6c0', 300: '#ffa39a', 400: '#ff7a6e', 500: '#ff5747', 600: '#ed3a29', 700: '#c72e1f', 800: '#a42a1d', 900: '#88281e' }
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="antialiased font-sans transition-colors duration-300 overflow-x-hidden min-h-screen flex flex-col justify-between" style="background-color: var(--bg-color); color: var(--text-main);">
+         
+    <!-- HEADER BAR WITH BRAND LOGO & TOP CONTROLS -->
+    <header class="sticky top-0 z-50 backdrop-blur-md shadow-sm transition-colors duration-300 border-b" style="background-color: var(--card-bg); border-color: var(--border-color);">
+        <div class="volt-container h-20 flex items-center justify-between gap-4">
+            <!-- Brand Logo -->
+            <a href="index.html" class="flex items-center gap-2.5 font-black text-lg tracking-tight" style="color: var(--text-main);">
+                <div class="w-10 h-10 rounded-xl overflow-hidden flex items-center justify-center shadow-md bg-white/10">
+                    <img src="./logo.png" class="w-full h-full object-cover" alt="InspectaPro Logo">
+                </div>
+                <span>Inspecta<span style="color: var(--primary-color);">Pro</span> <span class="text-[10px] uppercase font-mono px-2 py-0.5 rounded bg-emerald-500/10 text-emerald-500 border border-emerald-500/20 ml-2">Console</span></span>
+            </a>
+
+            <!-- Right Controls -->
+            <div class="flex items-center gap-3">
+                <button type="button" id="headerBookSlotBtn" class="hidden sm:inline-flex items-center gap-1.5 px-4 py-2.5 rounded-xl text-xs font-bold uppercase tracking-wider text-white shadow-md transition-all hover:opacity-90 cursor-pointer" style="background-color: var(--primary-color);">
+                    <i class="fa-solid fa-calendar-check"></i> Book Slot
+                </button>
+                <a href="index.html" class="inline-flex items-center gap-1.5 px-4 py-2.5 rounded-xl text-xs font-bold uppercase tracking-wider border transition-all hover:border-emerald-500" style="background-color: var(--bg-color); border-color: var(--border-color); color: var(--text-main);">
+                    <i class="fa-solid fa-house"></i> Home
+                </a>
+                <button onclick="toggleTheme()" id="themeToggleBtn" class="w-10 h-10 rounded-xl border flex items-center justify-center shadow-sm transition-all cursor-pointer" style="background-color: var(--bg-color); border-color: var(--border-color); color: var(--text-main);" title="Toggle Theme">
+                    <i id="themeIcon" class="fa-solid fa-moon text-xs"></i>
+                </button>
+                <button onclick="toggleRTL()" id="rtlToggleBtn" class="px-3.5 h-10 rounded-xl border flex items-center gap-1.5 shadow-sm font-bold text-xs transition-all cursor-pointer" style="background-color: var(--bg-color); border-color: var(--border-color); color: var(--text-main);" title="Toggle Direction">
+                    <span id="rtlButtonText">RTL</span>
+                    <i id="rtlArrowIcon" class="fa-solid fa-arrow-right text-[10px]"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- DASHBOARD APP SHELL WITH SIDEBAR & ACTIVE PAGE CONTAINER -->
+    <main class="volt-container flex flex-col lg:flex-row gap-8 py-10 items-start flex-1">
+        
+        <!-- SIDEBAR NAVIGATION -->
+        <aside id="dashSidebar" class="w-full lg:w-72 shrink-0 p-6 rounded-3xl border shadow-xl space-y-8 transition-colors duration-300" style="background-color: var(--card-bg); border-color: var(--border-color);">
+            <div class="flex items-center justify-between pb-6 border-b" style="border-color: var(--border-color);">
+                <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 rounded-xl bg-emerald-500/10 text-emerald-500 flex items-center justify-center font-black">
+                        <i class="fa-solid fa-user-gear"></i>
+                    </div>
+                    <div>
+                        <strong id="sidebarTitle" class="block text-xs font-black uppercase tracking-wider" style="color: var(--text-main);">Individual Owner</strong>
+                        <span id="sidebarSubtitle" class="text-[10px]" style="color: var(--text-muted);">Standard Tier</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Role Selector Toggle -->
+            <div class="space-y-2">
+                <p class="text-[10px] font-bold uppercase tracking-widest px-3" style="color: var(--text-muted);">Workspace Mode</p>
+                <div class="grid grid-cols-2 p-1 rounded-xl border text-[11px] font-bold uppercase tracking-wider text-center cursor-pointer" style="background-color: var(--bg-color); border-color: var(--border-color);">
+                    <button type="button" id="btnPersonal" onclick="switchDashboardMode('personal')" class="py-2 rounded-lg transition-all text-white shadow-sm cursor-pointer" style="background-color: var(--primary-color);">Owner</button>
+                    <button type="button" id="btnEnterprise" onclick="switchDashboardMode('enterprise')" class="py-2 rounded-lg transition-all cursor-pointer" style="color: var(--text-muted);">Fleet SaaS</button>
+                </div>
+            </div>
+
+            <!-- Professional Sub-Page Navigation Links -->
+            <div class="space-y-6">
+                <div class="space-y-2">
+                    <p class="text-[10px] font-bold uppercase tracking-widest px-3" style="color: var(--text-muted);">Workspace Pages</p>
+                    <nav class="space-y-1.5 text-xs font-bold uppercase tracking-wider" id="dashNavTabs">
+                        <button type="button" onclick="switchTab('overview')" data-tab="overview" class="w-full flex items-center gap-3 px-4 py-3 rounded-2xl text-white transition-all shadow-sm cursor-pointer text-left" style="background-color: var(--primary-color);">
+                            <i class="fa-solid fa-gauge text-sm w-5"></i> Dashboard Home
+                        </button>
+                        <button type="button" onclick="switchTab('vault')" data-tab="vault" class="w-full flex items-center gap-3 px-4 py-3 rounded-2xl transition-all hover:bg-emerald-500/10 cursor-pointer text-left" style="color: var(--text-main);">
+                            <i class="fa-solid fa-file-shield text-sm w-5 text-emerald-500"></i> RTO Vault & PDFs
+                        </button>
+                        <button type="button" onclick="switchTab('analytics')" data-tab="analytics" class="w-full flex items-center gap-3 px-4 py-3 rounded-2xl transition-all hover:bg-emerald-500/10 cursor-pointer text-left" style="color: var(--text-main);">
+                            <i class="fa-solid fa-chart-line text-sm w-5 text-emerald-500"></i> Fleet Analytics
+                        </button>
+                        <button type="button" onclick="switchTab('settings')" data-tab="settings" class="w-full flex items-center gap-3 px-4 py-3 rounded-2xl transition-all hover:bg-emerald-500/10 cursor-pointer text-left" style="color: var(--text-main);">
+                            <i class="fa-solid fa-sliders text-sm w-5 text-emerald-500"></i> Account Settings
+                        </button>
+                    </nav>
+                </div>
+            </div>
+        </aside>
+
+        <!-- MAIN DASHBOARD CONTENT DYNAMIC CONTAINER -->
+        <div class="flex-1 w-full space-y-10" id="dashboardMainArea">
+            <!-- Dynamic Content Renders Here -->
+        </div>
+    </main>
+
+    <!-- Global Slot Booking Modal Form with Strict Validation -->
+    <div id="globalBookingModal" class="fixed inset-0 z-[99999] flex items-center justify-center p-4 backdrop-blur-md bg-slate-950/70 opacity-0 pointer-events-none transition-all duration-300">
+        <div class="max-w-md w-full p-6 sm:p-8 rounded-3xl border text-left space-y-5 shadow-2xl transition-colors duration-300 relative scale-95 transition-transform duration-300 mx-auto my-auto" id="modalCardBox" style="background-color: var(--card-bg); border-color: var(--border-color);">
+            <div class="flex items-center justify-between pb-3 border-b" style="border-color: var(--border-color);">
+                <div class="flex items-center gap-2">
+                    <div class="w-8 h-8 rounded-xl flex items-center justify-center shadow-md bg-emerald-500/10 text-emerald-500">
+                        <i class="fa-solid fa-calendar-check text-sm"></i>
+                    </div>
+                    <h3 class="text-base sm:text-lg font-black" style="color: var(--text-main);">Book Express Inspection Slot</h3>
+                </div>
+                <button type="button" id="closeGlobalModal" class="w-8 h-8 rounded-xl border flex items-center justify-center text-xs cursor-pointer transition-all hover:bg-emerald-500 hover:text-white" style="background-color: var(--bg-color); border-color: var(--border-color); color: var(--text-main);">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+
+            <p class="text-xs font-medium leading-relaxed" style="color: var(--text-muted);">
+                Secure your 15-minute priority testing lane at Karur Central Hub with instant RTO synchronization.
+            </p>
+
+            <form id="globalBookingForm" class="space-y-4" novalidate>
+                <div>
+                    <label class="block text-[11px] font-bold uppercase tracking-widest mb-1.5" style="color: var(--text-muted);">Vehicle Registration Number</label>
+                    <input type="text" id="modalCarReg" placeholder="e.g. TN47BB9612" class="w-full px-4 py-3 rounded-xl text-xs font-bold uppercase tracking-wider outline-none border transition-all" style="background-color: var(--bg-color); border-color: var(--border-color); color: var(--text-main);" required>
+                    <span class="error-msg" id="regError">Please enter a valid registration format (4–12 alphanumeric).</span>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-[11px] font-bold uppercase tracking-widest mb-1.5" style="color: var(--text-muted);">Mobile Number</label>
+                        <input type="tel" id="modalPhone" placeholder="9876543210" maxlength="10" class="w-full px-4 py-3 rounded-xl text-xs font-bold uppercase tracking-wider outline-none border transition-all" style="background-color: var(--bg-color); border-color: var(--border-color); color: var(--text-main);" required>
+                        <span class="error-msg" id="phoneError">Enter a valid 10-digit mobile number.</span>
+                    </div>
+                    <div>
+                        <label class="block text-[11px] font-bold uppercase tracking-widest mb-1.5" style="color: var(--text-muted);">Testing Hub</label>
+                        <input type="text" id="modalHub" placeholder="Karur Central Hub" value="Karur Central Hub" class="w-full px-4 py-3 rounded-xl text-xs font-bold uppercase tracking-wider outline-none border transition-all" style="background-color: var(--bg-color); border-color: var(--border-color); color: var(--text-main);" required>
+                        <span class="error-msg" id="hubError">Hub name must have at least 3 letters.</span>
+                    </div>
+                </div>
+
+                <div>
+                    <label class="block text-[11px] font-bold uppercase tracking-widest mb-1.5" style="color: var(--text-muted);">Inspection Modality</label>
+                    <select id="modalServiceType" class="w-full px-4 py-3 rounded-xl text-xs font-bold uppercase tracking-wider outline-none border transition-all" style="background-color: var(--bg-color); border-color: var(--border-color); color: var(--text-main);">
+                        <option value="emissions">PUCC & Emissions Testing (15 Min)</option>
+                        <option value="safety">Annual Safety & Brakes Audit (20 Min)</option>
+                        <option value="fitness">Commercial Fleet Fitness Certification (30 Min)</option>
+                    </select>
+                </div>
+
+                <button type="submit" class="w-full py-4 text-white rounded-xl font-bold text-xs uppercase tracking-widest shadow-lg transition-all hover:opacity-90 cursor-pointer" style="background-color: var(--primary-color);">
+                    Confirm Appointment Slot
+                </button>
+            </form>
+        </div>
+    </div>
+
+
+
+    <script src="./js/main.js"></script>
+    <script>
+        let currentMode = 'personal';
+        let currentActiveTab = 'overview';
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const rtlSpan = document.getElementById('rtlButtonText');
+            const rtlArrow = document.getElementById('rtlArrowIcon');
+            const isRtl = document.documentElement.getAttribute('dir') === 'rtl';
+            if (rtlSpan && rtlArrow) {
+                rtlSpan.textContent = isRtl ? 'LTR' : 'RTL';
+                rtlArrow.className = isRtl ? 'fa-solid fa-arrow-left text-[9px]' : 'fa-solid fa-arrow-right text-[9px]';
+            }
+
+            // Modal Trigger & Strict Validation Logic
+            const modal = document.getElementById('globalBookingModal');
+            const modalCard = document.getElementById('modalCardBox');
+            const closeBtn = document.getElementById('closeGlobalModal');
+            const headerBookBtn = document.getElementById('headerBookSlotBtn');
+            const bookForm = document.getElementById('globalBookingForm');
+
+            const openModal = () => {
+                if (modal && modalCard) {
+                    modal.classList.remove('opacity-0', 'pointer-events-none');
+                    modalCard.classList.remove('scale-95');
+                    modalCard.classList.add('scale-100');
+                    document.body.style.overflow = 'hidden';
+                }
+            };
+
+            const closeModal = () => {
+                if (modal && modalCard) {
+                    modal.classList.add('opacity-0', 'pointer-events-none');
+                    modalCard.classList.remove('scale-100');
+                    modalCard.classList.add('scale-95');
+                    document.body.style.overflow = 'auto';
+                }
+            };
+
+            if (headerBookBtn) headerBookBtn.onclick = openModal;
+            if (closeBtn) closeBtn.onclick = closeModal;
+            if (modal) {
+                modal.onclick = (e) => {
+                    if (e.target === modal) closeModal();
+                };
+            }
+
+            if (bookForm) {
+                const phoneField = document.getElementById('modalPhone');
+                if (phoneField) {
+                    phoneField.oninput = (e) => {
+                        e.target.value = e.target.value.replace(/\D/g, '');
+                    };
+                }
+
+                bookForm.onsubmit = null;
+                bookForm.addEventListener('submit', (e) => {
+                    e.preventDefault();
+                    let isValid = true;
+
+                    const regInput = document.getElementById('modalCarReg');
+                    const phoneInput = document.getElementById('modalPhone');
+                    const hubInput = document.getElementById('modalHub');
+
+                    const regError = document.getElementById('regError');
+                    const phoneError = document.getElementById('phoneError');
+                    const hubError = document.getElementById('hubError');
+
+                    // Reg validation
+                    const vehicleRegex = /^[A-Z0-9]{4,12}$/i;
+                    if (!regInput.value.trim() || !vehicleRegex.test(regInput.value.trim().replace(/\s+/g, ''))) {
+                        regInput.classList.add('input-error');
+                        if (regError) regError.style.display = 'block';
+                        isValid = false;
+                    } else {
+                        regInput.classList.remove('input-error');
+                        if (regError) regError.style.display = 'none';
+                    }
+
+                    // Phone validation (Strictly mandatory 10 digits)
+                    if (!phoneInput.value.trim() || phoneInput.value.length !== 10 || !/^\d{10}$/.test(phoneInput.value.trim())) {
+                        phoneInput.classList.add('input-error');
+                        if (phoneError) phoneError.style.display = 'block';
+                        isValid = false;
+                    } else {
+                        phoneInput.classList.remove('input-error');
+                        if (phoneError) phoneError.style.display = 'none';
+                    }
+
+                    // Hub validation
+                    if (!hubInput.value.trim() || hubInput.value.trim().length < 3) {
+                        hubInput.classList.add('input-error');
+                        if (hubError) hubError.style.display = 'block';
+                        isValid = false;
+                    } else {
+                        hubInput.classList.remove('input-error');
+                        if (hubError) hubError.style.display = 'none';
+                    }
+
+                    // Only proceed if ALL checks pass successfully
+                    if (isValid) {
+                        alert(`Success! Inspection slot confirmed for vehicle ${regInput.value.toUpperCase()} at "${hubInput.value}". Confirmation SMS dispatched to ${phoneInput.value}.`);
+                        closeModal();
+                        bookForm.reset();
+                    } else {
+                        
+                    }
+                });
+            }
+
+            renderDashboard();
+        });
+
+        function switchDashboardMode(mode) {
+            currentMode = mode;
+            renderDashboard();
+        }
+
+        function switchTab(tabName) {
+            currentActiveTab = tabName;
+            document.querySelectorAll('#dashNavTabs button').forEach(btn => {
+                if (btn.getAttribute('data-tab') === tabName) {
+                    btn.style.backgroundColor = 'var(--primary-color)';
+                    btn.style.color = '#ffffff';
+                    btn.classList.add('shadow-sm');
+                } else {
+                    btn.style.backgroundColor = 'transparent';
+                    btn.style.color = 'var(--text-main)';
+                    btn.classList.remove('shadow-sm');
+                }
+            });
+            renderDashboard();
+        }
+
+        function renderDashboard() {
+            const btnPersonal = document.getElementById('btnPersonal');
+            const btnEnterprise = document.getElementById('btnEnterprise');
+            const sidebarTitle = document.getElementById('sidebarTitle');
+            const sidebarSubtitle = document.getElementById('sidebarSubtitle');
+            const contentContainer = document.getElementById('dashboardMainArea');
+
+            if (currentMode === 'personal') {
+                btnPersonal.style.backgroundColor = 'var(--primary-color)';
+                btnPersonal.style.color = '#ffffff';
+                btnEnterprise.style.backgroundColor = 'transparent';
+                btnEnterprise.style.color = 'var(--text-muted)';
+                sidebarTitle.textContent = 'Individual Owner';
+                sidebarSubtitle.textContent = 'Standard Tier';
+
+                if (currentActiveTab === 'overview') {
+                    contentContainer.innerHTML = `
+                        <!-- WELCOME BANNER -->
+                        <div class="p-8 sm:p-10 rounded-3xl border shadow-xl flex flex-col md:flex-row justify-between items-start md:items-center gap-6 relative overflow-hidden" style="background-color: var(--card-bg); border-color: var(--border-color);">
+                            <div class="absolute -top-16 -right-16 w-44 h-44 rounded-full blur-3xl opacity-20 pointer-events-none" style="background-color: var(--primary-color);"></div>
+                            <div class="space-y-2 relative z-10">
+                                <span class="inline-block text-[10px] font-bold uppercase tracking-[0.2em] px-3 py-1 rounded-lg bg-emerald-500/10 text-emerald-500">Customer Portal</span>
+                                <h1 class="text-3xl sm:text-4xl font-black tracking-tight" style="color: var(--text-main);">Welcome back, Rishi M.</h1>
+                                <p class="text-xs sm:text-sm font-medium" style="color: var(--text-muted);">Active Vehicles: 2 Registered | Karur Central Testing Hub</p>
+                            </div>
+                            <div class="flex gap-3 relative z-10">
+                                <button type="button" onclick="document.getElementById('globalBookingModal').classList.remove('opacity-0', 'pointer-events-none'); document.getElementById('modalCardBox').classList.remove('scale-95'); document.getElementById('modalCardBox').classList.add('scale-100');" class="px-6 py-3.5 text-white font-bold rounded-xl text-xs uppercase tracking-wider shadow-md transition-all hover:opacity-90 cursor-pointer" style="background-color: var(--primary-color);">
+                                    <i class="fa-solid fa-plus mr-1.5"></i> Book Slot
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- METRICS GRID -->
+                        <div class="grid grid-cols-2 gap-4 items-stretch">
+                            <div class="p-6 rounded-3xl border shadow-lg space-y-2 flex flex-col justify-between h-full" style="background-color: var(--card-bg); border-color: var(--border-color);">
+                                <div>
+                                    <span class="text-[11px] uppercase font-bold tracking-wider" style="color: var(--text-muted);">Registered Vehicles</span>
+                                    <div class="text-3xl font-black font-mono mt-1" style="color: var(--text-main);">02</div>
+                                </div>
+                                <p class="text-[10px] font-semibold text-emerald-500 mt-2">100% RTO Synced</p>
+                            </div>
+                            <div class="p-6 rounded-3xl border shadow-lg space-y-2 flex flex-col justify-between h-full" style="background-color: var(--card-bg); border-color: var(--border-color);">
+                                <div>
+                                    <span class="text-[11px] uppercase font-bold tracking-wider" style="color: var(--text-muted);">Active Bookings</span>
+                                    <div class="text-3xl font-black font-mono mt-1" style="color: var(--text-main);">01</div>
+                                </div>
+                                <p class="text-[10px] font-semibold mt-2" style="color: var(--text-muted);">Express Lane #2</p>
+                            </div>
+                            <div class="p-6 rounded-3xl border shadow-lg space-y-2 flex flex-col justify-between h-full" style="background-color: var(--card-bg); border-color: var(--border-color);">
+                                <div>
+                                    <span class="text-[11px] uppercase font-bold tracking-wider" style="color: var(--text-muted);">Renewal Due</span>
+                                    <div class="text-3xl font-black font-mono mt-1" style="color: var(--text-main);">00</div>
+                                </div>
+                                <p class="text-[10px] font-semibold text-emerald-500 mt-2">All certificates valid</p>
+                            </div>
+                            <div class="p-6 rounded-3xl border shadow-lg space-y-2 flex flex-col justify-between h-full" style="background-color: var(--card-bg); border-color: var(--border-color);">
+                                <div>
+                                    <span class="text-[11px] uppercase font-bold tracking-wider" style="color: var(--text-muted);">Vault PDFs</span>
+                                    <div class="text-3xl font-black font-mono mt-1" style="color: var(--text-main);">04</div>
+                                </div>
+                                <p class="text-[10px] font-semibold mt-2" style="color: var(--text-muted);">Cloud secured</p>
+                            </div>
+                        </div>
+
+                        <!-- ACTIVE APPOINTMENT SLIP & RECENT AUDIT LOGS -->
+                        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+                            <div class="lg:col-span-7 p-8 rounded-3xl border shadow-xl space-y-4 flex flex-col justify-between" style="background-color: var(--card-bg); border-color: var(--border-color);">
+                                <div class="space-y-3">
+                                    <div class="flex items-center gap-3">
+                                        <span class="px-3 py-1 rounded-lg text-xs font-mono font-bold bg-emerald-500/20 text-emerald-500">TN47BB9612</span>
+                                        <span class="text-xs font-bold uppercase tracking-wider text-amber-500"><i class="fa-solid fa-clock mr-1"></i> Tomorrow, 10:30 AM</span>
+                                    </div>
+                                    <h3 class="text-lg font-black" style="color: var(--text-main);">TVS Raider 125 & Emissions Audit</h3>
+                                    <p class="text-xs font-medium" style="color: var(--text-muted);">Karur Central Testing Yard — Express Lane #2</p>
+                                </div>
+                                <button type="button" onclick="alert('Downloading appointment pass PDF...')" class="w-full py-3 text-white rounded-xl font-bold text-xs uppercase tracking-wider shadow-md transition-all hover:opacity-90 cursor-pointer" style="background-color: var(--primary-color);">
+                                    <i class="fa-solid fa-download mr-1.5"></i> Download Pass PDF
+                                </button>
+                            </div>
+
+                            <div class="lg:col-span-5 p-8 rounded-3xl border shadow-xl space-y-4" style="background-color: var(--card-bg); border-color: var(--border-color);">
+                                <h3 class="font-black text-base" style="color: var(--text-main);">Recent Inspection Activity</h3>
+                                <div class="space-y-3 text-xs">
+                                    <div class="p-3 rounded-xl border flex items-center justify-between" style="background-color: var(--bg-color); border-color: var(--border-color);">
+                                        <div>
+                                            <strong class="block font-bold" style="color: var(--text-main);">PUCC Renewal Passed</strong>
+                                            <span class="text-[10px]" style="color: var(--text-muted);">TN47BB9612 • Karur Hub</span>
+                                        </div>
+                                        <span class="text-[10px] font-mono text-emerald-500 font-bold">Verified</span>
+                                    </div>
+                                    <div class="p-3 rounded-xl border flex items-center justify-between" style="background-color: var(--bg-color); border-color: var(--border-color);">
+                                        <div>
+                                            <strong class="block font-bold" style="color: var(--text-main);">Annual Brake Check</strong>
+                                            <span class="text-[10px]" style="color: var(--text-muted);">TN49BB9012 • Guindy Center</span>
+                                        </div>
+                                        <span class="text-[10px] font-mono text-emerald-500 font-bold">Passed</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- VEHICLE ROSTER -->
+                        <div class="space-y-6">
+                            <div class="flex items-center justify-between">
+                                <h3 class="text-xl font-black" style="color: var(--text-main);">My Registered Vehicles</h3>
+                                <button type="button" onclick="alert('Opening vehicle registration wizard...')" class="px-4 py-2 rounded-xl text-xs font-bold uppercase tracking-wider border transition-all hover:border-emerald-500 cursor-pointer" style="border-color: var(--border-color); color: var(--text-main);">
+                                    <i class="fa-solid fa-car mr-1 text-emerald-500"></i> Register New Vehicle
+                                </button>
+                            </div>
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                <div class="p-6 sm:p-8 rounded-3xl border shadow-lg space-y-4" style="background-color: var(--card-bg); border-color: var(--border-color);">
+                                    <div class="flex items-center justify-between">
+                                        <span class="text-xs font-mono font-bold px-3 py-1 rounded-md bg-emerald-500/10 text-emerald-500">TN47BB9612</span>
+                                        <span class="text-[10px] font-bold uppercase tracking-widest text-emerald-500">Active RTO Sync</span>
+                                    </div>
+                                    <h4 class="font-black text-lg" style="color: var(--text-main);">TVS Raider 125 Motorcycle</h4>
+                                    <p class="text-xs font-medium" style="color: var(--text-muted);">PUCC Valid Until: <strong style="color: var(--text-main);">Nov 2026</strong></p>
+                                    <button type="button" onclick="alert('Downloading PUCC certificate PDF...')" class="w-full py-3 rounded-xl font-bold text-xs uppercase tracking-wider border transition-all cursor-pointer hover:border-emerald-500" style="border-color: var(--border-color); color: var(--text-main);">
+                                        <i class="fa-solid fa-file-pdf text-red-500 mr-1.5"></i> Download Certificate PDF
+                                    </button>
+                                </div>
+                                <div class="p-6 sm:p-8 rounded-3xl border shadow-lg space-y-4" style="background-color: var(--card-bg); border-color: var(--border-color);">
+                                    <div class="flex items-center justify-between">
+                                        <span class="text-xs font-mono font-bold px-3 py-1 rounded-md bg-emerald-500/10 text-emerald-500">TN49BB9012</span>
+                                        <span class="text-[10px] font-bold uppercase tracking-widest text-emerald-500">Active RTO Sync</span>
+                                    </div>
+                                    <h4 class="font-black text-lg" style="color: var(--text-main);">Tata Nexon Commuter Car</h4>
+                                    <p class="text-xs font-medium" style="color: var(--text-muted);">Fitness Valid Until: <strong style="color: var(--text-main);">Jan 2027</strong></p>
+                                    <button type="button" onclick="alert('Downloading Fitness certificate PDF...')" class="w-full py-3 rounded-xl font-bold text-xs uppercase tracking-wider border transition-all cursor-pointer hover:border-emerald-500" style="border-color: var(--border-color); color: var(--text-main);">
+                                        <i class="fa-solid fa-file-pdf text-red-500 mr-1.5"></i> Download Certificate PDF
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                } else if (currentActiveTab === 'vault') {
+                    contentContainer.innerHTML = `
+                        <div class="p-8 sm:p-10 rounded-3xl border shadow-xl space-y-6" style="background-color: var(--card-bg); border-color: var(--border-color);">
+                            <div class="flex items-center justify-between">
+                                <div>
+                                    <span class="text-xs font-bold uppercase tracking-[0.2em] text-emerald-500">Cloud Storage</span>
+                                    <h2 class="text-2xl font-black mt-1" style="color: var(--text-main);">RTO Certificate Vault & Archives</h2>
+                                </div>
+                                <button type="button" onclick="alert('Opening document upload portal...')" class="px-4 py-2.5 rounded-xl text-xs font-bold uppercase tracking-wider border transition-all hover:border-emerald-500 cursor-pointer" style="border-color: var(--border-color); color: var(--text-main);">
+                                    <i class="fa-solid fa-upload mr-1 text-emerald-500"></i> Upload Document
+                                </button>
+                            </div>
+                            <p class="text-xs font-medium leading-relaxed" style="color: var(--text-muted);">Access your cryptographically secured digital document archive. All certificates are stored with 256-bit SSL encryption and remain permanently accessible for roadside inspections.</p>
+                            
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 pt-2">
+                                <div class="p-6 rounded-2xl border space-y-3" style="background-color: var(--bg-color); border-color: var(--border-color);">
+                                    <span class="text-xs font-mono font-bold px-3 py-1 rounded bg-emerald-500/10 text-emerald-500">TN47BB9612</span>
+                                    <h4 class="font-black text-base" style="color: var(--text-main);">TVS Raider 125 Motorcycle - PUCC</h4>
+                                    <p class="text-xs" style="color: var(--text-muted);">Issued: Nov 12, 2025 | Valid Until: Nov 2026</p>
+                                    <button type="button" onclick="alert('Downloading PUCC PDF...')" class="w-full py-2.5 rounded-xl font-bold text-xs uppercase tracking-wider border transition-all cursor-pointer" style="border-color: var(--border-color); color: var(--text-main);">Download PDF</button>
+                                </div>
+                                <div class="p-6 rounded-2xl border space-y-3" style="background-color: var(--bg-color); border-color: var(--border-color);">
+                                    <span class="text-xs font-mono font-bold px-3 py-1 rounded bg-emerald-500/10 text-emerald-500">TN49BB9012</span>
+                                    <h4 class="font-black text-base" style="color: var(--text-main);">Tata Nexon Car - Fitness Certificate</h4>
+                                    <p class="text-xs" style="color: var(--text-muted);">Issued: Jan 15, 2025 | Valid Until: Jan 2027</p>
+                                    <button type="button" onclick="alert('Downloading Fitness PDF...')" class="w-full py-2.5 rounded-xl font-bold text-xs uppercase tracking-wider border transition-all cursor-pointer" style="border-color: var(--border-color); color: var(--text-main);">Download PDF</button>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                } else if (currentActiveTab === 'analytics') {
+                    contentContainer.innerHTML = `
+                        <div class="p-8 sm:p-10 rounded-3xl border shadow-xl space-y-6" style="background-color: var(--card-bg); border-color: var(--border-color);">
+                            <span class="text-xs font-bold uppercase tracking-[0.2em] text-emerald-500">Performance Metrics</span>
+                            <h2 class="text-2xl font-black" style="color: var(--text-main);">Personal Compliance & Maintenance Analytics</h2>
+                            <p class="text-xs font-medium leading-relaxed" style="color: var(--text-muted);">Your registered vehicles maintain a 100% clean record with zero missed audit deadlines or state penalties over the last 24 months.</p>
+                            
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 pt-2">
+                                <div class="p-6 rounded-2xl border space-y-3" style="background-color: var(--bg-color); border-color: var(--border-color);">
+                                    <div class="flex justify-between text-xs font-bold" style="color: var(--text-main);">
+                                        <span>Emission Compliance Index</span>
+                                        <span class="text-emerald-500">100% Optimal</span>
+                                    </div>
+                                    <div class="w-full h-2.5 rounded-full bg-slate-200 dark:bg-slate-700 overflow-hidden">
+                                        <div class="w-full h-full bg-emerald-500"></div>
+                                    </div>
+                                    <p class="text-[11px]" style="color: var(--text-muted);">Carbon monoxide output is 42% below statutory limits.</p>
+                                </div>
+                                <div class="p-6 rounded-2xl border space-y-3" style="background-color: var(--bg-color); border-color: var(--border-color);">
+                                    <div class="flex justify-between text-xs font-bold" style="color: var(--text-main);">
+                                        <span>Service Punctuality Score</span>
+                                        <span class="text-emerald-500">9.8 / 10</span>
+                                    </div>
+                                    <div class="w-full h-2.5 rounded-full bg-slate-200 dark:bg-slate-700 overflow-hidden">
+                                        <div class="w-[98%] h-full bg-emerald-500"></div>
+                                    </div>
+                                    <p class="text-[11px]" style="color: var(--text-muted);">Based on express testing lane arrival punctuality.</p>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                } else if (currentActiveTab === 'settings') {
+                    contentContainer.innerHTML = `
+                        <div class="p-8 sm:p-10 rounded-3xl border shadow-xl space-y-6" style="background-color: var(--card-bg); border-color: var(--border-color);">
+                            <span class="text-xs font-bold uppercase tracking-[0.2em] text-emerald-500">Preferences</span>
+                            <h2 class="text-2xl font-black" style="color: var(--text-main);">Account & Notification Settings</h2>
+                            <div class="space-y-4 pt-2">
+                                <div class="flex items-center justify-between p-4 rounded-xl border" style="background-color: var(--bg-color); border-color: var(--border-color);">
+                                    <div>
+                                        <strong class="block text-xs font-bold" style="color: var(--text-main);">WhatsApp & SMS Expiry Alerts</strong>
+                                        <span class="text-[11px]" style="color: var(--text-muted);">Receive notifications 30, 15, and 7 days prior to expiry</span>
+                                    </div>
+                                    <input type="checkbox" checked class="accent-emerald-600 w-4 h-4 cursor-pointer">
+                                </div>
+                                <div class="flex items-center justify-between p-4 rounded-xl border" style="background-color: var(--bg-color); border-color: var(--border-color);">
+                                    <div>
+                                        <strong class="block text-xs font-bold" style="color: var(--text-main);">Automated RTO Database Sync</strong>
+                                        <span class="text-[11px]" style="color: var(--text-muted);">Directly sync new test results with state transport registries</span>
+                                    </div>
+                                    <input type="checkbox" checked class="accent-emerald-600 w-4 h-4 cursor-pointer">
+                                </div>
+                                <div class="flex items-center justify-between p-4 rounded-xl border" style="background-color: var(--bg-color); border-color: var(--border-color);">
+                                    <div>
+                                        <strong class="block text-xs font-bold" style="color: var(--text-main);">Email Newsletter Dispatches</strong>
+                                        <span class="text-[11px]" style="color: var(--text-muted);">Receive weekly compliance updates and transport policy briefs</span>
+                                    </div>
+                                    <input type="checkbox" class="accent-emerald-600 w-4 h-4 cursor-pointer">
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                }
+            } else {
+                btnEnterprise.style.backgroundColor = 'var(--primary-color)';
+                btnEnterprise.style.color = '#ffffff';
+                btnPersonal.style.backgroundColor = 'transparent';
+                btnPersonal.style.color = 'var(--text-muted)';
+
+                sidebarTitle.textContent = 'Apex Logistics Network';
+                sidebarSubtitle.textContent = 'Enterprise SaaS Tier';
+
+                if (currentActiveTab === 'overview') {
+                    contentContainer.innerHTML = `
+                        <!-- WELCOME BANNER -->
+                        <div class="p-8 sm:p-10 rounded-3xl border shadow-xl flex flex-col md:flex-row justify-between items-start md:items-center gap-6 relative overflow-hidden" style="background-color: var(--card-bg); border-color: var(--border-color);">
+                            <div class="absolute -top-16 -right-16 w-44 h-44 rounded-full blur-3xl opacity-20 pointer-events-none" style="background-color: var(--primary-color);"></div>
+                            <div class="space-y-2 relative z-10">
+                                <span class="inline-block text-[10px] font-bold uppercase tracking-[0.2em] px-3 py-1 rounded-lg bg-emerald-500/10 text-emerald-500">Enterprise SaaS Console</span>
+                                <h1 class="text-3xl sm:text-4xl font-black tracking-tight" style="color: var(--text-main);">Fleet Operations Overview</h1>
+                                <p class="text-xs sm:text-sm font-medium" style="color: var(--text-muted);">Active Fleet Units: 1,280 | Regional Depots: 4 Active Hubs</p>
+                            </div>
+                            <div class="flex gap-3 relative z-10">
+                                <button type="button" onclick="document.getElementById('globalBookingModal').classList.remove('opacity-0', 'pointer-events-none'); document.getElementById('modalCardBox').classList.remove('scale-95'); document.getElementById('modalCardBox').classList.add('scale-100');" class="px-6 py-3.5 text-white font-bold rounded-xl text-xs uppercase tracking-wider shadow-md transition-all hover:opacity-90 cursor-pointer" style="background-color: var(--primary-color);">
+                                    <i class="fa-solid fa-plus mr-1.5"></i> Register Vehicle Batch
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- METRICS GRID -->
+                        <div class="grid grid-cols-2 lg:grid-cols-4 gap-4">
+                            <div class="p-6 rounded-3xl border shadow-lg space-y-2" style="background-color: var(--card-bg); border-color: var(--border-color);">
+                                <span class="text-[11px] uppercase font-bold tracking-wider" style="color: var(--text-muted);">Total Active Units</span>
+                                <div class="text-3xl font-black font-mono" style="color: var(--text-main);">1,280</div>
+                                <p class="text-[10px] font-semibold text-emerald-500">+48 added this month</p>
+                            </div>
+                            <div class="p-6 rounded-3xl border shadow-lg space-y-2" style="background-color: var(--card-bg); border-color: var(--border-color);">
+                                <span class="text-[11px] uppercase font-bold tracking-wider" style="color: var(--text-muted);">Pending Audits</span>
+                                <div class="text-3xl font-black font-mono" style="color: var(--text-main);">14</div>
+                                <p class="text-[10px] font-semibold text-amber-500">Queued for testing lanes</p>
+                            </div>
+                            <div class="p-6 rounded-3xl border shadow-lg space-y-2" style="background-color: var(--card-bg); border-color: var(--border-color);">
+                                <span class="text-[11px] uppercase font-bold tracking-wider" style="color: var(--text-muted);">Compliance Index</span>
+                                <div class="text-3xl font-black font-mono text-emerald-500">99.4%</div>
+                                <p class="text-[10px] font-semibold text-emerald-500">Optimal status</p>
+                            </div>
+                            <div class="p-6 rounded-3xl border shadow-lg space-y-2" style="background-color: var(--card-bg); border-color: var(--border-color);">
+                                <span class="text-[11px] uppercase font-bold tracking-wider" style="color: var(--text-muted);">Vault PDFs</span>
+                                <div class="text-3xl font-black font-mono" style="color: var(--text-main);">5,120</div>
+                                <p class="text-[10px] font-semibold" style="color: var(--text-muted);">Cloud archive secured</p>
+                            </div>
+                        </div>
+
+                        <!-- LIVE TELEMETRY STREAM -->
+                        <div class="p-8 sm:p-10 rounded-3xl border shadow-xl space-y-6" style="background-color: var(--card-bg); border-color: var(--border-color);">
+                            <div class="flex justify-between items-center">
+                                <div>
+                                    <span class="text-xs font-bold uppercase tracking-[0.2em]" style="color: var(--primary-color);">Live IoT Feed</span>
+                                    <h3 class="text-xl font-black mt-1" style="color: var(--text-main);">Connected Enterprise Telemetry</h3>
+                                </div>
+                                <span class="px-3 py-1 rounded-full text-[10px] font-bold bg-emerald-500/10 text-emerald-500 border border-emerald-500/20">API Stream Active</span>
+                            </div>
+                            <div class="p-5 rounded-2xl border font-mono text-xs space-y-2.5" style="background-color: var(--bg-color); border-color: var(--border-color); color: var(--text-muted);">
+                                <p class="text-emerald-500">[15:10:02] NODE_01: Fleet batch #409 connected via CAN-Bus. Active units: 1280.</p>
+                                <p>[15:10:08] DIAGNOSTIC: Zero emission fault codes detected across active logistics corridor.</p>
+                                <p class="text-emerald-500">[15:10:14] RTO_SYNC: Batch cryptographic ledger verified successfully with transport database.</p>
+                            </div>
+                        </div>
+                    `;
+                } else if (currentActiveTab === 'vault') {
+                    contentContainer.innerHTML = `
+                        <div class="space-y-6">
+                            <div class="flex items-center justify-between">
+                                <div>
+                                    <span class="text-xs font-bold uppercase tracking-[0.2em] text-emerald-500">Enterprise Repository</span>
+                                    <h2 class="text-2xl font-black mt-1" style="color: var(--text-main);">Certificate Vault & Audit Packs</h2>
+                                </div>
+                                <button type="button" onclick="alert('Exporting complete corporate audit pack...')" class="px-4 py-2.5 rounded-xl text-xs font-bold uppercase tracking-wider border transition-all hover:border-emerald-500 cursor-pointer" style="border-color: var(--border-color); color: var(--text-main);">
+                                    <i class="fa-solid fa-file-arrow-down mr-1 text-emerald-500"></i> Export Audit Pack
+                                </button>
+                            </div>
+                            <div class="overflow-x-auto rounded-3xl border shadow-lg" style="background-color: var(--card-bg); border-color: var(--border-color);">
+                                <table class="w-full text-left border-collapse text-xs">
+                                    <thead>
+                                        <tr class="border-b" style="border-color: var(--border-color); background-color: var(--bg-color);">
+                                            <th class="p-4 sm:p-6 font-black uppercase tracking-wider" style="color: var(--text-main);">Certificate ID</th>
+                                            <th class="p-4 sm:p-6 font-black uppercase tracking-wider" style="color: var(--text-main);">Vehicle Reg</th>
+                                            <th class="p-4 sm:p-6 font-black uppercase tracking-wider" style="color: var(--text-main);">Modality Type</th>
+                                            <th class="p-4 sm:p-6 font-black uppercase tracking-wider text-right" style="color: var(--text-main);">Action</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody class="divide-y font-medium" style="border-color: var(--border-color); color: var(--text-muted);">
+                                        <tr>
+                                            <td class="p-4 sm:p-6 font-mono font-bold" style="color: var(--text-main);">CERT-ENT-2026-901</td>
+                                            <td class="p-4 sm:p-6 font-bold" style="color: var(--text-main);">TN-33-EX-9012</td>
+                                            <td class="p-4 sm:p-6">Commercial Fitness & PUCC Audit</td>
+                                            <td class="p-4 sm:p-6 text-right">
+                                                <button type="button" onclick="alert('Downloading enterprise audit pack PDF...')" class="px-3 py-1.5 rounded-lg text-white font-bold uppercase tracking-wider text-[10px] cursor-pointer" style="background-color: var(--primary-color);">Download PDF</button>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="p-4 sm:p-6 font-mono font-bold" style="color: var(--text-main);">CERT-ENT-2026-902</td>
+                                            <td class="p-4 sm:p-6 font-bold" style="color: var(--text-main);">KA-02-HX-4410</td>
+                                            <td class="p-4 sm:p-6">OBD-II Telematics & Emission Audit</td>
+                                            <td class="p-4 sm:p-6 text-right">
+                                                <button type="button" onclick="alert('Downloading enterprise audit pack PDF...')" class="px-3 py-1.5 rounded-lg text-white font-bold uppercase tracking-wider text-[10px] cursor-pointer" style="background-color: var(--primary-color);">Download PDF</button>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    `;
+                } else if (currentActiveTab === 'analytics') {
+                    contentContainer.innerHTML = `
+                        <div class="p-8 sm:p-10 rounded-3xl border shadow-xl space-y-6" style="background-color: var(--card-bg); border-color: var(--border-color);">
+                            <span class="text-xs font-bold uppercase tracking-[0.2em] text-emerald-500">Logistics Intelligence</span>
+                            <h2 class="text-2xl font-black" style="color: var(--text-main);">Fleet Performance & Fuel Analytics</h2>
+                            <p class="text-xs font-medium leading-relaxed" style="color: var(--text-muted);">Real-time combustion optimization and idling analysis across 1,280 active units indicates a 6.2% fuel efficiency improvement this quarter.</p>
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                <div class="p-6 rounded-2xl border space-y-2" style="background-color: var(--bg-color); border-color: var(--border-color);">
+                                    <span class="text-xs font-bold uppercase tracking-wider" style="color: var(--text-muted);">Avg Fleet Fuel Economy</span>
+                                    <div class="text-2xl font-black font-mono text-emerald-500">4.8 km/L</div>
+                                    <p class="text-[10px]" style="color: var(--text-muted);">+0.3 km/L vs previous quarter</p>
+                                </div>
+                                <div class="p-6 rounded-2xl border space-y-2" style="background-color: var(--bg-color); border-color: var(--border-color);">
+                                    <span class="text-xs font-bold uppercase tracking-wider" style="color: var(--text-muted);">Total Distance Logged</span>
+                                    <div class="text-2xl font-black font-mono" style="color: var(--text-main);">4,82,100 km</div>
+                                    <p class="text-[10px]" style="color: var(--text-muted);">Across 4 regional transport corridors</p>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                } else if (currentActiveTab === 'settings') {
+                    contentContainer.innerHTML = `
+                        <div class="p-8 sm:p-10 rounded-3xl border shadow-xl space-y-6" style="background-color: var(--card-bg); border-color: var(--border-color);">
+                            <span class="text-xs font-bold uppercase tracking-[0.2em] text-emerald-500">SaaS Configuration</span>
+                            <h2 class="text-2xl font-black" style="color: var(--text-main);">Enterprise Webhooks & API Keys</h2>
+                            <div class="space-y-4 pt-2">
+                                <div>
+                                    <label class="block text-[11px] font-bold uppercase tracking-widest mb-1.5" style="color: var(--text-muted);">Production API Secret Key</label>
+                                    <div class="flex gap-2">
+                                        <input type="password" value="sk_live_inspectapro_99821873910" readonly class="w-full px-4 py-3 rounded-xl text-xs font-mono border outline-none" style="background-color: var(--bg-color); border-color: var(--border-color); color: var(--text-main);">
+                                        <button type="button" onclick="alert('API key copied to clipboard!')" class="px-5 py-3 rounded-xl font-bold text-xs uppercase tracking-wider border cursor-pointer hover:border-emerald-500" style="border-color: var(--border-color); color: var(--text-main);">Copy</button>
+                                    </div>
+                                </div>
+                                <div class="flex items-center justify-between p-4 rounded-xl border" style="background-color: var(--bg-color); border-color: var(--border-color);">
+                                    <div>
+                                        <strong class="block text-xs font-bold" style="color: var(--text-main);">Automated Slack & Webhook Dispatch</strong>
+                                        <span class="text-[11px]" style="color: var(--text-muted);">Push compliance alerts directly to corporate communication channels</span>
+                                    </div>
+                                    <input type="checkbox" checked class="accent-emerald-600 w-4 h-4 cursor-pointer">
+                                </div>
+                                <div class="flex items-center justify-between p-4 rounded-xl border" style="background-color: var(--bg-color); border-color: var(--border-color);">
+                                    <div>
+                                        <strong class="block text-xs font-bold" style="color: var(--text-main);">Multi-Branch Hierarchy Isolation</strong>
+                                        <span class="text-[11px]" style="color: var(--text-muted);">Restrict regional depot supervisors to local vehicle rosters</span>
+                                    </div>
+                                    <input type="checkbox" checked class="accent-emerald-600 w-4 h-4 cursor-pointer">
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                }
+            }
+        }
+    </script>
+</body>
+</html>

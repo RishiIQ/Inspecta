@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>InspectaPro | Enterprise Fleet Compliance SaaS Platform</title>
+    <link rel="shortcut icon" href="./logo.png" type="image/x-icon">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <link rel="stylesheet" href="./css/main.css">
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        cream: { 50: '#fffdf7', 100: '#fef9ed', 200: '#fdf2d9', 300: '#fbe8b8', 400: '#f7d888', 500: '#f2c94c' },
+                        indigoDeep: { 50: '#eef2ff', 100: '#e0e7ff', 200: '#c7d2fe', 300: '#a5b4fc', 400: '#818cf8', 500: '#6366f1', 600: '#4f46e5', 700: '#4338ca', 800: '#3730a3', 900: '#312e81' },
+                        coral: { 50: '#fff1f0', 100: '#ffe0dd', 200: '#ffc6c0', 300: '#ffa39a', 400: '#ff7a6e', 500: '#ff5747', 600: '#ed3a29', 700: '#c72e1f', 800: '#a42a1d', 900: '#88281e' }
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="antialiased font-sans transition-colors duration-300 overflow-x-hidden" style="background-color: var(--bg-color); color: var(--text-main);">
+         
+    <!-- Header Container -->
+    <div id="siteHeaderContainer" class="sticky top-0 z-50"></div>
+
+    <main class="space-y-20 sm:space-y-32 pb-20 sm:pb-32">
+                 
+        <!-- SECTION 1: SAAS HERO WITH TELEMETRY MOCKUP -->
+        <section class="relative pt-16 sm:pt-24 pb-24 sm:pb-36 overflow-hidden transition-colors duration-300" style="background: linear-gradient(to right, rgba(255, 255, 255, 0.9), rgba(239, 233, 233, 0.4)), url('https://imgs.search.brave.com/3Udf3IlNNFCNuEiEXV7Rjy-opraGyT2FZSCN_YPnRB4/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9wbmcu/cG5ndHJlZS5jb20v/dGh1bWJfYmFjay9m/aDI2MC9iYWNrZ3Jv/dW5kLzIwMjQwOTEx/L3BuZ3RyZWUtbWVj/aGFuaWMtdXNlcy10/YWJsZXQtdG8taW5z/cGVjdC12aXJ0dWFs/LWNhci1mb3ItcmVw/YWlycy1pbWFnZV8x/NjE2MTUxNC5qcGc'); background-size: cover; background-repeat: no-repeat;">
+            <div class="absolute top-20 right-0 w-80 sm:w-96 h-80 sm:h-96 rounded-full blur-3xl pointer-events-none" style="background-color: var(--primary-color); opacity: 0.15;"></div>
+            <div class="absolute bottom-0 left-0 w-72 sm:w-80 h-72 sm:h-80 rounded-full blur-3xl pointer-events-none" style="background-color: var(--secondary-color); opacity: 0.2;"></div>
+
+            <div class="volt-container grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-14 items-center relative z-10">
+                <!-- SaaS Value Proposition -->
+                <div class="lg:col-span-6 space-y-6 sm:space-y-8 text-center lg:text-left">
+                    <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full shadow-sm text-[11px] font-bold uppercase tracking-[0.15em]" style="background-color: var(--card-bg); border: 1px solid var(--border-color); color: var(--primary-color);">
+                        <span class="w-2 h-2 rounded-full animate-pulse" style="background-color: var(--primary-color);"></span>
+                        Next-Gen Fleet Compliance Engine
+                    </div>
+                    <h1 class="text-4xl sm:text-5xl lg:text-6xl text-green-900 font-black tracking-tight leading-[1.08]" >
+                        Automated RTO Audits & 
+                        <span class="block text-transparent bg-clip-text" style="background-image: linear-gradient(to right, var(--primary-color), var(--secondary-color));">Real-Time Fleet Telematics.</span>
+                    </h1>
+                    <p class="text-sm sm:text-base text-gray-600 font-medium max-w-xl mx-auto lg:mx-0 leading-relaxed" >
+                        Eliminate manual spreadsheet tracking. InspectaPro connects directly with state transport databases to sync PUCC statuses, dispatch automated expiry alerts, and vault compliance documents instantly.
+                    </p>
+                                         
+                    <div class="flex flex-col sm:flex-row justify-center lg:justify-start gap-4 pt-2">
+                        <a href="dashboard.html" class="px-8 py-4 text-white font-bold rounded-2xl uppercase tracking-wider text-xs shadow-lg transition-all duration-300 text-center hover:opacity-90" style="background-color: var(--primary-color);">
+                            Start 14-Day Free Trial
+                        </a>
+                        <a href="contact.html" class="px-8 py-4 font-bold rounded-2xl uppercase tracking-wider text-xs shadow-sm transition-all duration-300 text-center border backdrop-blur-md" style="background-color: var(--card-bg); border-color: var(--border-color); color: var(--text-main);">
+                            Request Live Demo
+                        </a>
+                    </div>
+
+                    <div class="pt-4 flex items-center justify-center lg:justify-start gap-6 text-xs font-semibold" style="color: var(--text-muted);">
+                        <span class="flex items-center gap-1.5 text-gray-500"><i class="fa-solid fa-circle-check" ></i> No credit card required</span>
+                        <span class="flex items-center gap-1.5 text-gray-500"><i class="fa-solid fa-circle-check" ></i> 5-min onboarding</span>
+                    </div>
+                </div>
+
+                <!-- SaaS Live Telemetry & Status Mockup Card -->
+                <div class="lg:col-span-6 w-full">
+                    <div class="relative">
+                        <div class="absolute -inset-2 rounded-[2.5rem] blur-2xl opacity-30" style="background: linear-gradient(to bottom right, var(--primary-color), var(--secondary-color));"></div>
+                        <div class="relative p-6 sm:p-8 rounded-3xl shadow-2xl transition-colors duration-300 border space-y-6" style="background-color: var(--card-bg); border-color: var(--border-color);">
+                            
+                            <!-- Mockup Header Bar -->
+                            <div class="flex items-center justify-between pb-4 border-b" style="border-color: var(--border-color);">
+                                <div class="flex items-center gap-3">
+                                    <div class="flex gap-1.5">
+                                        <div class="w-3 h-3 rounded-full bg-red-400"></div>
+                                        <div class="w-3 h-3 rounded-full bg-amber-400"></div>
+                                        <div class="w-3 h-3 rounded-full bg-emerald-400"></div>
+                                    </div>
+                                    <span class="text-[11px] font-mono font-bold" style="color: var(--text-muted);">fleet-telemetry-node-04.io</span>
+                                </div>
+                                <span class="px-2.5 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider bg-emerald-500/10 text-emerald-500 border border-emerald-500/20">Live Sync Active</span>
+                            </div>
+
+                            <!-- Mockup Stats Grid -->
+                            <div class="grid grid-cols-2 gap-4">
+                                <div class="p-4 rounded-2xl border" style="background-color: var(--bg-color); border-color: var(--border-color);">
+                                    <span class="text-xs uppercase tracking-wider font-bold block mb-1" style="color: var(--text-muted);">Active Fleet</span>
+                                    <span class="text-2xl sm:text-3xl font-black font-mono" style="color: var(--text-main);">142 <span class="text-xs font-sans text-emerald-500 font-bold">+12 this mo</span></span>
+                                </div>
+                                <div class="p-4 rounded-2xl border" style="background-color: var(--bg-color); border-color: var(--border-color);">
+                                    <span class="text-xs uppercase tracking-wider font-bold block mb-1" style="color: var(--text-muted);">Compliance Score</span>
+                                    <span class="text-2xl sm:text-3xl font-black font-mono text-emerald-500">98.4%</span>
+                                </div>
+                            </div>
+
+                            <!-- Mockup Activity Stream -->
+                            <div class="space-y-3 pt-2">
+                                <p class="text-[10px] font-bold uppercase tracking-widest" style="color: var(--text-muted);">Real-Time Audit Stream</p>
+                                <div class="p-3 rounded-xl border flex items-center justify-between text-xs" style="background-color: var(--bg-color); border-color: var(--border-color);">
+                                    <div class="flex items-center gap-2.5">
+                                        <i class="fa-solid fa-car text-emerald-500"></i>
+                                        <div>
+                                            <strong class="block font-bold" style="color: var(--text-main);">TN49BB9012</strong>
+                                            <span class="text-[10px]" style="color: var(--text-muted);">PUCC Renewed & Synced</span>
+                                        </div>
+                                    </div>
+                                    <span class="text-[10px] font-mono" style="color: var(--text-muted);">Just now</span>
+                                </div>
+                                <div class="p-3 rounded-xl border flex items-center justify-between text-xs" style="background-color: var(--bg-color); border-color: var(--border-color);">
+                                    <div class="flex items-center gap-2.5">
+                                        <i class="fa-solid fa-triangle-exclamation text-amber-500"></i>
+                                        <div>
+                                            <strong class="block font-bold" style="color: var(--text-main);">KA02HX4410</strong>
+                                            <span class="text-[10px]" style="color: var(--text-muted);">Safety Audit Due in 48h</span>
+                                        </div>
+                                    </div>
+                                    <span class="text-[10px] font-mono" style="color: var(--text-muted);">4m ago</span>
+                                </div>
+                            </div>
+
+                            <!-- SaaS Action Button inside Card -->
+                            <a href="dashboard.html" class="block w-full py-3.5 rounded-xl font-bold text-xs uppercase tracking-widest text-center text-white transition-all shadow-md" style="background-color: var(--secondary-color);">
+                                Access Full Enterprise Console
+                            </a>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 2: METRICS / TRUST BANNER -->
+        <section class="volt-container">
+            <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 p-6 sm:p-8 rounded-3xl border shadow-xl" style="background-color: var(--card-bg); border-color: var(--border-color);">
+                <div class="text-center space-y-1">
+                    <span class="text-3xl sm:text-4xl font-black font-mono" style="color: var(--primary-color);">99.9%</span>
+                    <p class="text-xs font-bold uppercase tracking-wider" style="color: var(--text-muted);">Cloud API Uptime</p>
+                </div>
+                <div class="text-center space-y-1">
+                    <span class="text-3xl sm:text-4xl font-black font-mono" style="color: var(--text-main);">500K+</span>
+                    <p class="text-xs font-bold uppercase tracking-wider" style="color: var(--text-muted);">Certificates Vaulted</p>
+                </div>
+                <div class="text-center space-y-1">
+                    <span class="text-3xl sm:text-4xl font-black font-mono" style="color: var(--primary-color);">0%</span>
+                    <p class="text-xs font-bold uppercase tracking-wider" style="color: var(--text-muted);">Expiry Penalties</p>
+                </div>
+                <div class="text-center space-y-1">
+                    <span class="text-3xl sm:text-4xl font-black font-mono" style="color: var(--text-main);">24/7</span>
+                    <p class="text-xs font-bold uppercase tracking-wider" style="color: var(--text-muted);">Automated Sync</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 3: CORE SaaS MODULES -->
+        <section class="volt-container space-y-12">
+            <div class="text-center max-w-2xl mx-auto space-y-4">
+                <span class="inline-block text-xs font-bold uppercase tracking-[0.2em] px-4 py-1.5 rounded-full border" style="background-color: var(--card-bg); border-color: var(--border-color); color: var(--primary-color);">Cloud Software Modules</span>
+                <h2 class="text-3xl sm:text-5xl font-black leading-tight" style="color: var(--text-main);">Everything Your Fleet Needs to Stay Compliant</h2>
+                <p class="text-sm font-medium" style="color: var(--text-muted);">Designed for logistics managers, transport fleet supervisors, and corporate compliance officers.</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="p-8 rounded-3xl border shadow-lg space-y-4 hover:shadow-2xl transition-all" style="background-color: var(--card-bg); border-color: var(--border-color);">
+                    <div class="w-14 h-14 rounded-2xl flex items-center justify-center text-xl font-bold text-white shadow-md" style="background-color: var(--primary-color);">
+                        <i class="fa-solid fa-plug"></i>
+                    </div>
+                    <h3 class="font-black text-xl" style="color: var(--text-main);">RTO Registry API</h3>
+                    <p class="text-xs font-medium leading-relaxed" style="color: var(--text-muted);">Direct bidirectional integration with state transport registries for automated compliance verification and instant status updates.</p>
+                </div>
+                <div class="p-8 rounded-3xl border shadow-lg space-y-4 hover:shadow-2xl transition-all" style="background-color: var(--card-bg); border-color: var(--border-color);">
+                    <div class="w-14 h-14 rounded-2xl flex items-center justify-center text-xl font-bold text-white shadow-md" style="background-color: var(--secondary-color);">
+                        <i class="fa fa-bell" aria-hidden="true"></i>
+                    </div>
+                    <h3 class="font-black text-xl" style="color: var(--text-main);">Smart Expiry Webhooks</h3>
+                    <p class="text-xs font-medium leading-relaxed" style="color: var(--text-muted);">Automated WhatsApp, SMS, and Email alert sequences triggered 30, 15, and 7 days prior to PUCC or insurance expiration.</p>
+                </div>
+                <div class="p-8 rounded-3xl border shadow-lg space-y-4 hover:shadow-2xl transition-all" style="background-color: var(--card-bg); border-color: var(--border-color);">
+                    <div class="w-14 h-14 rounded-2xl flex items-center justify-center text-xl font-bold text-white shadow-md" style="background-color: var(--primary-color);">
+                        <i class="fa-solid fa-building-user"></i>
+                    </div>
+                    <h3 class="font-black text-xl" style="color: var(--text-main);">Multi-Branch Control</h3>
+                    <p class="text-xs font-medium leading-relaxed" style="color: var(--text-muted);">Manage regional transport yards and separate sub-fleets with role-based access permissions and consolidated reporting.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 4: INTERACTIVE ROI CALCULATOR WIDGET -->
+        <section class="volt-container">
+            <div class="rounded-3xl p-8 sm:p-14 border shadow-2xl grid grid-cols-1 lg:grid-cols-12 gap-10 items-center" style="background-color: var(--card-bg); border-color: var(--border-color);">
+                <div class="lg:col-span-6 space-y-6">
+                    <span class="text-xs font-bold uppercase tracking-[0.2em]" style="color: var(--primary-color);">Interactive SaaS Tool</span>
+                    <h2 class="text-3xl sm:text-4xl font-black leading-tight" style="color: var(--text-main);">Calculate Your Fleet Compliance Savings</h2>
+                    <p class="text-sm font-medium leading-relaxed" style="color: var(--text-muted);">See how much time and penalty cost InspectaPro saves your business annually by automating routine audit workflows.</p>
+                    
+                    <div class="space-y-4 pt-2">
+                        <div>
+                            <div class="flex justify-between text-xs font-bold mb-2" style="color: var(--text-main);">
+                                <span>Fleet Size (Vehicles):</span>
+                                <span id="fleetCountVal" style="color: var(--primary-color);">45 Vehicles</span>
+                            </div>
+                            <input type="range" id="fleetSlider" min="5" max="500" value="45" class="w-full accent-emerald-600 cursor-pointer">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="lg:col-span-6 p-8 rounded-2xl border text-center space-y-6" style="background-color: var(--bg-color); border-color: var(--border-color);">
+                    <span class="text-xs uppercase font-bold tracking-widest block" style="color: var(--text-muted);">Estimated Annual Savings</span>
+                    <div class="text-4xl sm:text-5xl font-black font-mono" style="color: var(--primary-color);" id="savingsOutput">₹1,84,000</div>
+                    <p class="text-xs font-medium leading-relaxed" style="color: var(--text-muted);">Based on average fine avoidance, manual audit hours saved, and paperless certificate archiving.</p>
+                    <a href="dashboard.html" class="block w-full py-4 text-white font-bold rounded-xl text-xs uppercase tracking-widest shadow-lg transition-all hover:opacity-90" style="background-color: var(--primary-color);">
+                        Claim Your Enterprise Trial
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 5: PRICING PLANS -->
+        <section class="volt-container space-y-12">
+            <div class="text-center max-w-2xl mx-auto space-y-4">
+                <span class="inline-block text-xs font-bold uppercase tracking-[0.2em] px-4 py-1.5 rounded-full border" style="background-color: var(--card-bg); border-color: var(--border-color); color: var(--primary-color);">SaaS Subscription Tiers</span>
+                <h2 class="text-3xl sm:text-5xl font-black" style="color: var(--text-main);">Simple, Transparent Pricing</h2>
+                <p class="text-sm font-medium" style="color: var(--text-muted);">Choose the plan that fits your logistics scale. Upgrade or downgrade anytime.</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <!-- Starter Plan -->
+                <div class="rounded-3xl p-8 shadow-lg space-y-6 flex flex-col justify-between transition-colors duration-300 border" style="background-color: var(--card-bg); border-color: var(--border-color);">
+                    <div>
+                        <div class="space-y-3 mb-6">
+                            <span class="text-xs font-bold uppercase tracking-widest px-3 py-1 rounded-lg" style="background-color: var(--bg-color); color: var(--primary-color);">Starter</span>
+                            <h3 class="text-3xl font-black" style="color: var(--text-main);">₹2,499 <span class="text-xs font-normal" style="color: var(--text-muted);">/month</span></h3>
+                            <p class="text-xs font-medium" style="color: var(--text-muted);">For boutique fleets managing up to 25 commercial vehicles.</p>
+                        </div>
+                        <ul class="space-y-3 text-xs font-medium" style="color: var(--text-muted);">
+                            <li><i class="fa-solid fa-check mr-2" style="color: var(--primary-color);"></i> Up to 25 Vehicles</li>
+                            <li><i class="fa-solid fa-check mr-2" style="color: var(--primary-color);"></i> Basic RTO Registry Sync</li>
+                            <li><i class="fa-solid fa-check mr-2" style="color: var(--primary-color);"></i> Email & SMS Alerts</li>
+                        </ul>
+                    </div>
+                    <a href="dashboard.html" class="w-full py-3 rounded-xl font-bold text-xs uppercase tracking-wider text-center border transition-all mt-auto" style="border-color: var(--border-color); color: var(--text-main);">Get Started</a>
+                </div>
+
+                <!-- Professional Plan -->
+                <div class="rounded-3xl p-8 shadow-xl space-y-6 flex flex-col justify-between transition-colors duration-300 relative border-2" style="background-color: var(--card-bg); border-color: var(--primary-color);">
+                    <div>
+                        <div class="space-y-3 mb-6">
+                            <span class="text-xs font-bold uppercase tracking-widest px-3 py-1 rounded-lg" style="background-color: var(--bg-color); color: var(--primary-color);">Professional</span>
+                            <h3 class="text-3xl font-black" style="color: var(--text-main);">₹6,999 <span class="text-xs font-normal" style="color: var(--text-muted);">/month</span></h3>
+                            <p class="text-xs font-medium" style="color: var(--text-muted);">For growing logistics providers managing up to 150 vehicles.</p>
+                        </div>
+                        <ul class="space-y-3 text-xs font-medium" style="color: var(--text-muted);">
+                            <li><i class="fa-solid fa-check mr-2" style="color: var(--primary-color);"></i> Up to 150 Vehicles</li>
+                            <li><i class="fa-solid fa-check mr-2" style="color: var(--primary-color);"></i> Telematics Hardware Integration</li>
+                            <li><i class="fa-solid fa-check mr-2" style="color: var(--primary-color);"></i> Multi-Branch Control</li>
+                            <li><i class="fa-solid fa-check mr-2" style="color: var(--primary-color);"></i> Priority Support</li>
+                        </ul>
+                    </div>
+                    <a href="dashboard.html" class="w-full py-3 text-white rounded-xl font-bold text-xs uppercase tracking-wider text-center shadow-md transition-all hover:opacity-90 mt-auto" style="background-color: var(--primary-color);">Get Started Pro</a>
+                </div>
+
+                <!-- Enterprise Plan -->
+                <div class="rounded-3xl p-8 shadow-lg space-y-6 flex flex-col justify-between transition-colors duration-300 border" style="background-color: var(--card-bg); border-color: var(--border-color);">
+                    <div>
+                        <div class="space-y-3 mb-6">
+                            <span class="text-xs font-bold uppercase tracking-widest px-3 py-1 rounded-lg" style="background-color: var(--bg-color); color: var(--primary-color);">Enterprise</span>
+                            <h3 class="text-3xl font-black" style="color: var(--text-main);">Custom</h3>
+                            <p class="text-xs font-medium" style="color: var(--text-muted);">For enterprise transport networks with unlimited vehicle capacity.</p>
+                        </div>
+                        <ul class="space-y-3 text-xs font-medium" style="color: var(--text-muted);">
+                            <li><i class="fa-solid fa-check mr-2" style="color: var(--primary-color);"></i> Unlimited Vehicles</li>
+                            <li><i class="fa-solid fa-check mr-2" style="color: var(--primary-color);"></i> Custom ERP & Webhooks</li>
+                            <li><i class="fa-solid fa-check mr-2" style="color: var(--primary-color);"></i> Dedicated Account Manager</li>
+                        </ul>
+                    </div>
+                    <a href="contact.html" class="w-full py-3 rounded-xl font-bold text-xs uppercase tracking-wider text-center border transition-all mt-auto" style="border-color: var(--border-color); color: var(--text-main);">Contact Sales</a>
+                </div>
+            </div>
+        </section>
+
+        
+        <!-- SECTION 6: LIVE TELEMATICS & GPS INTEGRATION -->
+        <section class="volt-container">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
+                <div class="lg:col-span-6 h-72 sm:h-96 rounded-3xl overflow-hidden border shadow-2xl relative" style="border-color: var(--border-color);">
+                    <img src="https://imgs.search.brave.com/5iYIcDmnkWZ643bir2e2Xp9zUbm5SRNTJixd5d3CHF8/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9nb21v/dGl2ZS5jb20vd3At/Y29udGVudC91cGxv/YWRzLzIwMjYvMDEv/dW5pZnlfZGF0YV9h/Y3Jvc3NfeW91cl9i/dXNpbmVzc18yeC53/ZWJwP3c9NjQw" alt="Fleet Telematics" class="w-full h-full object-cover">
+                    <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent flex items-end p-6">
+                        <div class="space-y-1">
+                            <span class="text-[10px] font-mono font-bold px-2.5 py-1 rounded-md bg-emerald-500/20 text-emerald-400 border border-emerald-500/30">OBD-II & CAN-Bus Ready</span>
+                            <h4 class="text-white font-black text-base">Plug-and-Play GPS Telematics Connection</h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="lg:col-span-6 space-y-6">
+                    <span class="inline-block text-xs font-bold uppercase tracking-[0.2em] px-4 py-1.5 rounded-full border" style="background-color: var(--card-bg); border-color: var(--border-color); color: var(--primary-color);">Hardware Sync</span>
+                    <h2 class="text-3xl sm:text-4xl font-black leading-tight" style="color: var(--text-main);">Syncs Automatically With Your Existing Fleet Hardware</h2>
+                    <p class="text-sm font-medium leading-relaxed" style="color: var(--text-muted);">InspectaPro integrates seamlessly with major telematics providers and GPS trackers. Mileage, engine diagnostics, and operational hours stream directly into your compliance log without manual data entry.</p>
+                    
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
+                        <div class="p-4 rounded-2xl border flex items-center gap-3" style="background-color: var(--card-bg); border-color: var(--border-color);">
+                            <i class="fa-solid fa-satellite-dish text-emerald-500 text-lg"></i>
+                            <span class="text-xs font-bold uppercase tracking-wider" style="color: var(--text-main);">Live GPS Tracking</span>
+                        </div>
+                        <div class="p-4 rounded-2xl border flex items-center gap-3" style="background-color: var(--card-bg); border-color: var(--border-color);">
+                            <i class="fa-solid fa-microchip text-emerald-500 text-lg"></i>
+                            <span class="text-xs font-bold uppercase tracking-wider" style="color: var(--text-main);">OBD-II Diagnostics</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 7: ENTERPRISE SECURITY & COMPLIANCE -->
+        <section class="volt-container">
+            <div class="rounded-3xl p-8 sm:p-14 border shadow-xl space-y-10" style="background-color: var(--card-bg); border-color: var(--border-color);">
+                <div class="text-center max-w-2xl mx-auto space-y-3">
+                    <span class="text-xs font-bold uppercase tracking-[0.2em]" style="color: var(--primary-color);">Bank-Grade Infrastructure</span>
+                    <h2 class="text-3xl sm:text-4xl font-black" style="color: var(--text-main);">Enterprise Security You Can Trust</h2>
+                    <p class="text-sm font-medium" style="color: var(--text-muted);">Your sensitive fleet audit data and registration records are secured with state-of-the-art encryption protocols.</p>
+                </div>
+                
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <div class="p-6 rounded-2xl border space-y-3" style="background-color: var(--bg-color); border-color: var(--border-color);">
+                        <div class="w-10 h-10 rounded-xl bg-emerald-500/10 text-emerald-500 flex items-center justify-center font-bold">
+                            <i class="fa-solid fa-lock"></i>
+                        </div>
+                        <h4 class="font-black text-base" style="color: var(--text-main);">256-Bit SSL Encryption</h4>
+                        <p class="text-xs font-medium leading-relaxed" style="color: var(--text-muted);">All data in transit and at rest is secured using robust modern cryptographic standards.</p>
+                    </div>
+                    <div class="p-6 rounded-2xl border space-y-3" style="background-color: var(--bg-color); border-color: var(--border-color);">
+                        <div class="w-10 h-10 rounded-xl bg-emerald-500/10 text-emerald-500 flex items-center justify-center font-bold">
+                            <i class="fa-solid fa-user-shield"></i>
+                        </div>
+                        <h4 class="font-black text-base" style="color: var(--text-main);">Role-Based Access</h4>
+                        <p class="text-xs font-medium leading-relaxed" style="color: var(--text-muted);">Granular permission controls ensure drivers, managers, and admins only access authorized modules.</p>
+                    </div>
+                    <div class="p-6 rounded-2xl border space-y-3" style="background-color: var(--bg-color); border-color: var(--border-color);">
+                        <div class="w-10 h-10 rounded-xl bg-emerald-500/10 text-emerald-500 flex items-center justify-center font-bold">
+                            <i class="fa-solid fa-server"></i>
+                        </div>
+                        <h4 class="font-black text-base" style="color: var(--text-main);">Redundant Backups</h4>
+                        <p class="text-xs font-medium leading-relaxed" style="color: var(--text-muted);">Hourly automated cloud snapshots ensure zero data loss and high availability.</p>
+                    </div>
+                    <div class="p-6 rounded-2xl border space-y-3" style="background-color: var(--bg-color); border-color: var(--border-color);">
+                        <div class="w-10 h-10 rounded-xl bg-emerald-500/10 text-emerald-500 flex items-center justify-center font-bold">
+                            <i class="fa-solid fa-file-contract"></i>
+                        </div>
+                        <h4 class="font-black text-base" style="color: var(--text-main);">Audit Trail Logs</h4>
+                        <p class="text-xs font-medium leading-relaxed" style="color: var(--text-muted);">Immutable system logs track every status modification and certificate download.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 8: INTEGRATION ECOSYSTEM -->
+        <section class="volt-container space-y-10">
+            <div class="text-center max-w-2xl mx-auto space-y-3">
+                <span class="inline-block text-xs font-bold uppercase tracking-[0.2em] px-4 py-1.5 rounded-full border" style="background-color: var(--card-bg); border-color: var(--border-color); color: var(--primary-color);">Seamless Ecosystem</span>
+                <h2 class="text-3xl sm:text-4xl font-black" style="color: var(--text-main);">Connects With Your Favorite Enterprise Tools</h2>
+                <p class="text-sm font-medium" style="color: var(--text-muted);">Integrate compliance notifications and vehicle records directly into your existing corporate stack.</p>
+            </div>
+            
+            <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4">
+                <div class="p-6 rounded-2xl border text-center space-y-2 hover:border-emerald-500 transition-colors" style="background-color: var(--card-bg); border-color: var(--border-color);">
+                    <i class="fa-brands fa-slack text-3xl" style="color: var(--primary-color);"></i>
+                    <span class="block text-xs font-bold uppercase tracking-wider" style="color: var(--text-main);">Slack Alerts</span>
+                </div>
+                <div class="p-6 rounded-2xl border text-center space-y-2 hover:border-emerald-500 transition-colors" style="background-color: var(--card-bg); border-color: var(--border-color);">
+                    <i class="fa-brands fa-whatsapp text-3xl text-emerald-500"></i>
+                    <span class="block text-xs font-bold uppercase tracking-wider" style="color: var(--text-main);">WhatsApp API</span>
+                </div>
+                <div class="p-6 rounded-2xl border text-center space-y-2 hover:border-emerald-500 transition-colors" style="background-color: var(--card-bg); border-color: var(--border-color);">
+                    <i class="fa-brands fa-microsoft text-3xl text-blue-500"></i>
+                    <span class="block text-xs font-bold uppercase tracking-wider" style="color: var(--text-main);">MS Teams</span>
+                </div>
+                <div class="p-6 rounded-2xl border text-center space-y-2 hover:border-emerald-500 transition-colors" style="background-color: var(--card-bg); border-color: var(--border-color);">
+                    <i class="fa-solid fa-envelope-open-text text-3xl text-amber-500"></i>
+                    <span class="block text-xs font-bold uppercase tracking-wider" style="color: var(--text-main);">SendGrid</span>
+                </div>
+                <div class="p-6 rounded-2xl border text-center space-y-2 hover:border-emerald-500 transition-colors" style="background-color: var(--card-bg); border-color: var(--border-color);">
+                    <i class="fa-solid fa-database text-3xl text-indigo-500"></i>
+                    <span class="block text-xs font-bold uppercase tracking-wider" style="color: var(--text-main);">AWS Cloud</span>
+                </div>
+                <div class="p-6 rounded-2xl border text-center space-y-2 hover:border-emerald-500 transition-colors" style="background-color: var(--card-bg); border-color: var(--border-color);">
+                    <i class="fa-solid fa-code text-3xl" style="color: var(--primary-color);"></i>
+                    <span class="block text-xs font-bold uppercase tracking-wider" style="color: var(--text-main);">Custom Webhooks</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 9: SaaS FAQ -->
+        <section class="max-w-3xl volt-container space-y-8">
+            <div class="text-center space-y-3">
+                <span class="inline-block text-xs font-bold uppercase tracking-[0.2em] px-4 py-1.5 rounded-full border" style="background-color: var(--card-bg); border-color: var(--border-color); color: var(--primary-color);">Knowledge Base</span>
+                <h2 class="text-3xl font-black" style="color: var(--text-main);">Frequently Asked Questions</h2>
+            </div>
+            <div class="space-y-4">
+                <div class="border rounded-2xl cursor-pointer faq-item shadow-sm transition-all duration-300 overflow-hidden" style="background-color: var(--card-bg); border-color: var(--border-color);">
+                    <div class="flex items-center justify-between font-bold text-sm p-6" style="color: var(--text-main);">
+                        <span>How quickly can our fleet be onboarded onto InspectaPro?</span>
+                        <i class="fa-solid fa-chevron-down transition-transform duration-300 faq-icon" style="color: var(--primary-color);"></i>
+                    </div>
+                    <div class="faq-content hidden px-6 pb-6 text-xs font-medium leading-relaxed" style="color: var(--text-muted);">
+                        Onboarding takes less than 15 minutes. You can bulk-import your vehicle registration numbers via CSV or connect directly through our RTO registry API connector.
+                    </div>
+                </div>
+                <div class="border rounded-2xl cursor-pointer faq-item shadow-sm transition-all duration-300 overflow-hidden" style="background-color: var(--card-bg); border-color: var(--border-color);">
+                    <div class="flex items-center justify-between font-bold text-sm p-6" style="color: var(--text-main);">
+                        <span>Are the digital certificates legally recognized for transport audits?</span>
+                        <i class="fa-solid fa-chevron-down transition-transform duration-300 faq-icon" style="color: var(--primary-color);"></i>
+                    </div>
+                    <div class="faq-content hidden px-6 pb-6 text-xs font-medium leading-relaxed" style="color: var(--text-muted);">
+                        Yes! All PUCC and fitness certificates stored in our digital vault are officially synced with government transport databases and fully compliant with statutory audit norms.
+                    </div>
+                </div>
+                <div class="border rounded-2xl cursor-pointer faq-item shadow-sm transition-all duration-300 overflow-hidden" style="background-color: var(--card-bg); border-color: var(--border-color);">
+                    <div class="flex items-center justify-between font-bold text-sm p-6" style="color: var(--text-main);">
+                        <span>Can we manage multiple regional transport branches under one account?</span>
+                        <i class="fa-solid fa-chevron-down transition-transform duration-300 faq-icon" style="color: var(--primary-color);"></i>
+                    </div>
+                    <div class="faq-content hidden px-6 pb-6 text-xs font-medium leading-relaxed" style="color: var(--text-muted);">
+                        Absolutely. Our Professional and Enterprise tiers support multi-branch hierarchies, allowing regional supervisors to manage local hubs while giving executives a master dashboard view.
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 10: CTA BANNER -->
+        <section class="volt-container">
+            <div class="relative p-10 sm:p-16 rounded-3xl overflow-hidden text-center space-y-6 shadow-2xl" style="background: linear-gradient(to bottom right, var(--primary-color), var(--secondary-color));">
+                <div class="absolute top-0 right-0 w-80 h-80 bg-white/10 rounded-full blur-3xl"></div>
+                <div class="absolute bottom-0 left-0 w-80 h-80 rounded-full blur-3xl opacity-30" style="background-color: var(--secondary-color);"></div>
+                <div class="relative z-10 space-y-6">
+                    <span class="px-4 py-1.5 bg-white/20 backdrop-blur text-white font-bold text-xs uppercase tracking-widest rounded-full border border-white/30">Enterprise Cloud</span>
+                    <h2 class="text-3xl sm:text-5xl font-black text-white">Ready to Modernize Your Fleet Compliance?</h2>
+                    <p class="text-white/90 text-sm sm:text-base max-w-xl mx-auto font-medium">Deploy InspectaPro SaaS across your operations today.</p>
+                    <div class="pt-4 flex flex-wrap justify-center gap-4">
+                        <a href="dashboard.html" class="px-8 py-4 bg-white hover:bg-slate-100 font-bold rounded-2xl text-xs uppercase tracking-widest shadow-lg transition-all duration-300" style="color: var(--primary-color);">
+                            Start Free Trial
+                        </a>
+                        <a href="contact.html" class="px-8 py-4 bg-white/10 hover:bg-white/20 border border-white/30 text-white font-bold rounded-2xl text-xs uppercase tracking-widest backdrop-blur-md transition-all duration-300">
+                            Request Demo
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>1
+    </main>
+
+    <!-- Footer Container -->
+    <div id="siteFooterContainer"></div>
+
+    <!-- Success Modal -->
+    <div id="successModal" class="lx-modal-overlay">
+        <div class="max-w-md w-full p-8 rounded-3xl border text-center space-y-5 shadow-2xl transition-colors duration-300" style="background-color: var(--card-bg); border-color: var(--border-color);">
+            <div class="w-16 h-16 rounded-full flex items-center justify-center mx-auto text-3xl font-black border-2" style="background-color: var(--bg-color); border-color: var(--border-color); color: var(--primary-color);"><i class="fa-solid fa-check"></i></div>
+            <h3 class="text-2xl font-black" style="color: var(--text-main);">Dashboard Initialized!</h3>
+            <p id="modalDispatchText" class="text-xs font-medium leading-relaxed" style="color: var(--text-muted);"></p>
+            <button type="button" id="closeModalBtn" class="w-full py-3.5 text-white rounded-xl font-bold text-xs uppercase tracking-widest cursor-pointer transition-all duration-300 shadow-lg" style="background-color: var(--primary-color);">
+                Launch SaaS Console
+            </button>
+        </div>
+    </div>
+
+    <script src="./js/main.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Interactive ROI Calculator Logic
+            const slider = document.getElementById('fleetSlider');
+            const valDisplay = document.getElementById('fleetCountVal');
+            const savingsOutput = document.getElementById('savingsOutput');
+
+            if (slider && valDisplay && savingsOutput) {
+                slider.addEventListener('input', (e) => {
+                    const count = e.target.value;
+                    valDisplay.textContent = count + ' Vehicles';
+                    const estimatedSavings = count * 4100;
+                    savingsOutput.textContent = '₹' + estimatedSavings.toLocaleString('en-IN');
+                });
+            }
+
+            const phoneInput = document.getElementById('quickPhone');
+            if (phoneInput) {
+                phoneInput.addEventListener('input', (e) => {
+                    e.target.value = e.target.value.replace(/\D/g, '');
+                });
+            }
+
+            const form = document.getElementById('heroQuickForm');
+            const modal = document.getElementById('successModal');
+            const closeModalBtn = document.getElementById('closeModalBtn');
+            const modalText = document.getElementById('modalDispatchText');
+
+            if (form) {
+                form.addEventListener('submit', (e) => {
+                    e.preventDefault();
+                    let isValid = true;
+                    
+                    const carModel = document.getElementById('carModel');
+                    const phone = document.getElementById('quickPhone');
+                    const location = document.getElementById('locationInput');
+
+                    const vehicleRegex = /^[A-Z0-9]{4,12}$/i;
+                    const carErrorSpan = carModel.nextElementSibling;
+                    if (!carModel.value.trim() || !vehicleRegex.test(carModel.value.trim().replace(/\s+/g, ''))) {
+                        carModel.classList.add('input-error');
+                        if (carErrorSpan && carErrorSpan.classList.contains('error-msg')) carErrorSpan.style.display = 'block';
+                        isValid = false;
+                    } else {
+                        carModel.classList.remove('input-error');
+                        if (carErrorSpan && carErrorSpan.classList.contains('error-msg')) carErrorSpan.style.display = 'none';
+                    }
+
+                    const phoneErrorSpan = phone.nextElementSibling;
+                    if (!phone.value.trim() || phone.value.length !== 10) {
+                        phone.classList.add('input-error');
+                        if (phoneErrorSpan && phoneErrorSpan.classList.contains('error-msg')) phoneErrorSpan.style.display = 'block';
+                        isValid = false;
+                    } else {
+                        phone.classList.remove('input-error');
+                        if (phoneErrorSpan && phoneErrorSpan.classList.contains('error-msg')) phoneErrorSpan.style.display = 'none';
+                    }
+
+                    const locationErrorSpan = location.nextElementSibling;
+                    if (!location.value.trim() || location.value.trim().length < 3) {
+                        location.classList.add('input-error');
+                        if (locationErrorSpan && locationErrorSpan.classList.contains('error-msg')) locationErrorSpan.style.display = 'block';
+                        isValid = false;
+                    } else {
+                        location.classList.remove('input-error');
+                        if (locationErrorSpan && locationErrorSpan.classList.contains('error-msg')) locationErrorSpan.style.display = 'none';
+                    }
+
+                    if (isValid) {
+                        modalText.innerHTML = `Your cloud workspace for prefix <strong>${carModel.value.toUpperCase()}</strong> has been configured at <em>"${location.value}"</em>. Welcome to InspectaPro SaaS.`;
+                        modal.classList.add('is-active');
+                        form.reset();
+                    }
+                });
+            }
+
+            if (closeModalBtn && modal) {
+                closeModalBtn.addEventListener('click', () => {
+                    modal.classList.remove('is-active');
+                    window.location.href = 'dashboard.html';
+                });
+            }
+        });
+    </script>
+</body>
+</html>
