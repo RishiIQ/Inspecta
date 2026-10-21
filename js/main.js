@@ -132,10 +132,10 @@ function injectHeaderAndFooter() {
                         
                         <!-- Social Media Icons -->
                         <div class="flex items-center gap-3 pt-1">
-                            <a href="https://facebook.com" target="_blank" rel="" class="w-8 h-8 rounded-xl flex items-center justify-center text-white transition-colors hover:opacity-80 shadow-sm hover:-translate-y-1" style="background-color: rgb(54, 52, 52);" aria-label="Facebook"><i class="fa-brands fa-facebook-f text-xs"></i></a>
-                            <a href="https://x.com" target="_blank" rel="" class="w-8 h-8 rounded-xl flex items-center justify-center text-white transition-colors hover:opacity-80 shadow-sm hover:-translate-y-1" style="background-color: rgb(54, 52, 52);" aria-label="Twitter"><i class="fa-brands fa-x-twitter text-xs"></i></a>
-                            <a href="https://instagram.com" target="_blank" rel="" class="w-8 h-8 rounded-xl flex items-center justify-center text-white transition-colors hover:opacity-80 shadow-sm hover:-translate-y-1" style="background-color: rgb(54, 52, 52);" aria-label="Instagram"><i class="fa-brands fa-instagram text-xs"></i></a>
-                            <a href="https://linkedin.com" target="_blank" rel="" class="w-8 h-8 rounded-xl flex items-center justify-center text-white transition-colors hover:opacity-80 shadow-sm hover:-translate-y-1" style="background-color: rgb(54, 52, 52);" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in text-xs"></i></a>
+                            <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" class="w-8 h-8 rounded-xl flex items-center justify-center text-white transition-colors hover:opacity-80 shadow-sm" style="background-color: rgb(103, 103, 234);" aria-label="Facebook"><i class="fa-brands fa-facebook-f text-xs"></i></a>
+                            <a href="https://x.com" target="_blank" rel="noopener noreferrer" class="w-8 h-8 rounded-xl flex items-center justify-center text-white transition-colors hover:opacity-80 shadow-sm" style="background-color: rgb(54, 52, 52);" aria-label="Twitter"><i class="fa-brands fa-x-twitter text-xs"></i></a>
+                            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="w-8 h-8 rounded-xl flex items-center justify-center text-white transition-colors hover:opacity-80 shadow-sm" style="background-color: rgb(225, 66, 93);" aria-label="Instagram"><i class="fa-brands fa-instagram text-xs"></i></a>
+                            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="w-8 h-8 rounded-xl flex items-center justify-center text-white transition-colors hover:opacity-80 shadow-sm" style="background-color: rgb(108, 108, 248);" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in text-xs"></i></a>
                         </div>
                     </div>
                     <div>
@@ -156,8 +156,8 @@ function injectHeaderAndFooter() {
                     </div>
                     <div>
                         <h4 class="font-bold text-xs uppercase tracking-widest mb-4" style="color: var(--primary-color);">Contact Hub</h4>
-                        <p class="text-xs font-medium leading-relaxed mb-2" style="color: var(--text-muted);">Karur Central Testing Yard, Tamil Nadu.</p>
-                        <p class="text-xs font-mono font-bold" style="color: var(--primary-color);">+91 98765 43210</p>
+                        <p class="text-xs font-medium leading-relaxed mb-2" style="color: var(--text-muted);">24, Jawahar Bazaar, Karur Central Testing Yard, Tamil Nadu[cite: 3].</p>
+                        <p class="text-xs font-mono font-bold" style="color: var(--primary-color);">+91 98765 43210[cite: 3]</p>
                     </div>
                 </div>
                 <div class="volt-container pt-8 text-center text-[11px] font-medium" style="border-top: 1px solid var(--border-color); color: var(--text-muted);">
@@ -165,6 +165,33 @@ function injectHeaderAndFooter() {
                 </div>
             </footer>
         `;
+    }
+
+    // Global Modal Setup (If not already present on page)
+    if (!document.getElementById('globalBookingModal')) {
+        const modalDiv = document.createElement('div');
+        modalDiv.id = 'globalBookingModal';
+        modalDiv.className = 'fixed inset-0 z-[99999] flex items-center justify-center p-4 backdrop-blur-md bg-slate-950/70 opacity-0 pointer-events-none transition-all duration-300';
+        modalDiv.innerHTML = `
+            <div class="max-w-md w-full p-6 sm:p-8 rounded-3xl border text-left space-y-5 shadow-2xl transition-colors duration-300 relative scale-95 transition-transform duration-300 mx-auto my-auto" id="modalCardBox" style="background-color: var(--card-bg); border-color: var(--border-color);">
+                <div class="flex items-center justify-between pb-3 border-b" style="border-color: var(--border-color);">
+                    <h3 class="text-lg font-black" style="color: var(--text-main);">Express Inspection Slot Booking</h3>
+                    <button type="button" id="closeGlobalModal" class="w-8 h-8 rounded-xl border flex items-center justify-center text-xs cursor-pointer" style="background-color: var(--bg-color); border-color: var(--border-color); color: var(--text-main);">
+                        <i class="fa-solid fa-xmark"></i>
+                    </button>
+                </div>
+                <form id="globalBookingForm" class="space-y-4" novalidate>
+                    <div>
+                        <label class="block text-[11px] font-bold uppercase tracking-widest mb-1.5" style="color: var(--text-muted);">Registration Number</label>
+                        <input type="text" id="modalCarReg" placeholder="e.g. TN49BB9012" class="w-full px-4 py-3 rounded-xl text-xs font-bold uppercase tracking-wider outline-none border transition-all" style="background-color: var(--bg-color); border-color: var(--border-color); color: var(--text-main);" required>
+                    </div>
+                    <button type="submit" class="w-full py-3.5 text-white rounded-xl font-bold text-xs uppercase tracking-widest shadow-lg transition-all hover:opacity-90 cursor-pointer" style="background-color: var(--primary-color);">
+                        Confirm Appointment Slot
+                    </button>
+                </form>
+            </div>
+        `;
+        document.body.appendChild(modalDiv);
     }
 }
 
@@ -191,26 +218,59 @@ function initGlobalInteractions() {
             }
         }
     });
-}
 
-function showError(inputElement, message) {
-    inputElement.classList.add('input-error');
-    let errorSpan = inputElement.nextElementSibling;
-    if (!errorSpan || !errorSpan.classList.contains('error-msg')) {
-        errorSpan = document.createElement('span');
-        errorSpan.className = 'error-msg';
-        inputElement.parentNode.appendChild(errorSpan);
-    }
-    errorSpan.textContent = message;
-    errorSpan.style.display = 'block';
-}
+    // Global Modal Trigger Attachments for Header Buttons
+    setTimeout(() => {
+        const bookBtn = document.getElementById('navBookSlotBtn');
+        const mobileBookBtn = document.getElementById('mobileBookSlotBtn');
+        const modal = document.getElementById('globalBookingModal');
+        const modalCard = document.getElementById('modalCardBox');
+        const closeBtn = document.getElementById('closeGlobalModal');
+        const bookForm = document.getElementById('globalBookingForm');
+        const drawer = document.getElementById('mobileMenuDrawer');
 
-function clearError(inputElement) {
-    inputElement.classList.remove('input-error');
-    const errorSpan = inputElement.nextElementSibling;
-    if (errorSpan && errorSpan.classList.contains('error-msg')) {
-        errorSpan.style.display = 'none';
-    }
+        const openModal = (e) => {
+            if (e) e.preventDefault();
+            if (modal && modalCard) {
+                modal.classList.remove('opacity-0', 'pointer-events-none');
+                modalCard.classList.remove('scale-95');
+                modalCard.classList.add('scale-100');
+                if (drawer) drawer.classList.add('hidden');
+            }
+        };
+
+        if (bookBtn) bookBtn.onclick = openModal;
+        if (mobileBookBtn) mobileBookBtn.onclick = openModal;
+
+        const closeModal = () => {
+            if (modal && modalCard) {
+                modal.classList.add('opacity-0', 'pointer-events-none');
+                modalCard.classList.remove('scale-100');
+                modalCard.classList.add('scale-95');
+            }
+        };
+
+        if (closeBtn) closeBtn.onclick = closeModal;
+        if (modal) {
+            modal.onclick = (e) => {
+                if (e.target === modal) closeModal();
+            };
+        }
+
+        if (bookForm) {
+            bookForm.onsubmit = (e) => {
+                e.preventDefault();
+                const regInput = document.getElementById('modalCarReg');
+                if (regInput && regInput.value.trim()) {
+                    alert(`Slot booked successfully for vehicle ${regInput.value.toUpperCase()}!`);
+                    closeModal();
+                    bookForm.reset();
+                } else {
+                    alert('Please enter a valid registration number.');
+                }
+            };
+        }
+    }, 100);
 }
 
 function toggleTheme() {

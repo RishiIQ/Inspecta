@@ -33,7 +33,7 @@
 </head>
 <body class="antialiased font-sans transition-colors duration-300 overflow-x-hidden min-h-screen flex flex-col justify-between" style="background-color: var(--bg-color); color: var(--text-main);">
          
-    <!-- HEADER BAR WITH BRAND LOGO & TOP CONTROLS -->
+    <!-- HEADER BAR WITH BRAND LOGO & COLLAPSIBLE MOBILE MENU -->
     <header class="sticky top-0 z-50 backdrop-blur-md shadow-sm transition-colors duration-300 border-b" style="background-color: var(--card-bg); border-color: var(--border-color);">
         <div class="volt-container h-20 flex items-center justify-between gap-4">
             <!-- Brand Logo -->
@@ -41,12 +41,12 @@
                 <div class="w-10 h-10 rounded-xl overflow-hidden flex items-center justify-center shadow-md bg-white/10">
                     <img src="./logo.png" class="w-full h-full object-cover" alt="InspectaPro Logo">
                 </div>
-                <span>Inspecta<span style="color: var(--primary-color);">Pro</span> <span class="text-[10px] uppercase font-mono px-2 py-0.5 rounded bg-emerald-500/10 text-emerald-500 border border-emerald-500/20 ml-2">Console</span></span>
+                <span>Inspecta<span style="color: var(--primary-color);">Pro</span></span> <span class="text-[10px] uppercase font-mono px-2 py-0.5 rounded bg-emerald-500/10 text-emerald-500 border border-emerald-500/20">Console</span>
             </a>
 
-            <!-- Right Controls -->
-            <div class="flex items-center gap-3">
-                <button type="button" id="headerBookSlotBtn" class="hidden sm:inline-flex items-center gap-1.5 px-4 py-2.5 rounded-xl text-xs font-bold uppercase tracking-wider text-white shadow-md transition-all hover:opacity-90 cursor-pointer" style="background-color: var(--primary-color);">
+            <!-- Desktop Header Controls (Hidden on Mobile/Tablet) -->
+            <div class="hidden md:flex items-center gap-3">
+                <button type="button" id="headerBookSlotBtn" class="inline-flex items-center gap-1.5 px-4 py-2.5 rounded-xl text-xs font-bold uppercase tracking-wider text-white shadow-md transition-all hover:opacity-90 cursor-pointer" style="background-color: var(--primary-color);">
                     <i class="fa-solid fa-calendar-check"></i> Book Slot
                 </button>
                 <a href="index.html" class="inline-flex items-center gap-1.5 px-4 py-2.5 rounded-xl text-xs font-bold uppercase tracking-wider border transition-all hover:border-emerald-500" style="background-color: var(--bg-color); border-color: var(--border-color); color: var(--text-main);">
@@ -60,14 +60,69 @@
                     <i id="rtlArrowIcon" class="fa-solid fa-arrow-right text-[10px]"></i>
                 </button>
             </div>
+
+            <!-- Mobile Hamburger Menu Button (Visible on Tablet/Mobile only) -->
+            <button type="button" id="mobileMenuToggleBtn" class="md:hidden w-10 h-10 rounded-xl border flex items-center justify-center shadow-sm cursor-pointer transition-all hover:border-emerald-500" style="background-color: var(--bg-color); border-color: var(--border-color); color: var(--text-main);" title="Toggle Menu">
+                <i class="fa-solid fa-bars text-sm"></i>
+            </button>
+        </div>
+
+        <!-- Collapsible Mobile Menu Drawer (Contains all nav buttons & sidebar triggers) -->
+        <div id="mobileMenuDrawer" class="hidden md:hidden border-t px-6 py-6 space-y-6 shadow-2xl transition-all max-h-[85vh] overflow-y-auto" style="background-color: var(--card-bg); border-color: var(--border-color);">
+            <div class="space-y-3">
+                <p class="text-[10px] font-bold uppercase tracking-widest" style="color: var(--text-muted);">Quick Navigation & Controls</p>
+                <div class="grid grid-cols-2 gap-3">
+                    <button type="button" onclick="openModalFromMobile()" class="py-3 px-4 text-white font-bold rounded-xl text-xs uppercase tracking-wider shadow-md text-center cursor-pointer" style="background-color: var(--primary-color);">
+                        <i class="fa-solid fa-calendar-check mr-1"></i> Book Slot
+                    </button>
+                    <a href="index.html" class="py-3 px-4 font-bold rounded-xl text-xs uppercase tracking-wider text-center border flex items-center justify-center gap-1.5" style="background-color: var(--bg-color); border-color: var(--border-color); color: var(--text-main);">
+                        <i class="fa-solid fa-house"></i> Home
+                    </a>
+                    <button onclick="toggleTheme()" class="py-3 px-4 font-bold rounded-xl text-xs uppercase tracking-wider text-center border flex items-center justify-center gap-1.5" style="background-color: var(--bg-color); border-color: var(--border-color); color: var(--text-main);">
+                        <i class="fa-solid fa-moon"></i> Theme
+                    </button>
+                    <button onclick="toggleRTL()" class="py-3 px-4 font-bold rounded-xl text-xs uppercase tracking-wider text-center border flex items-center justify-center gap-1.5" style="background-color: var(--bg-color); border-color: var(--border-color); color: var(--text-main);">
+                        <i class="fa-solid fa-arrow-right-arrow-left"></i> <span id="mobileRtlText">RTL</span>
+                    </button>
+                </div>
+            </div>
+
+            <hr style="border-color: var(--border-color);">
+
+            <!-- Mobile Sidebar Navigation Drawer inside Menu -->
+            <div class="space-y-4">
+                <div class="flex items-center justify-between">
+                    <p class="text-[10px] font-bold uppercase tracking-widest" style="color: var(--text-muted);">Workspace Menu</p>
+                    <span id="mobileSidebarRoleTag" class="text-[10px] font-mono font-bold text-emerald-500">Owner Mode</span>
+                </div>
+                <div class="grid grid-cols-2 p-1 rounded-xl border text-[11px] font-bold uppercase tracking-wider text-center cursor-pointer" style="background-color: var(--bg-color); border-color: var(--border-color);">
+                    <button type="button" id="mobileBtnPersonal" onclick="switchDashboardMode('personal'); toggleMobileMenu();" class="py-2.5 rounded-lg transition-all text-white shadow-sm cursor-pointer" style="background-color: var(--primary-color);">Owner</button>
+                    <button type="button" id="mobileBtnEnterprise" onclick="switchDashboardMode('enterprise'); toggleMobileMenu();" class="py-2.5 rounded-lg transition-all cursor-pointer" style="color: var(--text-muted);">Fleet SaaS</button>
+                </div>
+
+                <nav class="space-y-2 text-xs font-bold uppercase tracking-wider pt-2" id="mobileDashNavTabs">
+                    <button type="button" onclick="switchTab('overview'); toggleMobileMenu();" data-mobile-tab="overview" class="w-full flex items-center gap-3 px-4 py-3 rounded-xl text-white transition-all shadow-sm text-left" style="background-color: var(--primary-color);">
+                        <i class="fa-solid fa-gauge text-sm w-5"></i> Dashboard Home
+                    </button>
+                    <button type="button" onclick="switchTab('vault'); toggleMobileMenu();" data-mobile-tab="vault" class="w-full flex items-center gap-3 px-4 py-3 rounded-xl transition-all text-left border" style="background-color: var(--bg-color); border-color: var(--border-color); color: var(--text-main);">
+                        <i class="fa-solid fa-file-shield text-sm w-5 text-emerald-500"></i> RTO Vault & PDFs
+                    </button>
+                    <button type="button" onclick="switchTab('analytics'); toggleMobileMenu();" data-mobile-tab="analytics" class="w-full flex items-center gap-3 px-4 py-3 rounded-xl transition-all text-left border" style="background-color: var(--bg-color); border-color: var(--border-color); color: var(--text-main);">
+                        <i class="fa-solid fa-chart-line text-sm w-5 text-emerald-500"></i> Fleet Analytics
+                    </button>
+                    <button type="button" onclick="switchTab('settings'); toggleMobileMenu();" data-mobile-tab="settings" class="w-full flex items-center gap-3 px-4 py-3 rounded-xl transition-all text-left border" style="background-color: var(--bg-color); border-color: var(--border-color); color: var(--text-main);">
+                        <i class="fa-solid fa-sliders text-sm w-5 text-emerald-500"></i> Account Settings
+                    </button>
+                </nav>
+            </div>
         </div>
     </header>
 
     <!-- DASHBOARD APP SHELL WITH SIDEBAR & ACTIVE PAGE CONTAINER -->
-    <main class="volt-container flex flex-col lg:flex-row gap-8 py-10 items-start flex-1">
+    <main class="volt-container flex flex-col lg:flex-row gap-8 py-10 items-start flex-1 relative">
         
-        <!-- SIDEBAR NAVIGATION -->
-        <aside id="dashSidebar" class="w-full lg:w-72 shrink-0 p-6 rounded-3xl border shadow-xl space-y-8 transition-colors duration-300" style="background-color: var(--card-bg); border-color: var(--border-color);">
+        <!-- SIDEBAR NAVIGATION (Visible on Desktop LG screens, hidden on mobile/tablet) -->
+        <aside id="dashSidebar" class="w-full lg:w-72 shrink-0 p-6 rounded-3xl border shadow-xl space-y-8 transition-colors duration-300 hidden lg:block" style="background-color: var(--card-bg); border-color: var(--border-color);">
             <div class="flex items-center justify-between pb-6 border-b" style="border-color: var(--border-color);">
                 <div class="flex items-center gap-3">
                     <div class="w-10 h-10 rounded-xl bg-emerald-500/10 text-emerald-500 flex items-center justify-center font-black">
@@ -112,7 +167,7 @@
         </aside>
 
         <!-- MAIN DASHBOARD CONTENT DYNAMIC CONTAINER -->
-        <div class="flex-1 w-full space-y-10" id="dashboardMainArea">
+        <div class="flex-1 w-full space-y-10 min-w-0" id="dashboardMainArea">
             <!-- Dynamic Content Renders Here -->
         </div>
     </main>
@@ -133,7 +188,7 @@
             </div>
 
             <p class="text-xs font-medium leading-relaxed" style="color: var(--text-muted);">
-                Secure your 15-minute priority testing lane at Karur Central Hub with instant RTO synchronization.
+                Secure your 15-minute priority testing lane at Karur Central Testing Yard, Tamil Nadu with instant RTO synchronization.
             </p>
 
             <form id="globalBookingForm" class="space-y-4" novalidate>
@@ -151,7 +206,7 @@
                     </div>
                     <div>
                         <label class="block text-[11px] font-bold uppercase tracking-widest mb-1.5" style="color: var(--text-muted);">Testing Hub</label>
-                        <input type="text" id="modalHub" placeholder="Karur Central Hub" value="Karur Central Hub" class="w-full px-4 py-3 rounded-xl text-xs font-bold uppercase tracking-wider outline-none border transition-all" style="background-color: var(--bg-color); border-color: var(--border-color); color: var(--text-main);" required>
+                        <input type="text" id="modalHub" placeholder="Karur Central Testing Yard" value="Karur Central Testing Yard" class="w-full px-4 py-3 rounded-xl text-xs font-bold uppercase tracking-wider outline-none border transition-all" style="background-color: var(--bg-color); border-color: var(--border-color); color: var(--text-main);" required>
                         <span class="error-msg" id="hubError">Hub name must have at least 3 letters.</span>
                     </div>
                 </div>
@@ -172,7 +227,8 @@
         </div>
     </div>
 
-
+    <!-- Footer Container -->
+    <div id="siteFooterContainer"></div>
 
     <script src="./js/main.js"></script>
     <script>
@@ -181,11 +237,18 @@
 
         document.addEventListener('DOMContentLoaded', () => {
             const rtlSpan = document.getElementById('rtlButtonText');
-            const rtlArrow = document.getElementById('rtlArrowIcon');
+            const mobileRtl = document.getElementById('mobileRtlText');
             const isRtl = document.documentElement.getAttribute('dir') === 'rtl';
-            if (rtlSpan && rtlArrow) {
-                rtlSpan.textContent = isRtl ? 'LTR' : 'RTL';
-                rtlArrow.className = isRtl ? 'fa-solid fa-arrow-left text-[9px]' : 'fa-solid fa-arrow-right text-[9px]';
+            if (rtlSpan) rtlSpan.textContent = isRtl ? 'LTR' : 'RTL';
+            if (mobileRtl) mobileRtl.textContent = isRtl ? 'LTR' : 'RTL';
+
+            // Mobile Menu Drawer Toggle
+            const mobileMenuToggleBtn = document.getElementById('mobileMenuToggleBtn');
+            const mobileMenuDrawer = document.getElementById('mobileMenuDrawer');
+            if (mobileMenuToggleBtn && mobileMenuDrawer) {
+                mobileMenuToggleBtn.onclick = () => {
+                    mobileMenuDrawer.classList.toggle('hidden');
+                };
             }
 
             // Modal Trigger & Strict Validation Logic
@@ -242,7 +305,6 @@
                     const phoneError = document.getElementById('phoneError');
                     const hubError = document.getElementById('hubError');
 
-                    // Reg validation
                     const vehicleRegex = /^[A-Z0-9]{4,12}$/i;
                     if (!regInput.value.trim() || !vehicleRegex.test(regInput.value.trim().replace(/\s+/g, ''))) {
                         regInput.classList.add('input-error');
@@ -253,7 +315,6 @@
                         if (regError) regError.style.display = 'none';
                     }
 
-                    // Phone validation (Strictly mandatory 10 digits)
                     if (!phoneInput.value.trim() || phoneInput.value.length !== 10 || !/^\d{10}$/.test(phoneInput.value.trim())) {
                         phoneInput.classList.add('input-error');
                         if (phoneError) phoneError.style.display = 'block';
@@ -263,7 +324,6 @@
                         if (phoneError) phoneError.style.display = 'none';
                     }
 
-                    // Hub validation
                     if (!hubInput.value.trim() || hubInput.value.trim().length < 3) {
                         hubInput.classList.add('input-error');
                         if (hubError) hubError.style.display = 'block';
@@ -273,13 +333,10 @@
                         if (hubError) hubError.style.display = 'none';
                     }
 
-                    // Only proceed if ALL checks pass successfully
                     if (isValid) {
                         alert(`Success! Inspection slot confirmed for vehicle ${regInput.value.toUpperCase()} at "${hubInput.value}". Confirmation SMS dispatched to ${phoneInput.value}.`);
                         closeModal();
                         bookForm.reset();
-                    } else {
-                        
                     }
                 });
             }
@@ -287,13 +344,50 @@
             renderDashboard();
         });
 
+        function toggleMobileMenu() {
+            const drawer = document.getElementById('mobileMenuDrawer');
+            if (drawer) drawer.classList.add('hidden');
+        }
+
+        function openModalFromMobile() {
+            toggleMobileMenu();
+            const modal = document.getElementById('globalBookingModal');
+            const modalCard = document.getElementById('modalCardBox');
+            if (modal && modalCard) {
+                modal.classList.remove('opacity-0', 'pointer-events-none');
+                modalCard.classList.remove('scale-95');
+                modalCard.classList.add('scale-100');
+                document.body.style.overflow = 'hidden';
+            }
+        }
+
         function switchDashboardMode(mode) {
             currentMode = mode;
+            const roleTag = document.getElementById('mobileSidebarRoleTag');
+            const btnP = document.getElementById('mobileBtnPersonal');
+            const btnE = document.getElementById('mobileBtnEnterprise');
+            
+            if (roleTag) roleTag.textContent = mode === 'personal' ? 'Owner Mode' : 'Fleet SaaS Mode';
+            if (btnP && btnE) {
+                if (mode === 'personal') {
+                    btnP.style.backgroundColor = 'var(--primary-color)';
+                    btnP.style.color = '#ffffff';
+                    btnE.style.backgroundColor = 'transparent';
+                    btnE.style.color = 'var(--text-muted)';
+                } else {
+                    btnE.style.backgroundColor = 'var(--primary-color)';
+                    btnE.style.color = '#ffffff';
+                    btnP.style.backgroundColor = 'transparent';
+                    btnP.style.color = 'var(--text-muted)';
+                }
+            }
             renderDashboard();
         }
 
         function switchTab(tabName) {
             currentActiveTab = tabName;
+            
+            // Highlight desktop sidebar
             document.querySelectorAll('#dashNavTabs button').forEach(btn => {
                 if (btn.getAttribute('data-tab') === tabName) {
                     btn.style.backgroundColor = 'var(--primary-color)';
@@ -305,7 +399,46 @@
                     btn.classList.remove('shadow-sm');
                 }
             });
+
+            // Highlight mobile menu tabs
+            document.querySelectorAll('#mobileDashNavTabs button').forEach(btn => {
+                if (btn.getAttribute('data-mobile-tab') === tabName) {
+                    btn.style.backgroundColor = 'var(--primary-color)';
+                    btn.style.color = '#ffffff';
+                    btn.classList.add('shadow-sm');
+                } else {
+                    btn.style.backgroundColor = 'var(--bg-color)';
+                    btn.style.color = 'var(--text-main)';
+                    btn.classList.remove('shadow-sm');
+                }
+            });
+
             renderDashboard();
+        }
+
+        function downloadPassPDF() {
+            const passContent = `
+INSPECTAPRO - EXPRESS INSPECTION APPOINTMENT PASS
+==================================================
+Vehicle Registration: TN47BB9612
+Testing Hub: Karur Central Testing Yard, Tamil Nadu
+Slot Date & Time: Tomorrow, 10:30 AM
+Modality: PUCC & Emissions Testing (15 Min)
+Status: Confirmed & RTO Synced
+--------------------------------------------------
+Please arrive 10 minutes prior to your allocated slot.
+Carry your vehicle Registration Certificate (RC) copy.
+==================================================
+Secure Digital Vault - InspectaPro Enterprise Console
+            `.trim();
+
+            const blob = new Blob([passContent], { type: 'application/pdf' });
+            const link = document.createElement('a');
+            link.href = window.URL.createObjectURL(blob);
+            link.download = 'InspectaPro_Appointment_Pass_TN47BB9612.pdf';
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
         }
 
         function renderDashboard() {
@@ -316,22 +449,26 @@
             const contentContainer = document.getElementById('dashboardMainArea');
 
             if (currentMode === 'personal') {
-                btnPersonal.style.backgroundColor = 'var(--primary-color)';
-                btnPersonal.style.color = '#ffffff';
-                btnEnterprise.style.backgroundColor = 'transparent';
-                btnEnterprise.style.color = 'var(--text-muted)';
-                sidebarTitle.textContent = 'Individual Owner';
-                sidebarSubtitle.textContent = 'Standard Tier';
+                if(btnPersonal) {
+                    btnPersonal.style.backgroundColor = 'var(--primary-color)';
+                    btnPersonal.style.color = '#ffffff';
+                }
+                if(btnEnterprise) {
+                    btnEnterprise.style.backgroundColor = 'transparent';
+                    btnEnterprise.style.color = 'var(--text-muted)';
+                }
+                if(sidebarTitle) sidebarTitle.textContent = 'Individual Owner';
+                if(sidebarSubtitle) sidebarSubtitle.textContent = 'Standard Tier';
 
                 if (currentActiveTab === 'overview') {
                     contentContainer.innerHTML = `
                         <!-- WELCOME BANNER -->
-                        <div class="p-8 sm:p-10 rounded-3xl border shadow-xl flex flex-col md:flex-row justify-between items-start md:items-center gap-6 relative overflow-hidden" style="background-color: var(--card-bg); border-color: var(--border-color);">
+                        <div class="p-6 sm:p-10 rounded-3xl border shadow-xl flex flex-col md:flex-row justify-between items-start md:items-center gap-6 relative overflow-hidden" style="background-color: var(--card-bg); border-color: var(--border-color);">
                             <div class="absolute -top-16 -right-16 w-44 h-44 rounded-full blur-3xl opacity-20 pointer-events-none" style="background-color: var(--primary-color);"></div>
                             <div class="space-y-2 relative z-10">
                                 <span class="inline-block text-[10px] font-bold uppercase tracking-[0.2em] px-3 py-1 rounded-lg bg-emerald-500/10 text-emerald-500">Customer Portal</span>
-                                <h1 class="text-3xl sm:text-4xl font-black tracking-tight" style="color: var(--text-main);">Welcome back, Rishi M.</h1>
-                                <p class="text-xs sm:text-sm font-medium" style="color: var(--text-muted);">Active Vehicles: 2 Registered | Karur Central Testing Hub</p>
+                                <h1 class="text-2xl sm:text-4xl font-black tracking-tight" style="color: var(--text-main);">Welcome back, Rishi M.</h1>
+                                <p class="text-xs sm:text-sm font-medium" style="color: var(--text-muted);">Active Vehicles: 2 Registered | Karur Central Testing Yard, Tamil Nadu</p>
                             </div>
                             <div class="flex gap-3 relative z-10">
                                 <button type="button" onclick="document.getElementById('globalBookingModal').classList.remove('opacity-0', 'pointer-events-none'); document.getElementById('modalCardBox').classList.remove('scale-95'); document.getElementById('modalCardBox').classList.add('scale-100');" class="px-6 py-3.5 text-white font-bold rounded-xl text-xs uppercase tracking-wider shadow-md transition-all hover:opacity-90 cursor-pointer" style="background-color: var(--primary-color);">
@@ -341,7 +478,7 @@
                         </div>
 
                         <!-- METRICS GRID -->
-                        <div class="grid grid-cols-2 gap-4 items-stretch">
+                        <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 items-stretch">
                             <div class="p-6 rounded-3xl border shadow-lg space-y-2 flex flex-col justify-between h-full" style="background-color: var(--card-bg); border-color: var(--border-color);">
                                 <div>
                                     <span class="text-[11px] uppercase font-bold tracking-wider" style="color: var(--text-muted);">Registered Vehicles</span>
@@ -376,14 +513,14 @@
                         <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
                             <div class="lg:col-span-7 p-8 rounded-3xl border shadow-xl space-y-4 flex flex-col justify-between" style="background-color: var(--card-bg); border-color: var(--border-color);">
                                 <div class="space-y-3">
-                                    <div class="flex items-center gap-3">
+                                    <div class="flex items-center gap-3 flex-wrap">
                                         <span class="px-3 py-1 rounded-lg text-xs font-mono font-bold bg-emerald-500/20 text-emerald-500">TN47BB9612</span>
                                         <span class="text-xs font-bold uppercase tracking-wider text-amber-500"><i class="fa-solid fa-clock mr-1"></i> Tomorrow, 10:30 AM</span>
                                     </div>
                                     <h3 class="text-lg font-black" style="color: var(--text-main);">TVS Raider 125 & Emissions Audit</h3>
-                                    <p class="text-xs font-medium" style="color: var(--text-muted);">Karur Central Testing Yard — Express Lane #2</p>
+                                    <p class="text-xs font-medium" style="color: var(--text-muted);">Karur Central Testing Yard, Tamil Nadu — Express Lane #2</p>
                                 </div>
-                                <button type="button" onclick="alert('Downloading appointment pass PDF...')" class="w-full py-3 text-white rounded-xl font-bold text-xs uppercase tracking-wider shadow-md transition-all hover:opacity-90 cursor-pointer" style="background-color: var(--primary-color);">
+                                <button type="button" onclick="downloadPassPDF()" class="w-full py-3 text-white rounded-xl font-bold text-xs uppercase tracking-wider shadow-md transition-all hover:opacity-90 cursor-pointer" style="background-color: var(--primary-color);">
                                     <i class="fa-solid fa-download mr-1.5"></i> Download Pass PDF
                                 </button>
                             </div>
@@ -411,7 +548,7 @@
 
                         <!-- VEHICLE ROSTER -->
                         <div class="space-y-6">
-                            <div class="flex items-center justify-between">
+                            <div class="flex items-center justify-between flex-wrap gap-3">
                                 <h3 class="text-xl font-black" style="color: var(--text-main);">My Registered Vehicles</h3>
                                 <button type="button" onclick="alert('Opening vehicle registration wizard...')" class="px-4 py-2 rounded-xl text-xs font-bold uppercase tracking-wider border transition-all hover:border-emerald-500 cursor-pointer" style="border-color: var(--border-color); color: var(--text-main);">
                                     <i class="fa-solid fa-car mr-1 text-emerald-500"></i> Register New Vehicle
@@ -446,7 +583,7 @@
                 } else if (currentActiveTab === 'vault') {
                     contentContainer.innerHTML = `
                         <div class="p-8 sm:p-10 rounded-3xl border shadow-xl space-y-6" style="background-color: var(--card-bg); border-color: var(--border-color);">
-                            <div class="flex items-center justify-between">
+                            <div class="flex items-center justify-between flex-wrap gap-3">
                                 <div>
                                     <span class="text-xs font-bold uppercase tracking-[0.2em] text-emerald-500">Cloud Storage</span>
                                     <h2 class="text-2xl font-black mt-1" style="color: var(--text-main);">RTO Certificate Vault & Archives</h2>
@@ -510,21 +647,21 @@
                             <span class="text-xs font-bold uppercase tracking-[0.2em] text-emerald-500">Preferences</span>
                             <h2 class="text-2xl font-black" style="color: var(--text-main);">Account & Notification Settings</h2>
                             <div class="space-y-4 pt-2">
-                                <div class="flex items-center justify-between p-4 rounded-xl border" style="background-color: var(--bg-color); border-color: var(--border-color);">
+                                <div class="flex items-center justify-between p-4 rounded-xl border flex-wrap gap-3" style="background-color: var(--bg-color); border-color: var(--border-color);">
                                     <div>
                                         <strong class="block text-xs font-bold" style="color: var(--text-main);">WhatsApp & SMS Expiry Alerts</strong>
                                         <span class="text-[11px]" style="color: var(--text-muted);">Receive notifications 30, 15, and 7 days prior to expiry</span>
                                     </div>
                                     <input type="checkbox" checked class="accent-emerald-600 w-4 h-4 cursor-pointer">
                                 </div>
-                                <div class="flex items-center justify-between p-4 rounded-xl border" style="background-color: var(--bg-color); border-color: var(--border-color);">
+                                <div class="flex items-center justify-between p-4 rounded-xl border flex-wrap gap-3" style="background-color: var(--bg-color); border-color: var(--border-color);">
                                     <div>
                                         <strong class="block text-xs font-bold" style="color: var(--text-main);">Automated RTO Database Sync</strong>
                                         <span class="text-[11px]" style="color: var(--text-muted);">Directly sync new test results with state transport registries</span>
                                     </div>
                                     <input type="checkbox" checked class="accent-emerald-600 w-4 h-4 cursor-pointer">
                                 </div>
-                                <div class="flex items-center justify-between p-4 rounded-xl border" style="background-color: var(--bg-color); border-color: var(--border-color);">
+                                <div class="flex items-center justify-between p-4 rounded-xl border flex-wrap gap-3" style="background-color: var(--bg-color); border-color: var(--border-color);">
                                     <div>
                                         <strong class="block text-xs font-bold" style="color: var(--text-main);">Email Newsletter Dispatches</strong>
                                         <span class="text-[11px]" style="color: var(--text-muted);">Receive weekly compliance updates and transport policy briefs</span>
@@ -536,22 +673,26 @@
                     `;
                 }
             } else {
-                btnEnterprise.style.backgroundColor = 'var(--primary-color)';
-                btnEnterprise.style.color = '#ffffff';
-                btnPersonal.style.backgroundColor = 'transparent';
-                btnPersonal.style.color = 'var(--text-muted)';
+                if(btnEnterprise) {
+                    btnEnterprise.style.backgroundColor = 'var(--primary-color)';
+                    btnEnterprise.style.color = '#ffffff';
+                }
+                if(btnPersonal) {
+                    btnPersonal.style.backgroundColor = 'transparent';
+                    btnPersonal.style.color = 'var(--text-muted)';
+                }
 
-                sidebarTitle.textContent = 'Apex Logistics Network';
-                sidebarSubtitle.textContent = 'Enterprise SaaS Tier';
+                if(sidebarTitle) sidebarTitle.textContent = 'Apex Logistics Network';
+                if(sidebarSubtitle) sidebarSubtitle.textContent = 'Enterprise SaaS Tier';
 
                 if (currentActiveTab === 'overview') {
                     contentContainer.innerHTML = `
                         <!-- WELCOME BANNER -->
-                        <div class="p-8 sm:p-10 rounded-3xl border shadow-xl flex flex-col md:flex-row justify-between items-start md:items-center gap-6 relative overflow-hidden" style="background-color: var(--card-bg); border-color: var(--border-color);">
+                        <div class="p-6 sm:p-10 rounded-3xl border shadow-xl flex flex-col md:flex-row justify-between items-start md:items-center gap-6 relative overflow-hidden" style="background-color: var(--card-bg); border-color: var(--border-color);">
                             <div class="absolute -top-16 -right-16 w-44 h-44 rounded-full blur-3xl opacity-20 pointer-events-none" style="background-color: var(--primary-color);"></div>
                             <div class="space-y-2 relative z-10">
                                 <span class="inline-block text-[10px] font-bold uppercase tracking-[0.2em] px-3 py-1 rounded-lg bg-emerald-500/10 text-emerald-500">Enterprise SaaS Console</span>
-                                <h1 class="text-3xl sm:text-4xl font-black tracking-tight" style="color: var(--text-main);">Fleet Operations Overview</h1>
+                                <h1 class="text-2xl sm:text-4xl font-black tracking-tight" style="color: var(--text-main);">Fleet Operations Overview</h1>
                                 <p class="text-xs sm:text-sm font-medium" style="color: var(--text-muted);">Active Fleet Units: 1,280 | Regional Depots: 4 Active Hubs</p>
                             </div>
                             <div class="flex gap-3 relative z-10">
@@ -562,49 +703,57 @@
                         </div>
 
                         <!-- METRICS GRID -->
-                        <div class="grid grid-cols-2 lg:grid-cols-4 gap-4">
-                            <div class="p-6 rounded-3xl border shadow-lg space-y-2" style="background-color: var(--card-bg); border-color: var(--border-color);">
-                                <span class="text-[11px] uppercase font-bold tracking-wider" style="color: var(--text-muted);">Total Active Units</span>
-                                <div class="text-3xl font-black font-mono" style="color: var(--text-main);">1,280</div>
-                                <p class="text-[10px] font-semibold text-emerald-500">+48 added this month</p>
+                        <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 items-stretch">
+                            <div class="p-6 rounded-3xl border shadow-lg space-y-2 flex flex-col justify-between h-full" style="background-color: var(--card-bg); border-color: var(--border-color);">
+                                <div>
+                                    <span class="text-[11px] uppercase font-bold tracking-wider" style="color: var(--text-muted);">Total Active Units</span>
+                                    <div class="text-3xl font-black font-mono mt-1" style="color: var(--text-main);">1,280</div>
+                                </div>
+                                <p class="text-[10px] font-semibold text-emerald-500 mt-2">+48 added this month</p>
                             </div>
-                            <div class="p-6 rounded-3xl border shadow-lg space-y-2" style="background-color: var(--card-bg); border-color: var(--border-color);">
-                                <span class="text-[11px] uppercase font-bold tracking-wider" style="color: var(--text-muted);">Pending Audits</span>
-                                <div class="text-3xl font-black font-mono" style="color: var(--text-main);">14</div>
-                                <p class="text-[10px] font-semibold text-amber-500">Queued for testing lanes</p>
+                            <div class="p-6 rounded-3xl border shadow-lg space-y-2 flex flex-col justify-between h-full" style="background-color: var(--card-bg); border-color: var(--border-color);">
+                                <div>
+                                    <span class="text-[11px] uppercase font-bold tracking-wider" style="color: var(--text-muted);">Pending Audits</span>
+                                    <div class="text-3xl font-black font-mono mt-1" style="color: var(--text-main);">14</div>
+                                </div>
+                                <p class="text-[10px] font-semibold text-amber-500 mt-2">Queued for testing lanes</p>
                             </div>
-                            <div class="p-6 rounded-3xl border shadow-lg space-y-2" style="background-color: var(--card-bg); border-color: var(--border-color);">
-                                <span class="text-[11px] uppercase font-bold tracking-wider" style="color: var(--text-muted);">Compliance Index</span>
-                                <div class="text-3xl font-black font-mono text-emerald-500">99.4%</div>
-                                <p class="text-[10px] font-semibold text-emerald-500">Optimal status</p>
+                            <div class="p-6 rounded-3xl border shadow-lg space-y-2 flex flex-col justify-between h-full" style="background-color: var(--card-bg); border-color: var(--border-color);">
+                                <div>
+                                    <span class="text-[11px] uppercase font-bold tracking-wider" style="color: var(--text-muted);">Compliance Index</span>
+                                    <div class="text-3xl font-black font-mono text-emerald-500 mt-1">99.4%</div>
+                                </div>
+                                <p class="text-[10px] font-semibold text-emerald-500 mt-2">Optimal status</p>
                             </div>
-                            <div class="p-6 rounded-3xl border shadow-lg space-y-2" style="background-color: var(--card-bg); border-color: var(--border-color);">
-                                <span class="text-[11px] uppercase font-bold tracking-wider" style="color: var(--text-muted);">Vault PDFs</span>
-                                <div class="text-3xl font-black font-mono" style="color: var(--text-main);">5,120</div>
-                                <p class="text-[10px] font-semibold" style="color: var(--text-muted);">Cloud archive secured</p>
+                            <div class="p-6 rounded-3xl border shadow-lg space-y-2 flex flex-col justify-between h-full" style="background-color: var(--card-bg); border-color: var(--border-color);">
+                                <div>
+                                    <span class="text-[11px] uppercase font-bold tracking-wider" style="color: var(--text-muted);">Vault PDFs</span>
+                                    <div class="text-3xl font-black font-mono mt-1" style="color: var(--text-main);">5,120</div>
+                                </div>
+                                <p class="text-[10px] font-semibold mt-2" style="color: var(--text-muted);">Cloud archive secured</p>
                             </div>
                         </div>
 
                         <!-- LIVE TELEMETRY STREAM -->
                         <div class="p-8 sm:p-10 rounded-3xl border shadow-xl space-y-6" style="background-color: var(--card-bg); border-color: var(--border-color);">
-                            <div class="flex justify-between items-center">
+                            <div class="flex justify-between items-center flex-wrap gap-3">
                                 <div>
                                     <span class="text-xs font-bold uppercase tracking-[0.2em]" style="color: var(--primary-color);">Live IoT Feed</span>
                                     <h3 class="text-xl font-black mt-1" style="color: var(--text-main);">Connected Enterprise Telemetry</h3>
                                 </div>
                                 <span class="px-3 py-1 rounded-full text-[10px] font-bold bg-emerald-500/10 text-emerald-500 border border-emerald-500/20">API Stream Active</span>
                             </div>
-                            <div class="p-5 rounded-2xl border font-mono text-xs space-y-2.5" style="background-color: var(--bg-color); border-color: var(--border-color); color: var(--text-muted);">
-                                <p class="text-emerald-500">[15:10:02] NODE_01: Fleet batch #409 connected via CAN-Bus. Active units: 1280.</p>
-                                <p>[15:10:08] DIAGNOSTIC: Zero emission fault codes detected across active logistics corridor.</p>
-                                <p class="text-emerald-500">[15:10:14] RTO_SYNC: Batch cryptographic ledger verified successfully with transport database.</p>
+                            <div class="p-5 rounded-2xl border font-mono text-xs space-y-2.5 overflow-x-auto" style="background-color: var(--bg-color); border-color: var(--border-color); color: var(--text-muted);">
+                                <p class="text-emerald-500 whitespace-nowrap">[15:10:02] NODE_01: Fleet batch #409 connected via CAN-Bus. Active units: 1280.</p>
+                                <p class="whitespace-nowrap">[15:10:08] DIAGNOSTIC: Zero emission fault codes detected across active logistics corridor.</p>
+                                <p class="text-emerald-500 whitespace-nowrap">[15:10:14] RTO_SYNC: Batch cryptographic ledger verified successfully with transport database.</p>
                             </div>
                         </div>
                     `;
                 } else if (currentActiveTab === 'vault') {
                     contentContainer.innerHTML = `
                         <div class="space-y-6">
-                            <div class="flex items-center justify-between">
+                            <div class="flex items-center justify-between flex-wrap gap-3">
                                 <div>
                                     <span class="text-xs font-bold uppercase tracking-[0.2em] text-emerald-500">Enterprise Repository</span>
                                     <h2 class="text-2xl font-black mt-1" style="color: var(--text-main);">Certificate Vault & Audit Packs</h2>
@@ -614,7 +763,7 @@
                                 </button>
                             </div>
                             <div class="overflow-x-auto rounded-3xl border shadow-lg" style="background-color: var(--card-bg); border-color: var(--border-color);">
-                                <table class="w-full text-left border-collapse text-xs">
+                                <table class="w-full text-left border-collapse text-xs whitespace-nowrap">
                                     <thead>
                                         <tr class="border-b" style="border-color: var(--border-color); background-color: var(--bg-color);">
                                             <th class="p-4 sm:p-6 font-black uppercase tracking-wider" style="color: var(--text-main);">Certificate ID</th>
@@ -673,19 +822,19 @@
                             <div class="space-y-4 pt-2">
                                 <div>
                                     <label class="block text-[11px] font-bold uppercase tracking-widest mb-1.5" style="color: var(--text-muted);">Production API Secret Key</label>
-                                    <div class="flex gap-2">
+                                    <div class="flex gap-2 flex-wrap sm:flex-nowrap">
                                         <input type="password" value="sk_live_inspectapro_99821873910" readonly class="w-full px-4 py-3 rounded-xl text-xs font-mono border outline-none" style="background-color: var(--bg-color); border-color: var(--border-color); color: var(--text-main);">
-                                        <button type="button" onclick="alert('API key copied to clipboard!')" class="px-5 py-3 rounded-xl font-bold text-xs uppercase tracking-wider border cursor-pointer hover:border-emerald-500" style="border-color: var(--border-color); color: var(--text-main);">Copy</button>
+                                        <button type="button" onclick="alert('API key copied to clipboard!')" class="px-5 py-3 rounded-xl font-bold text-xs uppercase tracking-wider border cursor-pointer hover:border-emerald-500 shrink-0" style="border-color: var(--border-color); color: var(--text-main);">Copy</button>
                                     </div>
                                 </div>
-                                <div class="flex items-center justify-between p-4 rounded-xl border" style="background-color: var(--bg-color); border-color: var(--border-color);">
+                                <div class="flex items-center justify-between p-4 rounded-xl border flex-wrap gap-3" style="background-color: var(--bg-color); border-color: var(--border-color);">
                                     <div>
                                         <strong class="block text-xs font-bold" style="color: var(--text-main);">Automated Slack & Webhook Dispatch</strong>
                                         <span class="text-[11px]" style="color: var(--text-muted);">Push compliance alerts directly to corporate communication channels</span>
                                     </div>
                                     <input type="checkbox" checked class="accent-emerald-600 w-4 h-4 cursor-pointer">
                                 </div>
-                                <div class="flex items-center justify-between p-4 rounded-xl border" style="background-color: var(--bg-color); border-color: var(--border-color);">
+                                <div class="flex items-center justify-between p-4 rounded-xl border flex-wrap gap-3" style="background-color: var(--bg-color); border-color: var(--border-color);">
                                     <div>
                                         <strong class="block text-xs font-bold" style="color: var(--text-main);">Multi-Branch Hierarchy Isolation</strong>
                                         <span class="text-[11px]" style="color: var(--text-muted);">Restrict regional depot supervisors to local vehicle rosters</span>
