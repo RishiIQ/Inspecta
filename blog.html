@@ -56,155 +56,167 @@
         </section>
 
         <!-- SECTION 4: 6 BLOG POSTS GRID -->
-        <section class="volt-container space-y-12">
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 items-stretch" id="blogGridContainer">
-                
-                <!-- Blog 1 -->
-                <article class="blog-card rounded-3xl border shadow-lg overflow-hidden flex flex-col justify-between h-full transition-all hover:-translate-y-1.5 hover:shadow-2xl" data-category="RTO Compliance" style="background-color: var(--card-bg); border-color: var(--border-color);">
-                    <div>
-                        <div class="h-52 overflow-hidden relative">
-                            <img src="https://imgs.search.brave.com/f0ENlY4abZVTdQqvZ4L10_ZZ0Aeh8MHhZJSf2rUcNEk/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly93d3cu/cWktYS5jb20vd3At/Y29udGVudC91cGxv/YWRzLzIwMjYvMDYv/UUlTUy1RTVMtQXVk/aXQtTWFuYWdlbWVu/dC12cy4tU3ByZWFk/c2hlZXQtQmFzZWQt/QXVkaXRzLTIuanBn" alt="Blog 1" class="w-full h-full object-cover">
-                            <span class="absolute top-4 left-4 px-3 py-1 bg-emerald-600 text-white font-bold text-[10px] uppercase tracking-widest rounded-full">RTO Compliance</span>
+<section class="volt-container space-y-12">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 items-stretch" id="blogGridContainer">
+        
+        <!-- Blog 1 -->
+        <article class="blog-card rounded-3xl border shadow-lg overflow-hidden flex flex-col justify-between h-full transition-all hover:-translate-y-1.5 hover:shadow-2xl" data-category="RTO Compliance" style="background-color: var(--card-bg); border-color: var(--border-color);">
+            <div class="flex flex-col h-full">
+                <div class="h-52 overflow-hidden relative shrink-0">
+                    <img src="https://imgs.search.brave.com/f0ENlY4abZVTdQqvZ4L10_ZZ0Aeh8MHhZJSf2rUcNEk/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly93d3cu/cWktYS5jb20vd3At/Y29udGVudC91cGxv/YWRzLzIwMjYvMDYv/UUlTUy1RTVMtQXVk/aXQtTWFuYWdlbWVu/dC12cy4tU3ByZWFk/c2hlZXQtQmFzZWQt/QXVkaXRzLTIuanBn" alt="Blog 1" class="w-full h-full object-cover">
+                    <span class="absolute top-4 left-4 px-3 py-1 bg-emerald-600 text-white font-bold text-[10px] uppercase tracking-widest rounded-full">RTO Compliance</span>
+                </div>
+                <div class="p-6 flex flex-col flex-1 justify-between">
+                    <div class="space-y-3">
+                        <div class="flex items-center gap-2 text-[11px] font-semibold" style="color: var(--text-muted);">
+                            <span><i class="fa-solid fa-calendar mr-1"></i> Oct 10, 2026</span>
+                            <span>•</span>
+                            <span>4 min read</span>
                         </div>
-                        <div class="p-6 space-y-3">
-                            <div class="flex items-center gap-2 text-[11px] font-semibold" style="color: var(--text-muted);">
-                                <span><i class="fa-solid fa-calendar mr-1"></i> Oct 10, 2026</span>
-                                <span>•</span>
-                                <span>4 min read</span>
-                            </div>
-                            <h3 class="font-black text-xl leading-snug min-h-[3.5rem] flex items-center" style="color: var(--text-main);">Automating State Transport Audits: The Death of Spreadsheets</h3>
-                            <p class="text-xs font-medium leading-relaxed" style="color: var(--text-muted);">Why modern logistics providers are abandoning manual vehicle record-keeping for direct government API synchronization.</p>
-                        </div>
+                        <h3 class="font-black text-xl leading-snug min-h-[5.5rem] flex items-center" style="color: var(--text-main);">Automating State Transport Audits: The Death of Spreadsheets</h3>
+                        <p class="text-xs font-medium leading-relaxed" style="color: var(--text-muted);">Why modern logistics providers are abandoning manual vehicle record-keeping for direct government API synchronization.</p>
                     </div>
-                    <div class="p-6 pt-0 mt-auto">
+                    <div class="pt-6 mt-auto">
                         <button type="button" onclick="openBlogDetail(1)" class="w-full py-3 rounded-xl font-bold text-xs uppercase tracking-wider text-center border transition-all hover:bg-emerald-500 hover:text-white cursor-pointer" style="border-color: var(--border-color); color: var(--text-main);">
                             Read Article <i class="fa-solid fa-arrow-right ml-1"></i>
                         </button>
                     </div>
-                </article>
+                </div>
+            </div>
+        </article>
 
-                <!-- Blog 2 -->
-                <article class="blog-card rounded-3xl border shadow-lg overflow-hidden flex flex-col justify-between h-full transition-all hover:-translate-y-1.5 hover:shadow-2xl" data-category="Telemetry" style="background-color: var(--card-bg); border-color: var(--border-color);">
-                    <div>
-                        <div class="h-52 overflow-hidden relative">
-                            <img src="https://imgs.search.brave.com/EzeJzh-TKV-ElmWEsQPDPekzt2ZjcGzEqFFl96Z7OP8/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9oaXBz/LmhlYXJzdGFwcHMu/Y29tL2htZy1wcm9k/L2ltYWdlcy9ncm91/cC1zaG90LTY4YTYw/ZWQ2NDM0MzQuanBn/P2Nyb3A9MXh3OjF4/aDtjZW50ZXIsdG9w" alt="Blog 2" class="w-full h-full object-cover">
-                            <span class="absolute top-4 left-4 px-3 py-1 bg-emerald-600 text-white font-bold text-[10px] uppercase tracking-widest rounded-full">Telemetry</span>
+        <!-- Blog 2 -->
+        <article class="blog-card rounded-3xl border shadow-lg overflow-hidden flex flex-col justify-between h-full transition-all hover:-translate-y-1.5 hover:shadow-2xl" data-category="Telemetry" style="background-color: var(--card-bg); border-color: var(--border-color);">
+            <div class="flex flex-col h-full">
+                <div class="h-52 overflow-hidden relative shrink-0">
+                    <img src="https://imgs.search.brave.com/EzeJzh-TKV-ElmWEsQPDPekzt2ZjcGzEqFFl96Z7OP8/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9oaXBz/LmhlYXJzdGFwcHMu/Y29tL2htZy1wcm9k/L2ltYWdlcy9ncm91/cC1zaG90LTY4YTYw/ZWQ2NDM0MzQuanBn/P2Nyb3A9MXh3OjF4/aDtjZW50ZXIsdG9w" alt="Blog 2" class="w-full h-full object-cover">
+                    <span class="absolute top-4 left-4 px-3 py-1 bg-emerald-600 text-white font-bold text-[10px] uppercase tracking-widest rounded-full">Telemetry</span>
+                </div>
+                <div class="p-6 flex flex-col flex-1 justify-between">
+                    <div class="space-y-3">
+                        <div class="flex items-center gap-2 text-[11px] font-semibold" style="color: var(--text-muted);">
+                            <span><i class="fa-solid fa-calendar mr-1"></i> Oct 04, 2026</span>
+                            <span>•</span>
+                            <span>5 min read</span>
                         </div>
-                        <div class="p-6 space-y-3">
-                            <div class="flex items-center gap-2 text-[11px] font-semibold" style="color: var(--text-muted);">
-                                <span><i class="fa-solid fa-calendar mr-1"></i> Oct 04, 2026</span>
-                                <span>•</span>
-                                <span>5 min read</span>
-                            </div>
-                            <h3 class="font-black text-xl leading-snug min-h-[3.5rem] flex items-center" style="color: var(--text-main);">Plug-and-Play OBD-II Telematics: Real-Time Engine Diagnostics</h3>
-                            <p class="text-xs font-medium leading-relaxed" style="color: var(--text-muted);">How streaming live CAN-Bus data prevents unexpected mechanical breakdowns and optimizes fuel efficiency.</p>
-                        </div>
+                        <h3 class="font-black text-xl leading-snug min-h-[5.5rem] flex items-center" style="color: var(--text-main);">Plug-and-Play OBD-II Telematics: Real-Time Engine Diagnostics</h3>
+                        <p class="text-xs font-medium leading-relaxed" style="color: var(--text-muted);">How streaming live CAN-Bus data prevents unexpected mechanical breakdowns and optimizes fuel efficiency.</p>
                     </div>
-                    <div class="p-6 pt-0 mt-auto">
+                    <div class="pt-6 mt-auto">
                         <button type="button" onclick="openBlogDetail(2)" class="w-full py-3 rounded-xl font-bold text-xs uppercase tracking-wider text-center border transition-all hover:bg-emerald-500 hover:text-white cursor-pointer" style="border-color: var(--border-color); color: var(--text-main);">
                             Read Article <i class="fa-solid fa-arrow-right ml-1"></i>
                         </button>
                     </div>
-                </article>
+                </div>
+            </div>
+        </article>
 
-                <!-- Blog 3 -->
-                <article class="blog-card rounded-3xl border shadow-lg overflow-hidden flex flex-col justify-between h-full transition-all hover:-translate-y-1.5 hover:shadow-2xl" data-category="Security" style="background-color: var(--card-bg); border-color: var(--border-color);">
-                    <div>
-                        <div class="h-52 overflow-hidden relative">
-                            <img src="https://imgs.search.brave.com/v0o6Up-jvplmA3pTwz4_nXhdcOG9MPh4LveH9H2uUD4/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly93d3cu/emVydG8uY29tL3dw/LWNvbnRlbnQvdXBs/b2Fkcy8yMDI1LzAx/L1JJVE0wMTI1NDgw/LURhdGEtUHJvdGVj/dGlvbi1UcmVuZHNf/NDUwXzMwMC5wbmc" alt="Blog 3" class="w-full h-full object-cover">
-                            <span class="absolute top-4 left-4 px-3 py-1 bg-emerald-600 text-white font-bold text-[10px] uppercase tracking-widest rounded-full">Security</span>
+        <!-- Blog 3 -->
+        <article class="blog-card rounded-3xl border shadow-lg overflow-hidden flex flex-col justify-between h-full transition-all hover:-translate-y-1.5 hover:shadow-2xl" data-category="Security" style="background-color: var(--card-bg); border-color: var(--border-color);">
+            <div class="flex flex-col h-full">
+                <div class="h-52 overflow-hidden relative shrink-0">
+                    <img src="https://imgs.search.brave.com/v0o6Up-jvplmA3pTwz4_nXhdcOG9MPh4LveH9H2uUD4/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly93d3cu/emVydG8uY29tL3dw/LWNvbnRlbnQvdXBs/b2Fkcy8yMDI1LzAx/L1JJVE0wMTI1NDgw/LURhdGEtUHJvdGVj/dGlvbi1UcmVuZHNf/NDUwXzMwMC5wbmc" alt="Blog 3" class="w-full h-full object-cover">
+                    <span class="absolute top-4 left-4 px-3 py-1 bg-emerald-600 text-white font-bold text-[10px] uppercase tracking-widest rounded-full">Security</span>
+                </div>
+                <div class="p-6 flex flex-col flex-1 justify-between">
+                    <div class="space-y-3">
+                        <div class="flex items-center gap-2 text-[11px] font-semibold" style="color: var(--text-muted);">
+                            <span><i class="fa-solid fa-calendar mr-1"></i> Sep 28, 2026</span>
+                            <span>•</span>
+                            <span>3 min read</span>
                         </div>
-                        <div class="p-6 space-y-3">
-                            <div class="flex items-center gap-2 text-[11px] font-semibold" style="color: var(--text-muted);">
-                                <span><i class="fa-solid fa-calendar mr-1"></i> Sep 28, 2026</span>
-                                <span>•</span>
-                                <span>3 min read</span>
-                            </div>
-                            <h3 class="font-black text-xl leading-snug min-h-[3.5rem] flex items-center" style="color: var(--text-main);">Securing Millions of PUCC Certificates in Immutable Cloud Vaults</h3>
-                            <p class="text-xs font-medium leading-relaxed" style="color: var(--text-muted);">Exploring bank-grade encryption protocols and hourly automated snapshots for transport compliance records.</p>
-                        </div>
+                        <h3 class="font-black text-xl leading-snug min-h-[5.5rem] flex items-center" style="color: var(--text-main);">Securing Millions of PUCC Certificates in Immutable Cloud Vaults</h3>
+                        <p class="text-xs font-medium leading-relaxed" style="color: var(--text-muted);">Exploring bank-grade encryption protocols and hourly automated snapshots for transport compliance records.</p>
                     </div>
-                    <div class="p-6 pt-0 mt-auto">
+                    <div class="pt-6 mt-auto">
                         <button type="button" onclick="openBlogDetail(3)" class="w-full py-3 rounded-xl font-bold text-xs uppercase tracking-wider text-center border transition-all hover:bg-emerald-500 hover:text-white cursor-pointer" style="border-color: var(--border-color); color: var(--text-main);">
                             Read Article <i class="fa-solid fa-arrow-right ml-1"></i>
                         </button>
                     </div>
-                </article>
+                </div>
+            </div>
+        </article>
 
-                <!-- Blog 4 -->
-                <article class="blog-card rounded-3xl border shadow-lg overflow-hidden flex flex-col justify-between h-full transition-all hover:-translate-y-1.5 hover:shadow-2xl" data-category="Operations" style="background-color: var(--card-bg); border-color: var(--border-color);">
-                    <div>
-                        <div class="h-52 overflow-hidden relative">
-                            <img src="https://imgs.search.brave.com/sZTweVcgjX2wrbEge6wTcyKDy7z9E5_nEkkKKFqz8aY/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly93d3cu/ZXhjZWxsb25zb2Z0/LmNvbS93cC1jb250/ZW50L3VwbG9hZHMv/MjAyNi8wNy9XaGF0/LUlzLWEtRGVwb3Qt/TWFuYWdlbWVudC1T/eXN0ZW0ucG5nLndl/YnA" alt="Blog 4" class="w-full h-full object-cover">
-                            <span class="absolute top-4 left-4 px-3 py-1 bg-emerald-600 text-white font-bold text-[10px] uppercase tracking-widest rounded-full">Operations</span>
+        <!-- Blog 4 -->
+        <article class="blog-card rounded-3xl border shadow-lg overflow-hidden flex flex-col justify-between h-full transition-all hover:-translate-y-1.5 hover:shadow-2xl" data-category="Operations" style="background-color: var(--card-bg); border-color: var(--border-color);">
+            <div class="flex flex-col h-full">
+                <div class="h-52 overflow-hidden relative shrink-0">
+                    <img src="https://imgs.search.brave.com/sZTweVcgjX2wrbEge6wTcyKDy7z9E5_nEkkKKFqz8aY/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly93d3cu/ZXhjZWxsb25zb2Z0/LmNvbS93cC1jb250/ZW50L3VwbG9hZHMv/MjAyNi8wNy9XaGF0/LUlzLWEtRGVwb3Qt/TWFuYWdlbWVudC1T/eXN0ZW0ucG5nLndl/YnA" alt="Blog 4" class="w-full h-full object-cover">
+                    <span class="absolute top-4 left-4 px-3 py-1 bg-emerald-600 text-white font-bold text-[10px] uppercase tracking-widest rounded-full">Operations</span>
+                </div>
+                <div class="p-6 flex flex-col flex-1 justify-between">
+                    <div class="space-y-3">
+                        <div class="flex items-center gap-2 text-[11px] font-semibold" style="color: var(--text-muted);">
+                            <span><i class="fa-solid fa-calendar mr-1"></i> Sep 19, 2026</span>
+                            <span>•</span>
+                            <span>6 min read</span>
                         </div>
-                        <div class="p-6 space-y-3">
-                            <div class="flex items-center gap-2 text-[11px] font-semibold" style="color: var(--text-muted);">
-                                <span><i class="fa-solid fa-calendar mr-1"></i> Sep 19, 2026</span>
-                                <span>•</span>
-                                <span>6 min read</span>
-                            </div>
-                            <h3 class="font-black text-xl leading-snug min-h-[3.5rem] flex items-center" style="color: var(--text-main);">Multi-Branch Yard Management for Large Logistics Networks</h3>
-                            <p class="text-xs font-medium leading-relaxed" style="color: var(--text-muted);">How regional transport supervisors coordinate testing bays and maintenance schedules under one master dashboard.</p>
-                        </div>
+                        <h3 class="font-black text-xl leading-snug min-h-[5.5rem] flex items-center" style="color: var(--text-main);">Multi-Branch Yard Management for Large Logistics Networks</h3>
+                        <p class="text-xs font-medium leading-relaxed" style="color: var(--text-muted);">How regional transport supervisors coordinate testing bays and maintenance schedules under one master dashboard.</p>
                     </div>
-                    <div class="p-6 pt-0 mt-auto">
+                    <div class="pt-6 mt-auto">
                         <button type="button" onclick="openBlogDetail(4)" class="w-full py-3 rounded-xl font-bold text-xs uppercase tracking-wider text-center border transition-all hover:bg-emerald-500 hover:text-white cursor-pointer" style="border-color: var(--border-color); color: var(--text-main);">
                             Read Article <i class="fa-solid fa-arrow-right ml-1"></i>
                         </button>
                     </div>
-                </article>
+                </div>
+            </div>
+        </article>
 
-                <!-- Blog 5 -->
-                <article class="blog-card rounded-3xl border shadow-lg overflow-hidden flex flex-col justify-between h-full transition-all hover:-translate-y-1.5 hover:shadow-2xl" data-category="Cost Savings" style="background-color: var(--card-bg); border-color: var(--border-color);">
-                    <div>
-                        <div class="h-52 overflow-hidden relative">
-                            <img src="https://imgs.search.brave.com/dg7tAMQfhfb6Tg6DQOYKvTCq_dhP77-n8KEF8iY6qOQ/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9mbGVl/dHJhYmJpdC5jb20v/YmxvZ3MvbWFuYWdl/LXBvc3QtMmsyNi91/cGxvYWRzL2ZsZWV0/LW1hbmFnZW1lbnQt/cm9pLWNhbGN1bGF0/b3IucG5n" alt="Blog 5" class="w-full h-full object-cover">
-                            <span class="absolute top-4 left-4 px-3 py-1 bg-emerald-600 text-white font-bold text-[10px] uppercase tracking-widest rounded-full">Cost Savings</span>
+        <!-- Blog 5 -->
+        <article class="blog-card rounded-3xl border shadow-lg overflow-hidden flex flex-col justify-between h-full transition-all hover:-translate-y-1.5 hover:shadow-2xl" data-category="Cost Savings" style="background-color: var(--card-bg); border-color: var(--border-color);">
+            <div class="flex flex-col h-full">
+                <div class="h-52 overflow-hidden relative shrink-0">
+                    <img src="https://imgs.search.brave.com/dg7tAMQfhfb6Tg6DQOYKvTCq_dhP77-n8KEF8iY6qOQ/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9mbGVl/dHJhYmJpdC5jb20v/YmxvZ3MvbWFuYWdl/LXBvc3QtMmsyNi91/cGxvYWRzL2ZsZWV0/LW1hbmFnZW1lbnQt/cm9pLWNhbGN1bGF0/b3IucG5n" alt="Blog 5" class="w-full h-full object-cover">
+                    <span class="absolute top-4 left-4 px-3 py-1 bg-emerald-600 text-white font-bold text-[10px] uppercase tracking-widest rounded-full">Cost Savings</span>
+                </div>
+                <div class="p-6 flex flex-col flex-1 justify-between">
+                    <div class="space-y-3">
+                        <div class="flex items-center gap-2 text-[11px] font-semibold" style="color: var(--text-muted);">
+                            <span><i class="fa-solid fa-calendar mr-1"></i> Sep 12, 2026</span>
+                            <span>•</span>
+                            <span>4 min read</span>
                         </div>
-                        <div class="p-6 space-y-3">
-                            <div class="flex items-center gap-2 text-[11px] font-semibold" style="color: var(--text-muted);">
-                                <span><i class="fa-solid fa-calendar mr-1"></i> Sep 12, 2026</span>
-                                <span>•</span>
-                                <span>4 min read</span>
-                            </div>
-                            <h3 class="font-black text-xl leading-snug min-h-[3.5rem] flex items-center" style="color: var(--text-main);">Calculating Fleet ROI: Eliminating Expiry Fines & Penalties</h3>
-                            <p class="text-xs font-medium leading-relaxed" style="color: var(--text-muted);">A comprehensive financial breakdown of how automated WhatsApp and SMS webhooks save transport firms thousands annually.</p>
-                        </div>
+                        <h3 class="font-black text-xl leading-snug min-h-[5.5rem] flex items-center" style="color: var(--text-main);">Calculating Fleet ROI: Eliminating Expiry Fines & Penalties</h3>
+                        <p class="text-xs font-medium leading-relaxed" style="color: var(--text-muted);">A comprehensive financial breakdown of how automated WhatsApp and SMS webhooks save transport firms thousands annually.</p>
                     </div>
-                    <div class="p-6 pt-0 mt-auto">
+                    <div class="pt-6 mt-auto">
                         <button type="button" onclick="openBlogDetail(5)" class="w-full py-3 rounded-xl font-bold text-xs uppercase tracking-wider text-center border transition-all hover:bg-emerald-500 hover:text-white cursor-pointer" style="border-color: var(--border-color); color: var(--text-main);">
                             Read Article <i class="fa-solid fa-arrow-right ml-1"></i>
                         </button>
                     </div>
-                </article>
+                </div>
+            </div>
+        </article>
 
-                <!-- Blog 6 -->
-                <article class="blog-card rounded-3xl border shadow-lg overflow-hidden flex flex-col justify-between h-full transition-all hover:-translate-y-1.5 hover:shadow-2xl" data-category="Sustainability" style="background-color: var(--card-bg); border-color: var(--border-color);">
-                    <div>
-                        <div class="h-52 overflow-hidden relative">
-                            <img src="https://imgs.search.brave.com/ISV2eAiaHd8AcyD_aYrPEW110OmSfQjqXzjI6RbSNkc/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9hc3Rw/cm9jbXNjZG4uYXp1/cmVlZGdlLm5ldC9h/cHAtZmlsZXMvc3R5/bGVzL3dpZGVfMzc1/L2F6YmxvYi8yMDI2/LTAzL0NhcmJvbiUy/MGZvb3RwcmludC5w/bmcud2VicD9pdG9r/PW9MYnNvM2JX" alt="Blog 6" class="w-full h-full object-cover">
-                            <span class="absolute top-4 left-4 px-3 py-1 bg-emerald-600 text-white font-bold text-[10px] uppercase tracking-widest rounded-full">Sustainability</span>
+        <!-- Blog 6 -->
+        <article class="blog-card rounded-3xl border shadow-lg overflow-hidden flex flex-col justify-between h-full transition-all hover:-translate-y-1.5 hover:shadow-2xl" data-category="Sustainability" style="background-color: var(--card-bg); border-color: var(--border-color);">
+            <div class="flex flex-col h-full">
+                <div class="h-52 overflow-hidden relative shrink-0">
+                    <img src="https://imgs.search.brave.com/ISV2eAiaHd8AcyD_aYrPEW110OmSfQjqXzjI6RbSNkc/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9hc3Rw/cm9jbXNjZG4uYXp1/cmVlZGdlLm5ldC9h/cHAtZmlsZXMvc3R5/bGVzL3dpZGVfMzc1/L2F6YmxvYi8yMDI2/LTAzL0NhcmJvbiUy/MGZvb3RwcmludC5w/bmcud2VicD9pdG9r/PW9MYnNvM2JX" alt="Blog 6" class="w-full h-full object-cover">
+                    <span class="absolute top-4 left-4 px-3 py-1 bg-emerald-600 text-white font-bold text-[10px] uppercase tracking-widest rounded-full">Sustainability</span>
+                </div>
+                <div class="p-6 flex flex-col flex-1 justify-between">
+                    <div class="space-y-3">
+                        <div class="flex items-center gap-2 text-[11px] font-semibold" style="color: var(--text-muted);">
+                            <span><i class="fa-solid fa-calendar mr-1"></i> Sep 03, 2026</span>
+                            <span>•</span>
+                            <span>5 min read</span>
                         </div>
-                        <div class="p-6 space-y-3">
-                            <div class="flex items-center gap-2 text-[11px] font-semibold" style="color: var(--text-muted);">
-                                <span><i class="fa-solid fa-calendar mr-1"></i> Sep 03, 2026</span>
-                                <span>•</span>
-                                <span>5 min read</span>
-                            </div>
-                            <h3 class="font-black text-xl leading-snug min-h-[3.5rem] flex items-center" style="color: var(--text-main);">Reducing Urban Carbon Footprints Through Combustion Optimization</h3>
-                            <p class="text-xs font-medium leading-relaxed" style="color: var(--text-muted);">How rigorous emission testing and lab-grade gas benching contribute to cleaner air and greener commercial transport.</p>
-                        </div>
+                        <h3 class="font-black text-xl leading-snug min-h-[5.5rem] flex items-center" style="color: var(--text-main);">Reducing Urban Carbon Footprints Through Combustion Optimization</h3>
+                        <p class="text-xs font-medium leading-relaxed" style="color: var(--text-muted);">How rigorous emission testing and lab-grade gas benching contribute to cleaner air and greener commercial transport.</p>
                     </div>
-                    <div class="p-6 pt-0 mt-auto">
+                    <div class="pt-6 mt-auto">
                         <button type="button" onclick="openBlogDetail(6)" class="w-full py-3 rounded-xl font-bold text-xs uppercase tracking-wider text-center border transition-all hover:bg-emerald-500 hover:text-white cursor-pointer" style="border-color: var(--border-color); color: var(--text-main);">
                             Read Article <i class="fa-solid fa-arrow-right ml-1"></i>
                         </button>
                     </div>
-                </article>
-
+                </div>
             </div>
-        </section>
+        </article>
+
+    </div>
+</section>
 
         <!-- SECTION 5: AUTHOR & EXPERT SPOTLIGHT -->
         <section class="volt-container">
