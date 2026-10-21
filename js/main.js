@@ -156,8 +156,8 @@ function injectHeaderAndFooter() {
                     </div>
                     <div>
                         <h4 class="font-bold text-xs uppercase tracking-widest mb-4" style="color: var(--primary-color);">Contact Hub</h4>
-                        <p class="text-xs font-medium leading-relaxed mb-2" style="color: var(--text-muted);">24, Jawahar Bazaar, Karur Central Testing Yard, Tamil Nadu[cite: 3].</p>
-                        <p class="text-xs font-mono font-bold" style="color: var(--primary-color);">+91 98765 43210[cite: 3]</p>
+                        <p class="text-xs font-medium leading-relaxed mb-2" style="color: var(--text-muted);">24, Jawahar Bazaar, Karur Central Testing Yard, Tamil Nadu.</p>
+                        <p class="text-xs font-mono font-bold" style="color: var(--primary-color);">+91 98765 43210</p>
                     </div>
                 </div>
                 <div class="volt-container pt-8 text-center text-[11px] font-medium" style="border-top: 1px solid var(--border-color); color: var(--text-muted);">
