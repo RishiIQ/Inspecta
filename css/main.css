@@ -13,11 +13,11 @@
     --primary-color: #10b981;       /* Vibrant Emerald */
     --primary-hover: #059669;
     --secondary-color: #087e43;
-    --bg-color: #0b0f19;            /* Deep Midnight Dark */
+    --bg-color: #050505;            /* True Black Primary Background in Dark Mode */
     --text-main: #f8fafc;
     --text-muted: #94a3b8;
-    --card-bg: #111827;            /* Deep Charcoal Card */
-    --border-color: #1f2937;
+    --card-bg: #101214;             /* Dark Grey / Subtle Primary Tint for Alternate Sections */
+    --border-color: #1e293b;
 }
 
 @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;700&display=swap');
@@ -56,6 +56,51 @@ body {
     }
 }
 
+/* Unified Button Component Standards */
+.btn-primary {
+    background-color: var(--primary-color);
+    color: #ffffff;
+    border-radius: 1rem;
+    padding: 1rem 2rem;
+    font-weight: 700;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    border: 1px solid transparent;
+}
+.btn-primary:hover {
+    opacity: 0.9;
+    transform: translateY(-1px);
+}
+
+.btn-secondary {
+    background-color: var(--card-bg);
+    color: var(--text-main);
+    border: 1px solid var(--border-color);
+    border-radius: 1rem;
+    padding: 1rem 2rem;
+    font-weight: 700;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    backdrop-filter: blur(12px);
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+.btn-secondary:hover {
+    border-color: var(--primary-color);
+    transform: translateY(-1px);
+}
+
 .input-error {
     border-color: #ef4444 !important;
     background-color: rgba(239, 68, 68, 0.03) !important;
@@ -87,7 +132,7 @@ body {
 .lx-modal-overlay {
     position: fixed;
     inset: 0;
-    background: rgba(15, 23, 42, 0.7);
+    background: rgba(5, 5, 5, 0.8);
     backdrop-filter: blur(8px);
     z-index: 99999;
     display: flex;
@@ -102,4 +147,20 @@ body {
 .lx-modal-overlay.is-active {
     opacity: 1;
     pointer-events: auto;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+}
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+::-webkit-scrollbar-thumb {
+    background: rgba(100, 116, 139, 0.2);
+    border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: rgba(100, 116, 139, 0.4);
 }
