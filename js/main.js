@@ -42,8 +42,8 @@ function injectHeaderAndFooter() {
                                 Home <i class="fa-solid fa-chevron-down text-[9px] transition-transform group-hover:rotate-180"></i>
                             </button>
                             <div class="absolute top-full left-0 mt-1 w-48 rounded-2xl shadow-xl py-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 transform translate-y-2 group-hover:translate-y-0 z-50 border" style="background-color: var(--card-bg); border-color: var(--border-color);">
-                                <a href="index.html" class="block px-5 py-3 transition-colors text-xs font-bold" style="color: var(--text-main);">Home 1 (Standard)</a>
-                                <a href="home2.html" class="block px-5 py-3 transition-colors text-xs font-bold" style="color: var(--text-main);">Home 2 (SaaS Hub)</a>
+                                <a href="index.html" class="block px-5 py-3 transition-colors text-sm font-bold" style="color: var(--text-main);">Home 1 (Standard)</a>
+                                <a href="home2.html" class="block px-5 py-3 transition-colors text-sm font-bold" style="color: var(--text-main);">Home 2 (SaaS Hub)</a>
                             </div>
                         </div>
                         <a href="services.html" class="transition-colors hover:opacity-80" style="color: ${currentPath === 'services.html' ? 'var(--primary-color)' : 'var(--text-muted)'};">Services</a>
@@ -58,7 +58,7 @@ function injectHeaderAndFooter() {
                     <!-- Right Controls: Sign In as Primary CTA -->
                     <div class="flex items-center gap-2 sm:gap-3 shrink-0">
                         <button onclick="toggleTheme()" id="themeToggleBtn" class="w-9 h-9 sm:w-10 sm:h-10 rounded-2xl border flex items-center justify-center shadow-sm transition-all cursor-pointer hover:opacity-80" style="background-color: var(--bg-color); border-color: var(--border-color); color: var(--text-main);" title="Toggle Theme">
-                            <i id="themeIcon" class="fa-solid ${isDarkMode ? 'fa-sun text-amber-400' : 'fa-moon'} text-xs"></i>
+                            <i id="themeIcon" class="fa-solid ${isDarkMode ? 'fa-sun text-amber-400' : 'fa-moon'} text-sm"></i>
                         </button>
 
                         <button onclick="toggleRTL()" id="rtlToggleBtn" class="hidden min-[500px]:flex px-3 h-9 sm:h-10 rounded-2xl border items-center gap-1.5 shadow-sm font-bold text-[11px] transition-all cursor-pointer hover:opacity-80" style="background-color: var(--bg-color); border-color: var(--border-color); color: var(--text-main);" title="Toggle Direction">
@@ -66,18 +66,18 @@ function injectHeaderAndFooter() {
                             <span>${currentDir === 'ltr' ? 'RTL' : 'LTR'}</span>
                         </button>
 
-                        <button type="button" id="navBookSlotBtn" class="hidden sm:inline-flex px-4 sm:px-5 py-2.5 sm:py-3 rounded-2xl font-bold text-xs uppercase tracking-wider border shadow-sm transition-all hover:opacity-80 cursor-pointer" style="background-color: var(--card-bg); border-color: var(--border-color); color: var(--text-main);">
+                        <button type="button" id="navBookSlotBtn" class="hidden sm:inline-flex px-4 sm:px-5 py-2.5 sm:py-3 rounded-2xl font-bold text-sm uppercase tracking-wider border shadow-sm transition-all hover:opacity-80 cursor-pointer" style="background-color: var(--card-bg); border-color: var(--border-color); color: var(--text-main);">
                             Book Slot
                         </button>
 
                         <!-- Sign In as Primary CTA in Header -->
-                        <a href="login.html" class="px-5 sm:px-6 py-2.5 sm:py-3 text-white rounded-2xl font-bold text-xs uppercase tracking-wider shadow-md transition-all hover:opacity-90 text-center" style="background-color: var(--primary-color);">
+                        <a href="login.html" class="px-5 sm:px-6 py-2.5 sm:py-3 text-white rounded-2xl font-bold text-sm uppercase tracking-wider shadow-md transition-all hover:opacity-90 text-center" style="background-color: var(--primary-color);">
                             Sign In
                         </a>
 
                         <!-- Hamburger Button -->
                         <button id="mobileMenuToggle" class="xl:hidden w-9 h-9 sm:w-10 sm:h-10 rounded-2xl border flex items-center justify-center shadow-sm cursor-pointer" style="background-color: var(--bg-color); border-color: var(--border-color); color: var(--text-main);" aria-label="Toggle Mobile Menu">
-                            <i class="fa-solid fa-bars text-xs sm:text-sm"></i>
+                            <i class="fa-solid fa-bars text-sm sm:text-sm"></i>
                         </button>
                     </div>
                 </div>
@@ -85,24 +85,24 @@ function injectHeaderAndFooter() {
                 <!-- Responsive Mobile Menu Drawer -->
                 <div id="mobileMenuDrawer" class="hidden xl:hidden border-t px-4 sm:px-6 py-6 space-y-4 shadow-xl transition-all max-h-[80vh] overflow-y-auto" style="background-color: var(--card-bg); border-color: var(--border-color);">
                     <div class="flex min-[500px]:hidden items-center justify-between gap-2 pb-3 border-b" style="border-color: var(--border-color);">
-                        <button onclick="toggleRTL()" class="flex-1 py-2.5 rounded-2xl border font-bold text-xs uppercase tracking-wider flex items-center justify-center gap-1.5" style="background-color: var(--bg-color); border-color: var(--border-color); color: var(--text-main);">
+                        <button onclick="toggleRTL()" class="flex-1 py-2.5 rounded-2xl border font-bold text-sm uppercase tracking-wider flex items-center justify-center gap-1.5" style="background-color: var(--bg-color); border-color: var(--border-color); color: var(--text-main);">
                             <i class="fa-solid fa-language" style="color: var(--primary-color);"></i>
                             <span>${currentDir === 'ltr' ? 'RTL' : 'LTR'}</span>
                         </button>
-                        <a href="login.html" class="flex-1 py-2.5 text-center text-white rounded-2xl font-bold text-xs uppercase tracking-wider shadow-md" style="background-color: var(--primary-color);">
+                        <a href="login.html" class="flex-1 py-2.5 text-center text-white rounded-2xl font-bold text-sm uppercase tracking-wider shadow-md" style="background-color: var(--primary-color);">
                             Sign In
                         </a>
-                        <button type="button" id="mobileBookSlotBtn" class="flex-1 py-2.5 text-center rounded-2xl font-bold text-xs uppercase tracking-wider border shadow-sm cursor-pointer" style="background-color: var(--card-bg); border-color: var(--border-color); color: var(--text-main);">
+                        <button type="button" id="mobileBookSlotBtn" class="flex-1 py-2.5 text-center rounded-2xl font-bold text-sm uppercase tracking-wider border shadow-sm cursor-pointer" style="background-color: var(--card-bg); border-color: var(--border-color); color: var(--text-main);">
                             Book Slot
                         </button>
                     </div>
                     <div class="space-y-2">
                         <p class="text-[10px] font-bold uppercase tracking-widest" style="color: var(--text-muted);">Home Pages</p>
-                        <a href="index.html" class="block pl-3 py-2 text-xs font-bold uppercase tracking-wider" style="color: var(--text-main);">Home 1 (Standard)</a>
-                        <a href="home2.html" class="block pl-3 py-2 text-xs font-bold uppercase tracking-wider" style="color: var(--text-main);">Home 2 (SaaS Hub)</a>
+                        <a href="index.html" class="block pl-3 py-2 text-sm font-bold uppercase tracking-wider" style="color: var(--text-main);">Home 1 (Standard)</a>
+                        <a href="home2.html" class="block pl-3 py-2 text-sm font-bold uppercase tracking-wider" style="color: var(--text-main);">Home 2 (SaaS Hub)</a>
                     </div>
                     <hr style="border-color: var(--border-color);">
-                    <div class="grid grid-cols-2 gap-3 text-xs font-bold uppercase tracking-wider">
+                    <div class="grid grid-cols-2 gap-3 text-sm font-bold uppercase tracking-wider">
                         <a href="services.html" class="py-2" style="color: var(--text-main);">Services</a>
                         <a href="locations.html" class="py-2" style="color: var(--text-main);">Locations</a>
                         <a href="pricing.html" class="py-2" style="color: var(--text-main);">Pricing</a>
@@ -129,19 +129,19 @@ function injectHeaderAndFooter() {
                                 <span>Inspecta<span style="color: var(--primary-color);">Pro</span></span>
                             </a>
                         </div>
-                        <p class="text-xs font-medium leading-relaxed" style="color: var(--text-muted);">State-certified vehicle inspections & emissions testing with express 15-minute turnarounds.</p>
+                        <p class="text-sm font-medium leading-relaxed" style="color: var(--text-muted);">State-certified vehicle inspections & emissions testing with express 15-minute turnarounds.</p>
                         
                         <!-- Social Media Icons -->
                         <div class="flex items-center gap-3 pt-1">
-                            <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" class="w-9 h-9 rounded-2xl flex items-center justify-center text-white transition-colors hover:opacity-80 shadow-sm" style="background-color: var(--primary-color);" aria-label="Facebook"><i class="fa-brands fa-facebook-f text-xs"></i></a>
-                            <a href="https://x.com" target="_blank" rel="noopener noreferrer" class="w-9 h-9 rounded-2xl flex items-center justify-center text-white transition-colors hover:opacity-80 shadow-sm" style="background-color: #1e293b;" aria-label="Twitter"><i class="fa-brands fa-x-twitter text-xs"></i></a>
-                            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="w-9 h-9 rounded-2xl flex items-center justify-center text-white transition-colors hover:opacity-80 shadow-sm" style="background-color: var(--secondary-color);" aria-label="Instagram"><i class="fa-brands fa-instagram text-xs"></i></a>
-                            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="w-9 h-9 rounded-2xl flex items-center justify-center text-white transition-colors hover:opacity-80 shadow-sm" style="background-color: var(--primary-color);" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in text-xs"></i></a>
+                            <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" class="w-9 h-9 rounded-2xl flex items-center justify-center text-white transition-colors hover:opacity-80 shadow-sm" style="background-color: var(--primary-color);" aria-label="Facebook"><i class="fa-brands fa-facebook-f text-sm"></i></a>
+                            <a href="https://x.com" target="_blank" rel="noopener noreferrer" class="w-9 h-9 rounded-2xl flex items-center justify-center text-white transition-colors hover:opacity-80 shadow-sm" style="background-color: #1e293b;" aria-label="Twitter"><i class="fa-brands fa-x-twitter text-sm"></i></a>
+                            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="w-9 h-9 rounded-2xl flex items-center justify-center text-white transition-colors hover:opacity-80 shadow-sm" style="background-color: var(--secondary-color);" aria-label="Instagram"><i class="fa-brands fa-instagram text-sm"></i></a>
+                            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="w-9 h-9 rounded-2xl flex items-center justify-center text-white transition-colors hover:opacity-80 shadow-sm" style="background-color: var(--primary-color);" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in text-sm"></i></a>
                         </div>
                     </div>
                     <div>
-                        <h4 class="font-bold text-xs uppercase tracking-widest mb-4" style="color: var(--primary-color);">Quick Links</h4>
-                        <ul class="space-y-2 text-xs font-medium" style="color: var(--text-muted);">
+                        <h4 class="font-bold text-sm uppercase tracking-widest mb-4" style="color: var(--primary-color);">Quick Links</h4>
+                        <ul class="space-y-2 text-sm font-medium" style="color: var(--text-muted);">
                             <li><a href="services.html" class="transition-colors hover:opacity-80">Inspection Services</a></li>
                             <li><a href="pricing.html" class="transition-colors hover:opacity-80">Pricing Plans</a></li>
                             <li><a href="locations.html" class="transition-colors hover:opacity-80">Center Locations</a></li>
@@ -149,16 +149,16 @@ function injectHeaderAndFooter() {
                         </ul>
                     </div>
                     <div>
-                        <h4 class="font-bold text-xs uppercase tracking-widest mb-4" style="color: var(--primary-color);">Legal & Compliance</h4>
-                        <ul class="space-y-2 text-xs font-medium" style="color: var(--text-muted);">
+                        <h4 class="font-bold text-sm uppercase tracking-widest mb-4" style="color: var(--primary-color);">Legal & Compliance</h4>
+                        <ul class="space-y-2 text-sm font-medium" style="color: var(--text-muted);">
                             <li><a href="terms.html" class="transition-colors hover:opacity-80">Terms & Conditions</a></li>
                             <li><a href="privacy.html" class="transition-colors hover:opacity-80">Privacy Policy</a></li>
                         </ul>
                     </div>
                     <div>
-                        <h4 class="font-bold text-xs uppercase tracking-widest mb-4" style="color: var(--primary-color);">Contact Hub</h4>
-                        <p class="text-xs font-medium leading-relaxed mb-2" style="color: var(--text-muted);">24, Jawahar Bazaar, Karur Central Testing Yard, Tamil Nadu[cite: 3].</p>
-                        <p class="text-xs font-mono font-bold" style="color: var(--primary-color);">+91 98765 43210[cite: 3]</p>
+                        <h4 class="font-bold text-sm uppercase tracking-widest mb-4" style="color: var(--primary-color);">Contact Hub</h4>
+                        <p class="text-sm font-medium leading-relaxed mb-2" style="color: var(--text-muted);">24, Jawahar Bazaar, Karur Central Testing Yard, Tamil Nadu[cite: 3].</p>
+                        <p class="text-sm font-mono font-bold" style="color: var(--primary-color);">+91 98765 43210[cite: 3]</p>
                     </div>
                 </div>
                 <div class="volt-container pt-8 text-center text-[11px] font-medium" style="border-top: 1px solid var(--border-color); color: var(--text-muted);">
@@ -177,20 +177,20 @@ function injectHeaderAndFooter() {
             <div class="max-w-md w-full p-6 sm:p-8 rounded-[2.5rem] border text-left space-y-5 shadow-2xl transition-colors duration-300 relative scale-95 transition-transform duration-300 mx-auto my-auto" id="modalCardBox" style="background-color: var(--card-bg); border-color: var(--border-color);">
                 <div class="flex items-center justify-between pb-3 border-b" style="border-color: var(--border-color);">
                     <h3 class="text-lg font-black" style="color: var(--text-main);">Express Inspection Slot Booking</h3>
-                    <button type="button" id="closeGlobalModal" class="w-8 h-8 rounded-2xl border flex items-center justify-center text-xs cursor-pointer" style="background-color: var(--bg-color); border-color: var(--border-color); color: var(--text-main);">
+                    <button type="button" id="closeGlobalModal" class="w-8 h-8 rounded-2xl border flex items-center justify-center text-sm cursor-pointer" style="background-color: var(--bg-color); border-color: var(--border-color); color: var(--text-main);">
                         <i class="fa-solid fa-xmark"></i>
                     </button>
                 </div>
                 <form id="globalBookingForm" class="space-y-4" novalidate>
                     <div>
                         <label class="block text-[11px] font-bold uppercase tracking-widest mb-1.5" style="color: var(--text-muted);">Registration Number</label>
-                        <input type="text" id="modalCarReg" placeholder="e.g. TN49BB9012" class="w-full px-4 py-3.5 rounded-2xl text-xs font-bold uppercase tracking-wider outline-none border transition-all" style="background-color: var(--bg-color); border-color: var(--border-color); color: var(--text-main);" required>
+                        <input type="text" id="modalCarReg" placeholder="e.g. TN49BB9012" class="w-full px-4 py-3.5 rounded-2xl text-sm font-bold uppercase tracking-wider outline-none border transition-all" style="background-color: var(--bg-color); border-color: var(--border-color); color: var(--text-main);" required>
                     </div>
                     <div>
                         <label class="block text-[11px] font-bold uppercase tracking-widest mb-1.5" style="color: var(--text-muted);">Mobile Number</label>
-                        <input type="tel" id="modalPhone" placeholder="9876543210" maxlength="10" class="w-full px-4 py-3.5 rounded-2xl text-xs font-bold uppercase tracking-wider outline-none border transition-all" style="background-color: var(--bg-color); border-color: var(--border-color); color: var(--text-main);" required>
+                        <input type="tel" id="modalPhone" placeholder="9876543210" maxlength="10" class="w-full px-4 py-3.5 rounded-2xl text-sm font-bold uppercase tracking-wider outline-none border transition-all" style="background-color: var(--bg-color); border-color: var(--border-color); color: var(--text-main);" required>
                     </div>
-                    <button type="submit" class="w-full py-4 text-white rounded-2xl font-bold text-xs uppercase tracking-widest shadow-lg transition-all hover:opacity-90 cursor-pointer" style="background-color: var(--primary-color);">
+                    <button type="submit" class="w-full py-4 text-white rounded-2xl font-bold text-sm uppercase tracking-widest shadow-lg transition-all hover:opacity-90 cursor-pointer" style="background-color: var(--primary-color);">
                         Confirm Appointment Slot
                     </button>
                 </form>
@@ -280,10 +280,10 @@ function toggleTheme() {
     const themeIcon = document.getElementById('themeIcon');
     if (html.classList.contains('dark')) {
         localStorage.setItem('theme', 'dark');
-        if (themeIcon) themeIcon.className = 'fa-solid fa-sun text-amber-400 text-xs';
+        if (themeIcon) themeIcon.className = 'fa-solid fa-sun text-amber-400 text-sm';
     } else {
         localStorage.setItem('theme', 'light');
-        if (themeIcon) themeIcon.className = 'fa-solid fa-moon text-xs';
+        if (themeIcon) themeIcon.className = 'fa-solid fa-moon text-sm';
     }
 }
 

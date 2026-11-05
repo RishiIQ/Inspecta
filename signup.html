@@ -37,7 +37,7 @@
         <div class="max-w-xl w-full p-8 sm:p-12 rounded-[2.5rem] border shadow-2xl space-y-6 relative overflow-hidden transition-colors duration-300" style="background-color: var(--card-bg); border-color: var(--border-color);">
             <div class="flex items-end  justify-end gap-2">
                     <button onclick="toggleTheme()" id="themeToggleBtn" class="w-8 h-8 rounded-xl border flex items-center justify-center shadow-sm transition-all cursor-pointer" style="background-color: var(--bg-color); border-color: var(--border-color); color: var(--text-main);" title="Toggle Theme">
-                        <i id="themeIcon" class="fa-solid fa-moon text-xs"></i>
+                        <i id="themeIcon" class="fa-solid fa-moon text-sm"></i>
                     </button>
                     <button onclick="toggleRTL()" id="rtlToggleBtn" class="px-3 h-8 rounded-xl border flex items-center gap-1.5 shadow-sm font-bold text-[10px] transition-all cursor-pointer" style="background-color: var(--bg-color); border-color: var(--border-color); color: var(--text-main);" title="Toggle Direction">
                         <span id="rtlButtonText">RTL</span>
@@ -58,7 +58,7 @@
 
             <div class="text-center space-y-2">
                 <h1 class="text-2xl sm:text-3xl font-black tracking-tight" style="color: var(--text-main);">Create Your InspectaPro Workspace</h1>
-                <p class="text-xs font-medium leading-relaxed" style="color: var(--text-muted);">Start your 14-day free trial. No credit card required to test automated RTO syncs and vault security.</p>
+                <p class="text-sm font-medium leading-relaxed" style="color: var(--text-muted);">Start your 14-day free trial. No credit card required to test automated RTO syncs and vault security.</p>
             </div>
 
             <!-- Sign Up Form -->
@@ -66,38 +66,38 @@
                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div>
                         <label class="block text-[11px] font-bold uppercase tracking-widest mb-1.5" style="color: var(--text-muted);">Full Name</label>
-                        <input type="text" id="signupName" placeholder="Rishi M." class="w-full px-4 py-3 rounded-xl text-xs font-bold outline-none border transition-all" style="background-color: var(--bg-color); border-color: var(--border-color); color: var(--text-main);" required>
+                        <input type="text" id="signupName" placeholder="Rishi M." class="w-full px-4 py-3 rounded-xl text-sm font-bold outline-none border transition-all" style="background-color: var(--bg-color); border-color: var(--border-color); color: var(--text-main);" required>
                         <span class="error-msg">Enter at least 3 letters.</span>
                     </div>
                     <div>
                         <label class="block text-[11px] font-bold uppercase tracking-widest mb-1.5" style="color: var(--text-muted);">Organization / Fleet Name</label>
-                        <input type="text" id="signupOrg" placeholder="Apex Logistics" class="w-full px-4 py-3 rounded-xl text-xs font-bold outline-none border transition-all" style="background-color: var(--bg-color); border-color: var(--border-color); color: var(--text-main);" required>
+                        <input type="text" id="signupOrg" placeholder="Apex Logistics" class="w-full px-4 py-3 rounded-xl text-sm font-bold outline-none border transition-all" style="background-color: var(--bg-color); border-color: var(--border-color); color: var(--text-main);" required>
                         <span class="error-msg">Enter organization name.</span>
                     </div>
                 </div>
 
                 <div>
                     <label class="block text-[11px] font-bold uppercase tracking-widest mb-1.5" style="color: var(--text-muted);">Professional Email</label>
-                    <input type="email" id="signupEmail" placeholder="name@transport.com" class="w-full px-4 py-3 rounded-xl text-xs font-bold outline-none border transition-all" style="background-color: var(--bg-color); border-color: var(--border-color); color: var(--text-main);" required>
+                    <input type="email" id="signupEmail" placeholder="name@transport.com" class="w-full px-4 py-3 rounded-xl text-sm font-bold outline-none border transition-all" style="background-color: var(--bg-color); border-color: var(--border-color); color: var(--text-main);" required>
                     <span class="error-msg">Enter a valid professional email.</span>
                 </div>
 
                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div>
                         <label class="block text-[11px] font-bold uppercase tracking-widest mb-1.5" style="color: var(--text-muted);">Password</label>
-                        <input type="password" id="signupPassword" placeholder="••••••••••••" class="w-full px-4 py-3 rounded-xl text-xs font-bold outline-none border transition-all" style="background-color: var(--bg-color); border-color: var(--border-color); color: var(--text-main);" required>
+                        <input type="password" id="signupPassword" placeholder="••••••••••••" class="w-full px-4 py-3 rounded-xl text-sm font-bold outline-none border transition-all" style="background-color: var(--bg-color); border-color: var(--border-color); color: var(--text-main);" required>
                         <span class="error-msg">Must be at least 6 characters.</span>
                     </div>
                     <div>
                         <label class="block text-[11px] font-bold uppercase tracking-widest mb-1.5" style="color: var(--text-muted);">Confirm Password</label>
-                        <input type="password" id="signupConfirmPass" placeholder="••••••••••••" class="w-full px-4 py-3 rounded-xl text-xs font-bold outline-none border transition-all" style="background-color: var(--bg-color); border-color: var(--border-color); color: var(--text-main);" required>
+                        <input type="password" id="signupConfirmPass" placeholder="••••••••••••" class="w-full px-4 py-3 rounded-xl text-sm font-bold outline-none border transition-all" style="background-color: var(--bg-color); border-color: var(--border-color); color: var(--text-main);" required>
                         <span class="error-msg">Passwords must match.</span>
                     </div>
                 </div>
 
                 <div>
                     <label class="block text-[11px] font-bold uppercase tracking-widest mb-1.5" style="color: var(--text-muted);">Subscription Tier</label>
-                    <select id="signupTier" class="w-full px-4 py-3 rounded-xl text-xs font-bold uppercase tracking-wider outline-none border transition-all" style="background-color: var(--bg-color); border-color: var(--border-color); color: var(--text-main);">
+                    <select id="signupTier" class="w-full px-4 py-3 rounded-xl text-sm font-bold uppercase tracking-wider outline-none border transition-all" style="background-color: var(--bg-color); border-color: var(--border-color); color: var(--text-main);">
                         <option value="starter">Starter Plan (Up to 10 Vehicles)</option>
                         <option value="professional" selected>Professional Fleet Tier (Up to 500 Units)</option>
                         <option value="enterprise">Custom Enterprise SaaS (Unlimited Depots)</option>
@@ -106,15 +106,15 @@
 
                 <div class="flex items-center gap-2 pt-1">
                     <input type="checkbox" id="termsCheck" class="accent-emerald-600 rounded cursor-pointer" required>
-                    <label for="termsCheck" class="text-xs font-medium cursor-pointer" style="color: var(--text-muted);">I agree to the <a href="terms.html" class="font-bold underline" style="color: var(--primary-color);">Terms of Service</a> & <a href="privacy.html" class="font-bold underline" style="color: var(--primary-color);">Privacy Policy</a>.</label>
+                    <label for="termsCheck" class="text-sm font-medium cursor-pointer" style="color: var(--text-muted);">I agree to the <a href="terms.html" class="font-bold underline" style="color: var(--primary-color);">Terms of Service</a> & <a href="privacy.html" class="font-bold underline" style="color: var(--primary-color);">Privacy Policy</a>.</label>
                 </div>
 
-                <button type="submit" class="w-full py-3.5 text-white rounded-xl font-bold text-xs uppercase tracking-widest shadow-lg transition-all hover:opacity-90 cursor-pointer" style="background-color: var(--primary-color);">
+                <button type="submit" class="w-full py-3.5 text-white rounded-xl font-bold text-sm uppercase tracking-widest shadow-lg transition-all hover:opacity-90 cursor-pointer" style="background-color: var(--primary-color);">
                     Initialize Enterprise Workspace
                 </button>
             </form>
 
-            <div class="pt-3 border-t text-center text-xs font-medium" style="border-color: var(--border-color); color: var(--text-muted);">
+            <div class="pt-3 border-t text-center text-sm font-medium" style="border-color: var(--border-color); color: var(--text-muted);">
                 Already have an active workspace? <a href="login.html" class="font-bold hover:underline" style="color: var(--primary-color);">Sign In</a>
             </div>
         </div>

@@ -50,7 +50,7 @@
             <!-- Nav Links -->
             <div id="sidebarMenuContent" class="hidden lg:block space-y-1">
                 <p class="text-[10px] font-bold uppercase tracking-widest px-3 mb-2" style="color: var(--text-muted);">Console Navigation</p>
-                <nav class="space-y-1.5 text-xs font-bold uppercase tracking-wider" id="dashNavTabs">
+                <nav class="space-y-1.5 text-sm font-bold uppercase tracking-wider" id="dashNavTabs">
                     <button type="button" onclick="switchTab('overview')" data-tab="overview" class="w-full flex items-center gap-3 px-4 py-3.5 rounded-2xl text-white transition-all shadow-md cursor-pointer text-left" style="background-color: var(--primary-color);">
                         <i class="fa-solid fa-gauge text-sm w-5"></i> Dashboard
                     </button>
@@ -72,7 +72,7 @@
             <div class="absolute -top-10 -right-10 w-24 h-24 bg-white/10 rounded-full blur-xl"></div>
             <img src="https://images.unsplash.com/photo-1552519507-da3b142c6e3d?auto=format&fit=crop&q=80&w=200" alt="Car" class="w-full h-24 object-cover rounded-xl shadow-md">
             <div class="space-y-1">
-                <h4 class="font-black text-xs uppercase tracking-wider text-white">Time for Inspection?</h4>
+                <h4 class="font-black text-sm uppercase tracking-wider text-white">Time for Inspection?</h4>
                 <p class="text-[10px] text-white/80 font-medium">Book now to keep your vehicle road-safe.</p>
             </div>
             <button type="button" onclick="document.getElementById('globalBookingModal').classList.remove('opacity-0', 'pointer-events-none'); document.getElementById('modalCardBox').classList.remove('scale-95'); document.getElementById('modalCardBox').classList.add('scale-100');" class="w-full py-2.5 bg-white text-emerald-800 font-bold rounded-xl text-[10px] uppercase tracking-widest shadow-md transition-all hover:bg-slate-100 cursor-pointer">
@@ -94,15 +94,15 @@
             <!-- Right Controls -->
             <div class="flex items-center gap-3">
                 <button onclick="toggleTheme()" id="themeToggleBtn" class="w-10 h-10 rounded-2xl border flex items-center justify-center shadow-sm transition-all cursor-pointer hover:opacity-80" style="background-color: var(--bg-color); border-color: var(--border-color); color: var(--text-main);" title="Toggle Theme">
-                    <i id="themeIcon" class="fa-solid fa-moon text-xs"></i>
+                    <i id="themeIcon" class="fa-solid fa-moon text-sm"></i>
                 </button>
-                <button onclick="toggleRTL()" id="rtlToggleBtn" class="px-3.5 h-10 rounded-2xl border flex items-center gap-1.5 shadow-sm font-bold text-xs transition-all cursor-pointer hover:opacity-80" style="background-color: var(--bg-color); border-color: var(--border-color); color: var(--text-main);" title="Toggle Direction">
+                <button onclick="toggleRTL()" id="rtlToggleBtn" class="px-3.5 h-10 rounded-2xl border flex items-center gap-1.5 shadow-sm font-bold text-sm transition-all cursor-pointer hover:opacity-80" style="background-color: var(--bg-color); border-color: var(--border-color); color: var(--text-main);" title="Toggle Direction">
                     <span id="rtlButtonText">RTL</span>
                 </button>
                 <div class="flex items-center gap-2.5 pl-3 border-l" style="border-color: var(--border-color);">
                     <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=100" alt="Avatar" class="w-9 h-9 rounded-2xl object-cover border" style="border-color: var(--primary-color);">
                     <div class="hidden md:block text-left">
-                        <strong class="block text-xs font-black" style="color: var(--text-main);">Rishi M.</strong>
+                        <strong class="block text-sm font-black" style="color: var(--text-main);">Rishi M.</strong>
                         <span class="text-[10px] font-medium" style="color: var(--text-muted);">@rishirishim</span>
                     </div>
                 </div>
@@ -125,23 +125,23 @@
                     </div>
                     <h3 class="text-base sm:text-lg font-black" style="color: var(--text-main);">Book Express Inspection Slot</h3>
                 </div>
-                <button type="button" id="closeGlobalModal" class="w-9 h-9 rounded-2xl border flex items-center justify-center text-xs cursor-pointer transition-all hover:bg-emerald-500 hover:text-white" style="background-color: var(--bg-color); border-color: var(--border-color); color: var(--text-main);">
+                <button type="button" id="closeGlobalModal" class="w-9 h-9 rounded-2xl border flex items-center justify-center text-sm cursor-pointer transition-all hover:bg-emerald-500 hover:text-white" style="background-color: var(--bg-color); border-color: var(--border-color); color: var(--text-main);">
                     <i class="fa-solid fa-xmark"></i>
                 </button>
             </div>
 
-            <p class="text-xs font-medium leading-relaxed" style="color: var(--text-muted);">
+            <p class="text-sm font-medium leading-relaxed" style="color: var(--text-muted);">
                 Secure your 15-minute priority testing lane at Karur Central Testing Yard, Tamil Nadu[cite: 3] with instant RTO synchronization.
             </p>
 
             <form id="globalBookingForm" class="space-y-4" novalidate>
                 <div>
                     <label class="block text-[11px] font-bold uppercase tracking-widest mb-1.5" style="color: var(--text-muted);">Vehicle Registration Number</label>
-                    <input type="text" id="modalCarReg" placeholder="e.g. TN47BB9612" class="w-full px-4 py-3.5 rounded-2xl text-xs font-bold uppercase tracking-wider outline-none border transition-all" style="background-color: var(--bg-color); border-color: var(--border-color); color: var(--text-main);" required>
+                    <input type="text" id="modalCarReg" placeholder="e.g. TN47BB9612" class="w-full px-4 py-3.5 rounded-2xl text-sm font-bold uppercase tracking-wider outline-none border transition-all" style="background-color: var(--bg-color); border-color: var(--border-color); color: var(--text-main);" required>
                 </div>
                 <div>
                     <label class="block text-[11px] font-bold uppercase tracking-widest mb-1.5" style="color: var(--text-muted);">Mobile Number</label>
-                    <input type="tel" id="modalPhone" placeholder="9876543210" maxlength="10" class="w-full px-4 py-3.5 rounded-2xl text-xs font-bold uppercase tracking-wider outline-none border transition-all" style="background-color: var(--bg-color); border-color: var(--border-color); color: var(--text-main);" required>
+                    <input type="tel" id="modalPhone" placeholder="9876543210" maxlength="10" class="w-full px-4 py-3.5 rounded-2xl text-sm font-bold uppercase tracking-wider outline-none border transition-all" style="background-color: var(--bg-color); border-color: var(--border-color); color: var(--text-main);" required>
                 </div>
                 <button type="submit" class="btn-primary w-full text-center">
                     Confirm Appointment Slot
@@ -158,7 +158,7 @@
         document.addEventListener('DOMContentLoaded', () => {
             if (document.documentElement.classList.contains('dark')) {
                 const themeIcon = document.getElementById('themeIcon');
-                if (themeIcon) themeIcon.className = 'fa-solid fa-sun text-amber-400 text-xs';
+                if (themeIcon) themeIcon.className = 'fa-solid fa-sun text-amber-400 text-sm';
             }
             const rtlSpan = document.getElementById('rtlButtonText');
             const isRtl = document.documentElement.getAttribute('dir') === 'rtl';
@@ -313,14 +313,14 @@ Secure Digital Vault - InspectaPro Enterprise Console
                                 <span class="text-[10px] font-bold uppercase tracking-widest bg-white/20 px-3 py-1 rounded-full">Upcoming Appointment</span>
                                 <h2 class="text-2xl sm:text-3xl font-black mt-2 text-white">Jaguar XE L P250 Emissions Audit</h2>
                             </div>
-                            <span class="px-4 py-1.5 rounded-xl bg-white/20 text-xs font-mono font-bold">TN47BB9612</span>
+                            <span class="px-4 py-1.5 rounded-xl bg-white/20 text-sm font-mono font-bold">TN47BB9612</span>
                         </div>
-                        <div class="flex flex-wrap items-center gap-6 text-xs font-medium text-white/90 relative z-10">
+                        <div class="flex flex-wrap items-center gap-6 text-sm font-medium text-white/90 relative z-10">
                             <span><i class="fa-solid fa-location-dot mr-1.5 text-emerald-300"></i> Karur Central Testing Yard, Tamil Nadu[cite: 3]</span>
                             <span><i class="fa-solid fa-clock mr-1.5 text-emerald-300"></i> Fri, 20th June - 7:00-7:30 PM</span>
                         </div>
                         <div class="pt-2 flex gap-3 relative z-10">
-                            <button type="button" onclick="downloadPassPDF()" class="px-6 py-3 bg-white text-emerald-800 font-bold rounded-xl text-xs uppercase tracking-wider shadow-lg transition-all hover:bg-slate-100 cursor-pointer">
+                            <button type="button" onclick="downloadPassPDF()" class="px-6 py-3 bg-white text-emerald-800 font-bold rounded-xl text-sm uppercase tracking-wider shadow-lg transition-all hover:bg-slate-100 cursor-pointer">
                                 <i class="fa-solid fa-download mr-1.5"></i> Download Pass PDF
                             </button>
                         </div>
@@ -333,24 +333,24 @@ Secure Digital Vault - InspectaPro Enterprise Console
                                     <h3 class="font-black text-base" style="color: var(--text-main);">My Reports</h3>
                                     <p class="text-[10px] font-semibold uppercase tracking-wider" style="color: var(--text-muted);">Inspection Summary</p>
                                 </div>
-                                <a href="#" onclick="switchTab('reports')" class="text-xs font-bold text-emerald-500 hover:underline">View All</a>
+                                <a href="#" onclick="switchTab('reports')" class="text-sm font-bold text-emerald-500 hover:underline">View All</a>
                             </div>
                             <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
                                 <div class="p-5 rounded-2xl border space-y-3" style="background-color: var(--bg-color); border-color: var(--border-color);">
                                     <span class="text-[10px] font-mono font-bold px-2.5 py-1 rounded-md bg-emerald-500/10 text-emerald-500">PUCC</span>
-                                    <h4 class="font-bold text-xs leading-snug" style="color: var(--text-main);">BMW M3 Inspection Report</h4>
+                                    <h4 class="font-bold text-sm leading-snug" style="color: var(--text-main);">BMW M3 Inspection Report</h4>
                                     <span class="text-[10px] block" style="color: var(--text-muted);">June 2024</span>
                                     <button onclick="downloadPassPDF()" class="w-full py-2 rounded-xl text-[10px] font-bold uppercase tracking-wider border transition-all hover:border-emerald-500 cursor-pointer" style="border-color: var(--border-color); color: var(--text-main);">Download</button>
                                 </div>
                                 <div class="p-5 rounded-2xl border space-y-3" style="background-color: var(--bg-color); border-color: var(--border-color);">
                                     <span class="text-[10px] font-mono font-bold px-2.5 py-1 rounded-md bg-emerald-500/10 text-emerald-500">FITNESS</span>
-                                    <h4 class="font-bold text-xs leading-snug" style="color: var(--text-main);">Jaguar XE L P250 Inspection Report</h4>
+                                    <h4 class="font-bold text-sm leading-snug" style="color: var(--text-main);">Jaguar XE L P250 Inspection Report</h4>
                                     <span class="text-[10px] block" style="color: var(--text-muted);">Dec 2023</span>
                                     <button onclick="downloadPassPDF()" class="w-full py-2 rounded-xl text-[10px] font-bold uppercase tracking-wider border transition-all hover:border-emerald-500 cursor-pointer" style="border-color: var(--border-color); color: var(--text-main);">Download</button>
                                 </div>
                                 <div class="p-5 rounded-2xl border space-y-3" style="background-color: var(--bg-color); border-color: var(--border-color);">
                                     <span class="text-[10px] font-mono font-bold px-2.5 py-1 rounded-md bg-emerald-500/10 text-emerald-500">BRAKE</span>
-                                    <h4 class="font-bold text-xs leading-snug" style="color: var(--text-main);">Yamaha YZF-R3 Inspection Report</h4>
+                                    <h4 class="font-bold text-sm leading-snug" style="color: var(--text-main);">Yamaha YZF-R3 Inspection Report</h4>
                                     <span class="text-[10px] block" style="color: var(--text-muted);">Dec 2023</span>
                                     <button onclick="downloadPassPDF()" class="w-full py-2 rounded-xl text-[10px] font-bold uppercase tracking-wider border transition-all hover:border-emerald-500 cursor-pointer" style="border-color: var(--border-color); color: var(--text-main);">Download</button>
                                 </div>
@@ -368,10 +368,10 @@ Secure Digital Vault - InspectaPro Enterprise Console
                                 <div class="p-3.5 rounded-2xl border flex items-center justify-between" style="background-color: var(--bg-color); border-color: var(--border-color);">
                                     <div class="flex items-center gap-3">
                                         <div class="w-10 h-10 rounded-xl overflow-hidden shadow-sm bg-white/10 flex items-center justify-center">
-                                            <i class="fa-solid fa-car text-emerald-500 text-xs"></i>
+                                            <i class="fa-solid fa-car text-emerald-500 text-sm"></i>
                                         </div>
                                         <div>
-                                            <strong class="block text-xs font-bold" style="color: var(--text-main);">Lamborghini Huracan</strong>
+                                            <strong class="block text-sm font-bold" style="color: var(--text-main);">Lamborghini Huracan</strong>
                                             <span class="text-[10px] font-mono" style="color: var(--text-muted);">XYZ-9576</span>
                                         </div>
                                     </div>
@@ -380,10 +380,10 @@ Secure Digital Vault - InspectaPro Enterprise Console
                                 <div class="p-3.5 rounded-2xl border flex items-center justify-between" style="background-color: var(--bg-color); border-color: var(--border-color);">
                                     <div class="flex items-center gap-3">
                                         <div class="w-10 h-10 rounded-xl overflow-hidden shadow-sm bg-white/10 flex items-center justify-center">
-                                            <i class="fa-solid fa-car text-emerald-500 text-xs"></i>
+                                            <i class="fa-solid fa-car text-emerald-500 text-sm"></i>
                                         </div>
                                         <div>
-                                            <strong class="block text-xs font-bold" style="color: var(--text-main);">BMW M3</strong>
+                                            <strong class="block text-sm font-bold" style="color: var(--text-main);">BMW M3</strong>
                                             <span class="text-[10px] font-mono" style="color: var(--text-muted);">JKL-3050</span>
                                         </div>
                                     </div>
@@ -392,10 +392,10 @@ Secure Digital Vault - InspectaPro Enterprise Console
                                 <div class="p-3.5 rounded-2xl border flex items-center justify-between" style="background-color: var(--bg-color); border-color: var(--border-color);">
                                     <div class="flex items-center gap-3">
                                         <div class="w-10 h-10 rounded-xl overflow-hidden shadow-sm bg-white/10 flex items-center justify-center">
-                                            <i class="fa-solid fa-motorcycle text-emerald-500 text-xs"></i>
+                                            <i class="fa-solid fa-motorcycle text-emerald-500 text-sm"></i>
                                         </div>
                                         <div>
-                                            <strong class="block text-xs font-bold" style="color: var(--text-main);">Yamaha YZF-R3</strong>
+                                            <strong class="block text-sm font-bold" style="color: var(--text-main);">Yamaha YZF-R3</strong>
                                             <span class="text-[10px] font-mono" style="color: var(--text-muted);">LMN-8291</span>
                                         </div>
                                     </div>
@@ -410,14 +410,14 @@ Secure Digital Vault - InspectaPro Enterprise Console
                     <div class="p-8 sm:p-12 rounded-[2.5rem] border shadow-xl space-y-6" style="background-color: var(--card-bg); border-color: var(--border-color);">
                         <div class="flex items-center justify-between flex-wrap gap-4">
                             <div>
-                                <span class="text-xs font-bold uppercase tracking-[0.2em] text-emerald-500">Automated Inspection Queue</span>
+                                <span class="text-sm font-bold uppercase tracking-[0.2em] text-emerald-500">Automated Inspection Queue</span>
                                 <h2 class="text-2xl sm:text-3xl font-black mt-1" style="color: var(--text-main);">Scheduled & Past Inspections</h2>
                             </div>
-                            <button type="button" onclick="document.getElementById('globalBookingModal').classList.remove('opacity-0', 'pointer-events-none'); document.getElementById('modalCardBox').classList.remove('scale-95'); document.getElementById('modalCardBox').classList.add('scale-100');" class="btn-primary py-2.5 px-4 text-xs">
+                            <button type="button" onclick="document.getElementById('globalBookingModal').classList.remove('opacity-0', 'pointer-events-none'); document.getElementById('modalCardBox').classList.remove('scale-95'); document.getElementById('modalCardBox').classList.add('scale-100');" class="btn-primary py-2.5 px-4 text-sm">
                                 <i class="fa-solid fa-plus mr-1"></i> Book New Inspection
                             </button>
                         </div>
-                        <p class="text-xs font-medium leading-relaxed" style="color: var(--text-muted);">Inspect all active vehicle testing lanes, priority queue statuses, and historical audit logs stored securely in your vault.</p>
+                        <p class="text-sm font-medium leading-relaxed" style="color: var(--text-muted);">Inspect all active vehicle testing lanes, priority queue statuses, and historical audit logs stored securely in your vault.</p>
                         <div class="space-y-4 pt-2">
                             <div class="p-5 rounded-2xl border flex items-center justify-between flex-wrap gap-4" style="background-color: var(--bg-color); border-color: var(--border-color);">
                                 <div>
@@ -426,7 +426,7 @@ Secure Digital Vault - InspectaPro Enterprise Console
                                     <span class="text-[11px]" style="color: var(--text-muted);">Tomorrow, 10:30 AM (15 Min Duration)</span>
                                 </div>
                                 <div class="flex gap-2">
-                                    <button onclick="downloadPassPDF()" class="btn-secondary py-2 px-3 text-xs">Download Pass</button>
+                                    <button onclick="downloadPassPDF()" class="btn-secondary py-2 px-3 text-sm">Download Pass</button>
                                 </div>
                             </div>
                             <div class="p-5 rounded-2xl border flex items-center justify-between flex-wrap gap-4" style="background-color: var(--bg-color); border-color: var(--border-color);">
@@ -436,7 +436,7 @@ Secure Digital Vault - InspectaPro Enterprise Console
                                     <span class="text-[11px]" style="color: var(--text-muted);">Completed on Jan 15, 2026</span>
                                 </div>
                                 <div class="flex gap-2">
-                                    <button onclick="downloadPassPDF()" class="btn-secondary py-2 px-3 text-xs">View Certificate</button>
+                                    <button onclick="downloadPassPDF()" class="btn-secondary py-2 px-3 text-sm">View Certificate</button>
                                 </div>
                             </div>
                         </div>
@@ -447,15 +447,15 @@ Secure Digital Vault - InspectaPro Enterprise Console
                     <div class="p-8 sm:p-12 rounded-[2.5rem] border shadow-xl space-y-6" style="background-color: var(--card-bg); border-color: var(--border-color);">
                         <div class="flex items-center justify-between flex-wrap gap-4">
                             <div>
-                                <span class="text-xs font-bold uppercase tracking-[0.2em] text-emerald-500">Compliance Intelligence</span>
+                                <span class="text-sm font-bold uppercase tracking-[0.2em] text-emerald-500">Compliance Intelligence</span>
                                 <h2 class="text-2xl sm:text-3xl font-black mt-1" style="color: var(--text-main);">Enterprise Reports & Vault Archives</h2>
                             </div>
-                            <button onclick="alert('Exporting complete corporate audit pack...')" class="btn-secondary py-2.5 px-4 text-xs">
+                            <button onclick="alert('Exporting complete corporate audit pack...')" class="btn-secondary py-2.5 px-4 text-sm">
                                 <i class="fa-solid fa-file-arrow-down mr-1 text-emerald-500"></i> Export Audit Pack
                             </button>
                         </div>
                         <div class="overflow-x-auto rounded-2xl border" style="border-color: var(--border-color);">
-                            <table class="w-full text-left border-collapse text-xs whitespace-nowrap">
+                            <table class="w-full text-left border-collapse text-sm whitespace-nowrap">
                                 <thead>
                                     <tr class="border-b" style="border-color: var(--border-color); background-color: var(--bg-color);">
                                         <th class="p-4 font-black uppercase tracking-wider" style="color: var(--text-main);">Report ID</th>
@@ -485,19 +485,19 @@ Secure Digital Vault - InspectaPro Enterprise Console
             } else if (currentActiveTab === 'settings') {
                 contentContainer.innerHTML = `
                     <div class="p-8 sm:p-12 rounded-[2.5rem] border shadow-xl space-y-6" style="background-color: var(--card-bg); border-color: var(--border-color);">
-                        <span class="text-xs font-bold uppercase tracking-[0.2em] text-emerald-500">Configuration</span>
+                        <span class="text-sm font-bold uppercase tracking-[0.2em] text-emerald-500">Configuration</span>
                         <h2 class="text-2xl sm:text-3xl font-black mt-1" style="color: var(--text-main);">Account Settings & Webhooks</h2>
                         <div class="space-y-4 pt-2">
                             <div class="flex items-center justify-between p-4 rounded-2xl border flex-wrap gap-3" style="background-color: var(--bg-color); border-color: var(--border-color);">
                                 <div>
-                                    <strong class="block text-xs font-bold" style="color: var(--text-main);">WhatsApp & SMS Expiry Alerts</strong>
+                                    <strong class="block text-sm font-bold" style="color: var(--text-main);">WhatsApp & SMS Expiry Alerts</strong>
                                     <span class="text-[11px]" style="color: var(--text-muted);">Receive notifications 30, 15, and 7 days prior to document expiry</span>
                                 </div>
                                 <input type="checkbox" checked class="accent-emerald-600 w-4 h-4 cursor-pointer">
                             </div>
                             <div class="flex items-center justify-between p-4 rounded-2xl border flex-wrap gap-3" style="background-color: var(--bg-color); border-color: var(--border-color);">
                                 <div>
-                                    <strong class="block text-xs font-bold" style="color: var(--text-main);">Automated RTO Database Sync</strong>
+                                    <strong class="block text-sm font-bold" style="color: var(--text-main);">Automated RTO Database Sync</strong>
                                     <span class="text-[11px]" style="color: var(--text-muted);">Directly sync new test results with state transport registries</span>
                                 </div>
                                 <input type="checkbox" checked class="accent-emerald-600 w-4 h-4 cursor-pointer">
