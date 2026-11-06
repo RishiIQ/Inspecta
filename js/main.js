@@ -71,7 +71,7 @@ function injectHeaderAndFooter() {
                         </button>
 
                         <!-- Sign In as Primary CTA in Header -->
-                        <a href="login.html" class="px-5 sm:px-6 py-2.5 sm:py-3 text-white rounded-2xl font-bold text-sm uppercase tracking-wider shadow-md transition-all hover:opacity-90 text-center" style="background-color: var(--primary-color);">
+                        <a href="login.html" class="px-5 sm:px-6 py-2.5 sm:py-3 bg-[#109c46] hover:bg-[#047857] text-white rounded-2xl font-bold text-sm uppercase tracking-wider shadow-md transition-all hover:opacity-90 text-center" >
                             Sign In
                         </a>
 

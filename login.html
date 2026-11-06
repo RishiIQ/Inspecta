@@ -41,7 +41,7 @@
                     </button>
                     <button onclick="toggleRTL()" id="rtlToggleBtn" class="px-3 h-8 rounded-xl border flex items-center gap-1.5 shadow-sm font-bold text-[10px] transition-all cursor-pointer" style="background-color: var(--bg-color); border-color: var(--border-color); color: var(--text-main);" title="Toggle Direction">
                         <span id="rtlButtonText">RTL</span>
-                        <i id="rtlArrowIcon" class="fa-solid fa-arrow-right text-[9px]"></i>
+                       
                     </button>
                 </div>
             <!-- Top Header with Brand Logo on Left & Controls with Arrow on Right -->
@@ -107,12 +107,10 @@
         document.addEventListener('DOMContentLoaded', () => {
             // Sync RTL button text and arrow icon on load
             const rtlSpan = document.getElementById('rtlButtonText');
-            const rtlArrow = document.getElementById('rtlArrowIcon');
-            const isRtl = document.documentElement.getAttribute('dir') === 'rtl';
-            if (rtlSpan && rtlArrow) {
-                rtlSpan.textContent = isRtl ? 'LTR' : 'RTL';
-                rtlArrow.className = isRtl ?  'fa-solid fa-arrow-right text-[9px]' : 'fa-solid fa-arrow-left text-[9px]';
-            }
+    const isRtl = document.documentElement.getAttribute('dir') === 'rtl';
+    if (rtlSpan) {
+        rtlSpan.textContent = isRtl ? 'LTR' : 'RTL';
+    }
 
             const loginForm = document.getElementById('loginForm');
             if (loginForm) {
